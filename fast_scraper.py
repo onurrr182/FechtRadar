@@ -26,15 +26,31 @@ for a in all_links:
     name = " ".join(name.split())
     seen_ids.add(event_id)
     
+    
     raw_age = ""
+    exact_weapon = "Mixed"
     try:
         parent_td = a.find_parent('td')
         if parent_td:
             age_td = parent_td.find_next_sibling('td')
-            if age_td: raw_age = age_td.get_text(" ", strip=True)
+            if age_td: 
+                raw_age = age_td.get_text(" ", strip=True)
+                epee_td = age_td.find_next_sibling('td')
+                foil_td = epee_td.find_next_sibling('td') if epee_td else None
+                sabre_td = foil_td.find_next_sibling('td') if foil_td else None
+                
+                ws = []
+                if epee_td and epee_td.find('i'): ws.append("Epee")
+                if foil_td and foil_td.find('i'): ws.append("Foil")
+                if sabre_td and sabre_td.find('i'): ws.append("Sabre")
+                
+                if len(ws) == 1:
+                    exact_weapon = ws[0]
+                elif len(ws) > 1:
+                    exact_weapon = "Mixed"
     except: pass
     
-    event_entries.append({"id": event_id, "name": name, "raw_age": raw_age})
+    event_entries.append({"id": event_id, "name": name, "raw_age": raw_age, "exact_weapon": exact_weapon})
 
 print(f"   Found {len(event_entries)} unique event links on calendar")
 
@@ -153,7 +169,7 @@ def process_entry(entry):
                     display_address = f"{street_addr}, {display_address}"
                     geocode_query = f"{street_addr}, {p_zip} {p_city}, Germany"
                     
-        weapon = scraper.detect_weapon(entry['name'] + " " + header_text)
+        weapon = entry.get('exact_weapon', 'Mixed')
         age_group = scraper.detect_age_group(entry['name'] + " " + entry.get('raw_age', '') + " " + header_text)
         
         lat, lng = thread_safe_geocode(geocode_query)
