@@ -25,7 +25,16 @@ for a in all_links:
     if not name or len(name) < 3 or "show more" in name.lower(): continue
     name = " ".join(name.split())
     seen_ids.add(event_id)
-    event_entries.append({"id": event_id, "name": name})
+    
+    raw_age = ""
+    try:
+        parent_td = a.find_parent('td')
+        if parent_td:
+            age_td = parent_td.find_next_sibling('td')
+            if age_td: raw_age = age_td.get_text(" ", strip=True)
+    except: pass
+    
+    event_entries.append({"id": event_id, "name": name, "raw_age": raw_age})
 
 print(f"   Found {len(event_entries)} unique event links on calendar")
 
@@ -145,7 +154,7 @@ def process_entry(entry):
                     geocode_query = f"{street_addr}, {p_zip} {p_city}, Germany"
                     
         weapon = scraper.detect_weapon(entry['name'] + " " + header_text)
-        age_group = scraper.detect_age_group(entry['name'] + " " + header_text)
+        age_group = scraper.detect_age_group(entry['name'] + " " + entry.get('raw_age', '') + " " + header_text)
         
         lat, lng = thread_safe_geocode(geocode_query)
         if lat is None and geocode_query != city: lat, lng = thread_safe_geocode(city)
