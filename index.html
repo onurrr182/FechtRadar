@@ -561,7 +561,7 @@
             document.getElementById('btn-en').style.color = currentLang === 'en' ? '#fff' : 'var(--text-muted)';
         }
 
-        function t(key) { return LANG_DICT[currentLang][key]; }
+        function tr(key) { return LANG_DICT[currentLang][key]; }
 
         function tfWeapon(w) {
             if (currentLang === 'en') return w || 'Mixed';
@@ -655,8 +655,13 @@
                 allTournaments = await response.json();
                 renderAll();
             } catch (e) {
+                console.error("Error loading or rendering tournaments:", e);
+                const errorMsg = currentLang === 'de' 
+                    ? 'Turniere konnten nicht geladen werden.<br><br>Dies passiert oft, wenn Sie die HTML-Datei lokal doppelklicken. Bitte nutzen Sie einen lokalen Server (z.B. python3 -m http.server) oder laden Sie die Seite auf GitHub Pages hoch.'
+                    : 'Could not load tournaments.<br><br>This usually happens when you double-click the HTML file natively instead of running a local server (like python3 -m http.server) or hosting it on GitHub Pages.';
+
                 document.getElementById('tournamentList').innerHTML =
-                    '<div class="empty-state"><div class="icon">⚠️</div><p>Could not load tournaments.<br>Make sure tournaments.json exists.</p></div>';
+                    `<div class="empty-state"><div class="icon">⚠️</div><p style="text-align:center;">${errorMsg}</p></div>`;
             }
         }
 
@@ -764,7 +769,7 @@
                 const venueHtml = t.venue ? `<div class="popup-detail">🏟️ ${escapeHtml(t.venue)}</div>` : '';
                 const cleanAddr = (t.exactAddress || t.city || 'Germany').replace(/\n/g, ', ').replace(/,\s*,/g, ',').replace(/,\s*$/, '');
                 const distHtml = (locationActive && userLocation && t._dist != null)
-                    ? `<div class="popup-detail">📏 ${Math.round(t._dist)} km ${t('from_u')}</div>` : '';
+                    ? `<div class="popup-detail">📏 ${Math.round(t._dist)} km ${tr('from_u')}</div>` : '';
 
                 const infoContent = `
                     <div class="info-popup">
@@ -778,7 +783,7 @@
                             <div class="popup-detail">🤺 ${escapeHtml(weaponLabel)} · ${escapeHtml(ageLabel)}</div>
                             ${distHtml}
                             <a class="popup-link" href="${escapeHtml(t.pdfLink)}" target="_blank" rel="noopener">
-                                ${t('view_det')} →
+                                ${tr('view_det')} →
                             </a>
                         </div>
                     </div>
@@ -806,7 +811,7 @@
                 container.innerHTML = `
                     <div class="empty-state">
                         <div class="icon">🔍</div>
-                        <p>${t('empty_msg')}</p>
+                        <p>${tr('empty_msg')}</p>
                     </div>`;
                 return;
             }
@@ -1028,11 +1033,11 @@
             maxMonths = parseInt(e.target.value);
             const valLabel = document.getElementById('timeValue');
             if (maxMonths === 13) {
-                valLabel.textContent = t('anytime');
+                valLabel.textContent = tr('anytime');
             } else if (maxMonths === 1) {
-                valLabel.textContent = '1 ' + t('mon');
+                valLabel.textContent = '1 ' + tr('mon');
             } else {
-                valLabel.textContent = maxMonths + ' ' + t('mons');
+                valLabel.textContent = maxMonths + ' ' + tr('mons');
             }
             renderAll();
         });
