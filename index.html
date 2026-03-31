@@ -396,65 +396,72 @@
         <!-- Sidebar -->
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <div class="brand">
+            <div class="brand" style="display: flex; justify-content: space-between; width: 100%;">
+                <div style="display: flex; align-items: center; gap: 10px;">
                     <div class="brand-icon">⚔️</div>
                     <div>
                         <h1>FechtRadar</h1>
-                        <div class="brand-subtitle">Tournament Finder</div>
+                        <div class="brand-subtitle" id="i18n-subtitle">Tournament Finder</div>
                     </div>
                 </div>
-
-                <div class="search-box">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" id="searchInput" placeholder="Search tournaments, cities, venues...">
+                <div class="lang-toggle" style="display:flex; gap: 4px; align-items: center;">
+                    <button id="btn-de" onclick="setLang('de')" style="background:none; border:none; cursor:pointer; font-size:12px; font-weight:600; color:var(--text-muted);">DE</button>
+                    <span style="color:var(--text-muted); font-size:10px;">|</span>
+                    <button id="btn-en" onclick="setLang('en')" style="background:none; border:none; cursor:pointer; font-size:12px; font-weight:600; color:var(--text-muted);">EN</button>
                 </div>
+            </div>
 
-                <!-- Weapon Filter -->
-                <div class="filter-section">
-                    <div class="filter-label">Weapon</div>
-                    <div class="filters" id="weaponFilters">
-                        <button class="filter-chip active" data-weapon="All">All</button>
-                        <button class="filter-chip" data-weapon="Epee">⚡ Epee</button>
-                        <button class="filter-chip" data-weapon="Foil">🟡 Foil</button>
-                        <button class="filter-chip" data-weapon="Sabre">🔴 Sabre</button>
-                        <button class="filter-chip" data-weapon="Mixed">🟣 Mixed</button>
-                    </div>
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Search tournaments, cities, venues...">
+            </div>
+
+            <!-- Weapon Filter -->
+            <div class="filter-section">
+                <div class="filter-label" id="i18n-weapon-lbl">Weapon</div>
+                <div class="filters" id="weaponFilters">
+                    <button class="filter-chip active" data-weapon="All" id="i18n-w-all">All</button>
+                    <button class="filter-chip" data-weapon="Epee" id="i18n-w-epee">⚡ Epee</button>
+                    <button class="filter-chip" data-weapon="Foil" id="i18n-w-foil">🟡 Foil</button>
+                    <button class="filter-chip" data-weapon="Sabre" id="i18n-w-sabre">🔴 Sabre</button>
+                    <button class="filter-chip" data-weapon="Mixed" id="i18n-w-mixed">🟣 Mixed</button>
                 </div>
+            </div>
 
-                <!-- Age Group Filter -->
-                <div class="filter-section">
-                    <div class="filter-label">Age Group</div>
-                    <div class="filters" id="ageFilters">
-                        <button class="filter-chip active" data-age="All">All</button>
-                        <button class="filter-chip" data-age="U9">U9</button>
-                        <button class="filter-chip" data-age="U11">U11</button>
-                        <button class="filter-chip" data-age="U13">U13</button>
-                        <button class="filter-chip" data-age="U15">U15</button>
-                        <button class="filter-chip" data-age="U17">U17</button>
-                        <button class="filter-chip" data-age="U20">U20</button>
-                        <button class="filter-chip" data-age="Seniors">🤺 Seniors</button>
-                        <button class="filter-chip" data-age="Veterans">🏅 Veterans</button>
-                    </div>
+            <!-- Age Group Filter -->
+            <div class="filter-section">
+                <div class="filter-label" id="i18n-age-lbl">Age Group</div>
+                <div class="filters" id="ageFilters">
+                    <button class="filter-chip active" data-age="All" id="i18n-a-all">All</button>
+                    <button class="filter-chip" data-age="U9">U9</button>
+                    <button class="filter-chip" data-age="U11">U11</button>
+                    <button class="filter-chip" data-age="U13">U13</button>
+                    <button class="filter-chip" data-age="U15">U15</button>
+                    <button class="filter-chip" data-age="U17">U17</button>
+                    <button class="filter-chip" data-age="U20">U20</button>
+                    <button class="filter-chip" data-age="Seniors" id="i18n-a-sen">🤺 Seniors</button>
+                    <button class="filter-chip" data-age="Veterans" id="i18n-a-vet">🏅 Veterans</button>
                 </div>
+            </div>
 
-                <!-- Time Filter -->
-                <div class="filter-section distance-section" style="margin-top: 12px; border-top: none; padding-top: 0;">
-                    <div class="filter-label">Timeframe</div>
+            <!-- Time Filter -->
+            <div class="filter-section distance-section" style="margin-top: 12px; border-top: none; padding-top: 0;">
+                <div class="filter-label" id="i18n-time-lbl">Timeframe</div>
                     <div class="distance-row" style="margin-top: 4px;">
                         <div class="distance-slider-wrap enabled" style="opacity: 1; pointer-events: auto;">
                             <input type="range" class="distance-slider" id="timeSlider" 
                                    min="1" max="13" value="13" step="1">
-                            <span class="distance-value" id="timeValue" style="min-width: 65px;">Anytime</span>
+                            <span class="distance-value" id="timeValue" style="min-width: 65px;">Jederzeit</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Distance Filter -->
-                <div class="filter-section distance-section">
-                    <div class="distance-row">
-                        <button class="locate-btn" id="locateBtn" onclick="toggleLocation()">
-                            📍 Near Me
-                        </button>
+            <!-- Distance Filter -->
+            <div class="filter-section distance-section">
+                <div class="distance-row">
+                    <button class="locate-btn" id="locateBtn" onclick="toggleLocation()">
+                        📍 In meiner Nähe
+                    </button>
                         <div class="distance-slider-wrap" id="distanceWrap">
                             <input type="range" class="distance-slider" id="distanceSlider" 
                                    min="10" max="500" value="100" step="10">
@@ -465,23 +472,23 @@
             </div>
 
             <div class="stats-bar" id="statsBar">
-                <div class="stat">
-                    <span class="stat-number" id="totalCount">–</span> total
-                </div>
-                <div class="stat">
-                    <span class="stat-number" id="cityCount">–</span> cities
-                </div>
-                <div class="stat">
-                    <span class="stat-number" id="visibleCount">–</span> showing
-                </div>
+            <div class="stat">
+                <span class="stat-number" id="totalCount">–</span> <span id="i18n-stat-total">total</span>
             </div>
+            <div class="stat">
+                <span class="stat-number" id="cityCount">–</span> <span id="i18n-stat-cities">cities</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="visibleCount">–</span> <span id="i18n-stat-showing">showing</span>
+            </div>
+        </div>
 
             <div class="tournament-list" id="tournamentList">
                 <div class="loading">
                     <div class="dots">
                         <span>●</span><span>●</span><span>●</span>
                     </div>
-                    <p style="margin-top: 12px;">Loading tournaments...</p>
+                    <p style="margin-top: 12px;" id="i18n-loading">Loading tournaments...</p>
                 </div>
             </div>
         </div>
@@ -494,6 +501,83 @@
     </div>
 
     <script>
+        // ─── TRANSLATION ─────────────────────────────────────────────
+        const LANG_DICT = {
+            "de": {
+                subtitle: "Turnier-Finder", search: "Turniere, Städte, Veranstaltungsorte suchen...",
+                weapon: "Waffe", age: "Altersklasse", time: "Zeitraum",
+                w_all: "Alle", w_epee: "⚡ Degen", w_foil: "🟡 Florett", w_sabre: "🔴 Säbel", w_mixed: "🟣 Gemischt",
+                a_all: "Alle", a_sen: "🤺 Aktive", a_vet: "🏅 Veteranen",
+                anytime: "Jederzeit", near_me: "📍 In meiner Nähe",
+                stat_tot: "Gesamt", stat_cit: "Städte", stat_sho: "Angezeigt",
+                load: "Turniere werden geladen...",
+                empty_msg: "Keine Turniere entsprechen Ihren Filtern.<br>Versuchen Sie, Ihre Suche anzupassen.",
+                mon: "Monat", mons: "Monate", from_u: "von Ihnen", view_det: "Details ansehen"
+            },
+            "en": {
+                subtitle: "Tournament Finder", search: "Search tournaments, cities, venues...",
+                weapon: "Weapon", age: "Age Group", time: "Timeframe",
+                w_all: "All", w_epee: "⚡ Epee", w_foil: "🟡 Foil", w_sabre: "🔴 Sabre", w_mixed: "🟣 Mixed",
+                a_all: "All", a_sen: "🤺 Seniors", a_vet: "🏅 Veterans",
+                anytime: "Anytime", near_me: "📍 Near Me",
+                stat_tot: "total", stat_cit: "cities", stat_sho: "showing",
+                load: "Loading tournaments...",
+                empty_msg: "No tournaments match your filters.<br>Try adjusting your search or filters.",
+                mon: "month", mons: "months", from_u: "from you", view_det: "View Details"
+            }
+        };
+
+        const currentLang = localStorage.getItem('fechtradar_lang') || 'de';
+        
+        function setLang(lang) {
+            localStorage.setItem('fechtradar_lang', lang);
+            location.reload();
+        }
+
+        function initI18n() {
+            const l = LANG_DICT[currentLang];
+            document.getElementById('i18n-subtitle').textContent = l.subtitle;
+            document.getElementById('searchInput').placeholder = l.search;
+            document.getElementById('i18n-weapon-lbl').textContent = l.weapon;
+            document.getElementById('i18n-age-lbl').textContent = l.age;
+            document.getElementById('i18n-w-all').textContent = l.w_all;
+            document.getElementById('i18n-w-epee').textContent = l.w_epee;
+            document.getElementById('i18n-w-foil').textContent = l.w_foil;
+            document.getElementById('i18n-w-sabre').textContent = l.w_sabre;
+            document.getElementById('i18n-w-mixed').textContent = l.w_mixed;
+            document.getElementById('i18n-a-all').textContent = l.a_all;
+            document.getElementById('i18n-a-sen').textContent = l.a_sen;
+            document.getElementById('i18n-a-vet').textContent = l.a_vet;
+            document.getElementById('i18n-time-lbl').textContent = l.time;
+            const timeV = document.getElementById('timeValue');
+            if (maxMonths === 13) timeV.textContent = l.anytime;
+            document.getElementById('locateBtn').textContent = l.near_me;
+            document.getElementById('i18n-stat-total').textContent = l.stat_tot;
+            document.getElementById('i18n-stat-cities').textContent = l.stat_cit;
+            document.getElementById('i18n-stat-showing').textContent = l.stat_sho;
+            if(document.getElementById('i18n-loading')) document.getElementById('i18n-loading').textContent = l.load;
+            
+            document.getElementById('btn-de').style.color = currentLang === 'de' ? '#fff' : 'var(--text-muted)';
+            document.getElementById('btn-en').style.color = currentLang === 'en' ? '#fff' : 'var(--text-muted)';
+        }
+
+        function t(key) { return LANG_DICT[currentLang][key]; }
+
+        function tfWeapon(w) {
+            if (currentLang === 'en') return w || 'Mixed';
+            if (w === 'Epee') return 'Degen';
+            if (w === 'Foil') return 'Florett';
+            if (w === 'Sabre') return 'Säbel';
+            return 'Gemischt';
+        }
+
+        function tfAge(a) {
+            if (currentLang === 'en') return a || 'Seniors';
+            if (a === 'Seniors') return 'Aktive';
+            if (a === 'Veterans') return 'Veteranen';
+            return a;
+        }
+
         // ─── STATE ───────────────────────────────────────────────────
         let map;
         let allTournaments = [];
@@ -675,12 +759,12 @@
                     optimized: true,
                 });
 
-                const weaponLabel = t.weapon || "Mixed";
-                const ageLabel = Array.isArray(t.ageGroup) ? t.ageGroup.join(', ') : (t.ageGroup || 'Seniors');
+                const weaponLabel = tfWeapon(t.weapon);
+                const ageLabel = Array.isArray(t.ageGroup) ? t.ageGroup.map(tfAge).join(', ') : tfAge(t.ageGroup);
                 const venueHtml = t.venue ? `<div class="popup-detail">🏟️ ${escapeHtml(t.venue)}</div>` : '';
                 const cleanAddr = (t.exactAddress || t.city || 'Germany').replace(/\n/g, ', ').replace(/,\s*,/g, ',').replace(/,\s*$/, '');
                 const distHtml = (locationActive && userLocation && t._dist != null)
-                    ? `<div class="popup-detail">📏 ${Math.round(t._dist)} km from you</div>` : '';
+                    ? `<div class="popup-detail">📏 ${Math.round(t._dist)} km ${t('from_u')}</div>` : '';
 
                 const infoContent = `
                     <div class="info-popup">
@@ -694,7 +778,7 @@
                             <div class="popup-detail">🤺 ${escapeHtml(weaponLabel)} · ${escapeHtml(ageLabel)}</div>
                             ${distHtml}
                             <a class="popup-link" href="${escapeHtml(t.pdfLink)}" target="_blank" rel="noopener">
-                                View Details →
+                                ${t('view_det')} →
                             </a>
                         </div>
                     </div>
@@ -722,7 +806,7 @@
                 container.innerHTML = `
                     <div class="empty-state">
                         <div class="icon">🔍</div>
-                        <p>No tournaments match your filters.<br>Try adjusting your search or filters.</p>
+                        <p>${t('empty_msg')}</p>
                     </div>`;
                 return;
             }
@@ -741,9 +825,9 @@
                             ${distBadge}
                         </div>
                         <div class="card-meta" style="margin-top: 3px;">
-                            <span class="card-badge ${t.weapon || 'Mixed'}">${escapeHtml(t.weapon || 'Mixed')}</span>
+                            <span class="card-badge ${t.weapon || 'Mixed'}">${escapeHtml(tfWeapon(t.weapon))}</span>
                             ${(Array.isArray(t.ageGroup) ? t.ageGroup : [t.ageGroup || 'Seniors']).map(a => 
-                                `<span class="card-badge age">${escapeHtml(a)}</span>`
+                                `<span class="card-badge age">${escapeHtml(tfAge(a))}</span>`
                             ).join('')}
                         </div>
                     </div>
@@ -944,11 +1028,11 @@
             maxMonths = parseInt(e.target.value);
             const valLabel = document.getElementById('timeValue');
             if (maxMonths === 13) {
-                valLabel.textContent = 'Anytime';
+                valLabel.textContent = t('anytime');
             } else if (maxMonths === 1) {
-                valLabel.textContent = '1 month';
+                valLabel.textContent = '1 ' + t('mon');
             } else {
-                valLabel.textContent = maxMonths + ' months';
+                valLabel.textContent = maxMonths + ' ' + t('mons');
             }
             renderAll();
         });
@@ -960,8 +1044,15 @@
             div.textContent = text;
             return div.innerHTML;
         }
-    </script>
+        // Boot process
+        initI18n();
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDX_CLMLwEW5Vw0V-KYOvFlCS70G3pNlPo&callback=initMap" async defer></script>
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDX_CLMLwEW5Vw0V-KYOvFlCS70G3pNlPo&callback=initMap&language=${currentLang}`;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+
+    </script>
 </body>
 </html>
