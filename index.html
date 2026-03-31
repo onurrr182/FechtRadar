@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FechtRadar — Fencing Tournament Map</title>
+    <meta name="description" content="Interactive map of fencing tournaments in Germany. Find epee, foil, and sabre competitions near you.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f1117;
+            --bg-secondary: #1a1d2e;
+            --bg-card: #222640;
+            --bg-hover: #2a2f4a;
+            --text-primary: #e8eaf6;
+            --text-secondary: #9499b7;
+            --text-muted: #6b7094;
+            --accent-epee: #4fc3f7;
+            --accent-foil: #ffd54f;
+            --accent-sabre: #ef5350;
+            --accent-mixed: #ab47bc;
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --border-color: rgba(255,255,255,0.07);
+            --shadow: 0 8px 32px rgba(0,0,0,0.4);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .app-container { display: flex; height: 100vh; width: 100vw; }
+
+        /* ─── SIDEBAR ─────────────────────────────────────────────── */
+        .sidebar {
+            width: 400px;
+            min-width: 400px;
+            background: var(--bg-secondary);
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid var(--border-color);
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .sidebar-header {
+            padding: 16px 18px 14px;
+            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(180deg, rgba(102,126,234,0.08) 0%, transparent 100%);
+        }
+
+        .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+
+        .brand-icon {
+            width: 36px; height: 36px;
+            background: var(--accent-gradient);
+            border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(102,126,234,0.3);
+        }
+
+        .brand h1 {
+            font-size: 20px; font-weight: 700; letter-spacing: -0.5px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .brand-subtitle {
+            font-size: 10px; color: var(--text-muted); font-weight: 500;
+            letter-spacing: 1.5px; text-transform: uppercase;
+        }
+
+        /* ─── SEARCH ──────────────────────────────────────────────── */
+        .search-box { position: relative; margin-bottom: 10px; }
+
+        .search-box input {
+            width: 100%; padding: 9px 14px 9px 36px;
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm); color: var(--text-primary);
+            font-family: inherit; font-size: 13px; outline: none;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            border-color: rgba(102,126,234,0.5);
+            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+        }
+
+        .search-box input::placeholder { color: var(--text-muted); }
+
+        .search-icon {
+            position: absolute; left: 12px; top: 50%;
+            transform: translateY(-50%); font-size: 14px; color: var(--text-muted);
+        }
+
+        /* ─── FILTER SECTIONS ─────────────────────────────────────── */
+        .filter-section {
+            margin-bottom: 8px;
+        }
+
+        .filter-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        .filters { display: flex; gap: 5px; flex-wrap: wrap; }
+
+        .filter-chip {
+            padding: 4px 10px; border-radius: 20px;
+            font-size: 11px; font-weight: 600; cursor: pointer;
+            border: 1.5px solid var(--border-color);
+            background: transparent; color: var(--text-secondary);
+            transition: var(--transition); letter-spacing: 0.3px; user-select: none;
+        }
+
+        .filter-chip:hover { background: var(--bg-hover); border-color: rgba(255,255,255,0.15); }
+
+        .filter-chip.active { border-color: transparent; color: #fff; }
+
+        .filter-chip[data-weapon="All"].active { background: var(--accent-gradient); }
+        .filter-chip[data-weapon="Epee"].active { background: var(--accent-epee); color: #0a1929; }
+        .filter-chip[data-weapon="Foil"].active { background: var(--accent-foil); color: #1a1200; }
+        .filter-chip[data-weapon="Sabre"].active { background: var(--accent-sabre); }
+        .filter-chip[data-weapon="Mixed"].active { background: var(--accent-mixed); }
+
+        .filter-chip[data-age="All"].active { background: var(--accent-gradient); }
+        .filter-chip[data-age].active:not([data-age="All"]) { background: #4caf50; }
+
+        /* ─── DISTANCE FILTER ─────────────────────────────────────── */
+        .distance-section {
+            margin-top: 4px;
+            padding: 8px 0 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .distance-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .locate-btn {
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1.5px solid var(--border-color);
+            background: transparent;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .locate-btn:hover { background: var(--bg-hover); }
+
+        .locate-btn.active {
+            background: linear-gradient(135deg, #43a047, #66bb6a);
+            border-color: transparent;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(76,175,80,0.3);
+        }
+
+        .locate-btn.loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .distance-slider-wrap {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.35;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .distance-slider-wrap.enabled {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .distance-slider {
+            flex: 1;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 4px;
+            border-radius: 2px;
+            background: var(--bg-card);
+            outline: none;
+        }
+
+        .distance-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: #66bb6a;
+            cursor: pointer;
+            box-shadow: 0 0 6px rgba(76,175,80,0.4);
+        }
+
+        .distance-value {
+            font-size: 11px;
+            font-weight: 700;
+            color: #66bb6a;
+            min-width: 42px;
+            text-align: right;
+        }
+
+        /* ─── STATS BAR ───────────────────────────────────────────── */
+        .stats-bar {
+            display: flex; padding: 8px 18px; gap: 14px;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(0,0,0,0.15);
+        }
+
+        .stat { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text-secondary); }
+
+        .stat-number { font-weight: 700; font-size: 13px; color: var(--text-primary); }
+
+        /* ─── TOURNAMENT LIST ─────────────────────────────────────── */
+        .tournament-list { flex: 1; overflow-y: auto; padding: 6px 10px; }
+
+        .tournament-list::-webkit-scrollbar { width: 5px; }
+        .tournament-list::-webkit-scrollbar-track { background: transparent; }
+        .tournament-list::-webkit-scrollbar-thumb { background: var(--bg-hover); border-radius: 10px; }
+
+        .tournament-card {
+            padding: 12px; border-radius: var(--radius-sm);
+            cursor: pointer; transition: var(--transition);
+            border: 1px solid transparent; margin-bottom: 3px;
+            display: flex; gap: 10px; align-items: flex-start;
+        }
+
+        .tournament-card:hover { background: var(--bg-hover); border-color: var(--border-color); }
+
+        .tournament-card.active {
+            background: var(--bg-card); border-color: rgba(102,126,234,0.3);
+            box-shadow: 0 2px 12px rgba(102,126,234,0.08);
+        }
+
+        .weapon-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            margin-top: 5px; flex-shrink: 0;
+            box-shadow: 0 0 8px currentColor;
+        }
+
+        .weapon-dot.Epee { background: var(--accent-epee); color: var(--accent-epee); }
+        .weapon-dot.Foil { background: var(--accent-foil); color: var(--accent-foil); }
+        .weapon-dot.Sabre { background: var(--accent-sabre); color: var(--accent-sabre); }
+        .weapon-dot.Mixed { background: var(--accent-mixed); color: var(--accent-mixed); }
+
+        .card-content { flex: 1; min-width: 0; }
+
+        .card-name {
+            font-size: 12.5px; font-weight: 600; line-height: 1.3;
+            margin-bottom: 4px; color: var(--text-primary);
+            display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2;
+            -webkit-box-orient: vertical; overflow: hidden;
+        }
+
+        .card-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+        .card-date {
+            font-size: 10px; font-weight: 600; color: var(--text-muted);
+            background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 4px;
+        }
+
+        .card-city { font-size: 10px; color: var(--text-secondary); }
+
+        .card-distance {
+            font-size: 10px; font-weight: 600; color: #66bb6a;
+            background: rgba(76,175,80,0.12); padding: 2px 6px; border-radius: 4px;
+        }
+
+        .card-badge {
+            font-size: 9px; font-weight: 600; padding: 2px 5px;
+            border-radius: 4px; letter-spacing: 0.3px;
+        }
+
+        .card-badge.Epee { background: rgba(79,195,247,0.15); color: var(--accent-epee); }
+        .card-badge.Foil { background: rgba(255,213,79,0.15); color: var(--accent-foil); }
+        .card-badge.Sabre { background: rgba(239,83,80,0.15); color: var(--accent-sabre); }
+        .card-badge.Mixed { background: rgba(171,71,188,0.15); color: var(--accent-mixed); }
+
+        .card-badge.age { background: rgba(76,175,80,0.12); color: #81c784; }
+
+        /* ─── MAP ─────────────────────────────────────────────────── */
+        .map-container { flex: 1; position: relative; }
+        #map { width: 100%; height: 100%; }
+
+        /* ─── SIDEBAR TOGGLE ──────────────────────────────────────── */
+        .sidebar-toggle {
+            display: none; position: absolute; top: 16px; left: 16px; z-index: 100;
+            width: 44px; height: 44px; background: var(--bg-secondary);
+            border: 1px solid var(--border-color); border-radius: var(--radius-sm);
+            color: var(--text-primary); font-size: 20px; cursor: pointer;
+            align-items: center; justify-content: center;
+            box-shadow: var(--shadow); transition: var(--transition);
+        }
+
+        .sidebar-toggle:hover { background: var(--bg-hover); }
+
+        /* ─── INFO WINDOW ─────────────────────────────────────────── */
+        .info-popup { font-family: 'Inter', sans-serif; max-width: 280px; color: #1a1d2e; }
+
+        .info-popup .popup-header {
+            background: var(--accent-gradient);
+            padding: 14px 16px; border-radius: 10px 10px 0 0;
+            margin: -12px -12px 12px -12px;
+        }
+
+        .info-popup .popup-header h3 { font-size: 15px; font-weight: 700; color: #fff; line-height: 1.3; margin: 0 0 6px 0; }
+
+        .info-popup .popup-date {
+            font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.85);
+            background: rgba(255,255,255,0.2); display: inline-block;
+            padding: 2px 8px; border-radius: 4px;
+        }
+
+        .info-popup .popup-body { padding: 0 4px; }
+
+        .info-popup .popup-detail { font-size: 13px; color: #333; margin: 6px 0; display: flex; align-items: center; gap: 6px; }
+
+        .info-popup .popup-link {
+            display: inline-flex; align-items: center; gap: 4px;
+            margin-top: 10px; padding: 8px 16px;
+            background: var(--accent-gradient); color: #fff; text-decoration: none;
+            border-radius: 6px; font-size: 12px; font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .info-popup .popup-link:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(102,126,234,0.3); }
+
+        /* ─── EMPTY STATE ─────────────────────────────────────────── */
+        .empty-state {
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; height: 200px; color: var(--text-muted);
+            text-align: center; padding: 20px;
+        }
+
+        .empty-state .icon { font-size: 40px; margin-bottom: 12px; opacity: 0.5; }
+        .empty-state p { font-size: 13px; line-height: 1.5; }
+
+        /* ─── RESPONSIVE ──────────────────────────────────────────── */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: absolute; left: -400px; top: 0; height: 100%;
+                z-index: 50; box-shadow: var(--shadow);
+            }
+            .sidebar.open { left: 0; }
+            .sidebar-toggle { display: flex; }
+            .sidebar.open ~ .map-container .sidebar-toggle { left: 416px; }
+        }
+
+        /* ─── LOADING ─────────────────────────────────────────────── */
+        @keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+        .loading { text-align: center; padding: 40px 20px; color: var(--text-muted); }
+        .loading .dots span { animation: pulse 1.4s infinite; font-size: 28px; }
+        .loading .dots span:nth-child(2) { animation-delay: 0.2s; }
+        .loading .dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        /* ─── USER LOCATION MARKER ────────────────────────────────── */
+        .user-location-circle {
+            animation: userPulse 2s infinite;
+        }
+
+        @keyframes userPulse {
+            0% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.3); }
+            100% { opacity: 0.8; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="brand">
+                    <div class="brand-icon">⚔️</div>
+                    <div>
+                        <h1>FechtRadar</h1>
+                        <div class="brand-subtitle">Tournament Finder</div>
+                    </div>
+                </div>
+
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Search tournaments, cities, venues...">
+                </div>
+
+                <!-- Weapon Filter -->
+                <div class="filter-section">
+                    <div class="filter-label">Weapon</div>
+                    <div class="filters" id="weaponFilters">
+                        <button class="filter-chip active" data-weapon="All">All</button>
+                        <button class="filter-chip" data-weapon="Epee">⚡ Epee</button>
+                        <button class="filter-chip" data-weapon="Foil">🟡 Foil</button>
+                        <button class="filter-chip" data-weapon="Sabre">🔴 Sabre</button>
+                        <button class="filter-chip" data-weapon="Mixed">🟣 Mixed</button>
+                    </div>
+                </div>
+
+                <!-- Age Group Filter -->
+                <div class="filter-section">
+                    <div class="filter-label">Age Group</div>
+                    <div class="filters" id="ageFilters">
+                        <button class="filter-chip active" data-age="All">All</button>
+                        <button class="filter-chip" data-age="U9">U9</button>
+                        <button class="filter-chip" data-age="U11">U11</button>
+                        <button class="filter-chip" data-age="U13">U13</button>
+                        <button class="filter-chip" data-age="U15">U15</button>
+                        <button class="filter-chip" data-age="U17">U17</button>
+                        <button class="filter-chip" data-age="U20">U20</button>
+                        <button class="filter-chip" data-age="Seniors">🤺 Seniors</button>
+                        <button class="filter-chip" data-age="Veterans">🏅 Veterans</button>
+                    </div>
+                </div>
+
+                <!-- Time Filter -->
+                <div class="filter-section distance-section" style="margin-top: 12px; border-top: none; padding-top: 0;">
+                    <div class="filter-label">Timeframe</div>
+                    <div class="distance-row" style="margin-top: 4px;">
+                        <div class="distance-slider-wrap enabled" style="opacity: 1; pointer-events: auto;">
+                            <input type="range" class="distance-slider" id="timeSlider" 
+                                   min="1" max="13" value="13" step="1">
+                            <span class="distance-value" id="timeValue" style="min-width: 65px;">Anytime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Distance Filter -->
+                <div class="filter-section distance-section">
+                    <div class="distance-row">
+                        <button class="locate-btn" id="locateBtn" onclick="toggleLocation()">
+                            📍 Near Me
+                        </button>
+                        <div class="distance-slider-wrap" id="distanceWrap">
+                            <input type="range" class="distance-slider" id="distanceSlider" 
+                                   min="10" max="500" value="100" step="10">
+                            <span class="distance-value" id="distanceValue">100 km</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-bar" id="statsBar">
+                <div class="stat">
+                    <span class="stat-number" id="totalCount">–</span> total
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="cityCount">–</span> cities
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="visibleCount">–</span> showing
+                </div>
+            </div>
+
+            <div class="tournament-list" id="tournamentList">
+                <div class="loading">
+                    <div class="dots">
+                        <span>●</span><span>●</span><span>●</span>
+                    </div>
+                    <p style="margin-top: 12px;">Loading tournaments...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map -->
+        <div class="map-container">
+            <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">☰</button>
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script>
+        // ─── STATE ───────────────────────────────────────────────────
+        let map;
+        let allTournaments = [];
+        let markers = [];
+        let infoWindows = [];
+        let activeInfoWindow = null;
+        let activeCardIndex = -1;
+
+        // Filters
+        let currentWeaponFilter = "All";
+        let currentAgeFilter = "All";
+        let currentSearch = "";
+
+        // Location/Distance
+        let userLocation = null;       // { lat, lng }
+        let userMarker = null;
+        let userCircle = null;
+        let locationActive = false;
+        let maxDistanceKm = 100;
+        let maxMonths = 13;
+
+        // ─── WEAPON COLORS ───────────────────────────────────────────
+        const WEAPON_COLORS = {
+            "Epee":  { fill: "#4fc3f7", stroke: "#0288d1" },
+            "Foil":  { fill: "#ffd54f", stroke: "#f9a825" },
+            "Sabre": { fill: "#ef5350", stroke: "#c62828" },
+            "Mixed": { fill: "#ab47bc", stroke: "#7b1fa2" },
+        };
+
+        // ─── MAP DARK STYLE ─────────────────────────────────────────
+        const DARK_MAP_STYLES = [
+            { elementType: "geometry", stylers: [{ color: "#1d2c4d" }] },
+            { elementType: "labels.text.stroke", stylers: [{ color: "#1a3646" }] },
+            { elementType: "labels.text.fill", stylers: [{ color: "#8ec3b9" }] },
+            { featureType: "administrative.country", elementType: "geometry.stroke", stylers: [{ color: "#4b6878" }] },
+            { featureType: "landscape", elementType: "geometry", stylers: [{ color: "#17263c" }] },
+            { featureType: "poi", elementType: "geometry", stylers: [{ color: "#283d6a" }] },
+            { featureType: "poi", elementType: "labels.text.fill", stylers: [{ color: "#6f9ba5" }] },
+            { featureType: "road", elementType: "geometry", stylers: [{ color: "#304a7d" }] },
+            { featureType: "road", elementType: "geometry.stroke", stylers: [{ color: "#255763" }] },
+            { featureType: "road.highway", elementType: "geometry", stylers: [{ color: "#2c6675" }] },
+            { featureType: "transit", elementType: "geometry", stylers: [{ color: "#2f3948" }] },
+            { featureType: "water", elementType: "geometry", stylers: [{ color: "#0e1626" }] },
+            { featureType: "water", elementType: "labels.text.fill", stylers: [{ color: "#4e6d70" }] },
+        ];
+
+        // ─── HAVERSINE DISTANCE ──────────────────────────────────────
+        function haversineKm(lat1, lng1, lat2, lng2) {
+            const R = 6371;
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLng = (lng2 - lng1) * Math.PI / 180;
+            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                      Math.sin(dLng/2) * Math.sin(dLng/2);
+            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        }
+
+        // ─── INIT ────────────────────────────────────────────────────
+        async function initMap() {
+            const { Map } = await google.maps.importLibrary("maps");
+
+            map = new Map(document.getElementById("map"), {
+                center: { lat: 51.1, lng: 10.4 },
+                zoom: 6,
+                styles: DARK_MAP_STYLES,
+                disableDefaultUI: false,
+                zoomControl: true,
+                mapTypeControl: false,
+                streetViewControl: false,
+                fullscreenControl: true,
+            });
+
+            try {
+                const response = await fetch('tournaments.json');
+                allTournaments = await response.json();
+                renderAll();
+            } catch (e) {
+                document.getElementById('tournamentList').innerHTML =
+                    '<div class="empty-state"><div class="icon">⚠️</div><p>Could not load tournaments.<br>Make sure tournaments.json exists.</p></div>';
+            }
+        }
+
+        // ─── RENDER ──────────────────────────────────────────────────
+        function renderAll() {
+            let filtered = getFilteredTournaments();
+
+            // If distance is active, compute distance and sort by it
+            if (locationActive && userLocation) {
+                filtered.forEach(t => {
+                    t._dist = haversineKm(userLocation.lat, userLocation.lng, t.lat, t.lng);
+                });
+                filtered.sort((a, b) => a._dist - b._dist);
+            }
+
+            renderMarkers(filtered);
+            renderList(filtered);
+            updateStats(filtered);
+        }
+
+        function getFilteredTournaments() {
+            return allTournaments.filter(t => {
+                // Weapon filter
+                if (currentWeaponFilter !== "All" && t.weapon !== currentWeaponFilter) return false;
+
+                // Age group filter (ageGroup is an array)
+                if (currentAgeFilter !== "All") {
+                    const ages = Array.isArray(t.ageGroup) ? t.ageGroup : [t.ageGroup || 'Seniors'];
+                    if (!ages.includes(currentAgeFilter)) return false;
+                }
+
+                // Time filter
+                if (maxMonths < 13) {
+                    const now = new Date();
+                    const tDate = new Date(`${t.date} ${t.year || now.getFullYear()}`);
+                    
+                    if (!isNaN(tDate)) {
+                        const maxDate = new Date();
+                        maxDate.setMonth(now.getMonth() + maxMonths);
+                        
+                        if (tDate > maxDate) return false;
+                        
+                        // Exclude events older than 30 days
+                        const pastLimit = new Date();
+                        pastLimit.setDate(now.getDate() - 30);
+                        if (tDate < pastLimit) return false;
+                    }
+                }
+
+                // Search filter
+                if (currentSearch !== "") {
+                    const s = currentSearch;
+                    const match = t.name.toLowerCase().includes(s) ||
+                        (t.city && t.city.toLowerCase().includes(s)) ||
+                        (t.venue && t.venue.toLowerCase().includes(s)) ||
+                        (t.date && t.date.toLowerCase().includes(s));
+                    if (!match) return false;
+                }
+
+                // Distance filter
+                if (locationActive && userLocation) {
+                    const dist = haversineKm(userLocation.lat, userLocation.lng, t.lat, t.lng);
+                    if (dist > maxDistanceKm) return false;
+                }
+
+                return true;
+            });
+        }
+
+        // ─── MARKERS ────────────────────────────────────────────────
+        function renderMarkers(tournaments) {
+            markers.forEach(m => m.setMap(null));
+            markers = [];
+            infoWindows = [];
+
+            tournaments.forEach((t, index) => {
+                if (!t.lat || !t.lng) return;
+
+                const colors = WEAPON_COLORS[t.weapon] || WEAPON_COLORS["Mixed"];
+
+                const svgIcon = {
+                    url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="36" viewBox="0 0 28 36">
+                            <path d="M14 0C6.27 0 0 6.27 0 14c0 10.5 14 22 14 22s14-11.5 14-22C28 6.27 21.73 0 14 0z"
+                                  fill="${colors.fill}" stroke="${colors.stroke}" stroke-width="1.5"/>
+                            <circle cx="14" cy="13" r="5.5" fill="white" opacity="0.9"/>
+                            <circle cx="14" cy="13" r="3" fill="${colors.stroke}"/>
+                        </svg>
+                    `)}`,
+                    scaledSize: new google.maps.Size(28, 36),
+                    anchor: new google.maps.Point(14, 36),
+                };
+
+                const marker = new google.maps.Marker({
+                    map,
+                    position: { lat: t.lat, lng: t.lng },
+                    title: t.name,
+                    icon: svgIcon,
+                    animation: google.maps.Animation.DROP,
+                    optimized: true,
+                });
+
+                const weaponLabel = t.weapon || "Mixed";
+                const ageLabel = Array.isArray(t.ageGroup) ? t.ageGroup.join(', ') : (t.ageGroup || 'Seniors');
+                const venueHtml = t.venue ? `<div class="popup-detail">🏟️ ${escapeHtml(t.venue)}</div>` : '';
+                const cleanAddr = (t.exactAddress || t.city || 'Germany').replace(/\n/g, ', ').replace(/,\s*,/g, ',').replace(/,\s*$/, '');
+                const distHtml = (locationActive && userLocation && t._dist != null)
+                    ? `<div class="popup-detail">📏 ${Math.round(t._dist)} km from you</div>` : '';
+
+                const infoContent = `
+                    <div class="info-popup">
+                        <div class="popup-header">
+                            <h3>${escapeHtml(t.name)}</h3>
+                            <span class="popup-date">📅 ${escapeHtml(t.date)}${t.year ? ', ' + escapeHtml(t.year) : ''}</span>
+                        </div>
+                        <div class="popup-body">
+                            ${venueHtml}
+                            <div class="popup-detail">📍 ${escapeHtml(cleanAddr)}</div>
+                            <div class="popup-detail">🤺 ${escapeHtml(weaponLabel)} · ${escapeHtml(ageLabel)}</div>
+                            ${distHtml}
+                            <a class="popup-link" href="${escapeHtml(t.pdfLink)}" target="_blank" rel="noopener">
+                                View Details →
+                            </a>
+                        </div>
+                    </div>
+                `;
+
+                const infoWindow = new google.maps.InfoWindow({ content: infoContent });
+
+                marker.addListener("click", () => {
+                    if (activeInfoWindow) activeInfoWindow.close();
+                    infoWindow.open(map, marker);
+                    activeInfoWindow = infoWindow;
+                    highlightCard(index);
+                });
+
+                markers.push(marker);
+                infoWindows.push(infoWindow);
+            });
+        }
+
+        // ─── LIST ────────────────────────────────────────────────────
+        function renderList(tournaments) {
+            const container = document.getElementById('tournamentList');
+
+            if (tournaments.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon">🔍</div>
+                        <p>No tournaments match your filters.<br>Try adjusting your search or filters.</p>
+                    </div>`;
+                return;
+            }
+
+            container.innerHTML = tournaments.map((t, i) => {
+                const distBadge = (locationActive && userLocation && t._dist != null)
+                    ? `<span class="card-distance">📏 ${Math.round(t._dist)} km</span>` : '';
+                return `
+                <div class="tournament-card" id="card-${i}" onclick="focusTournament(${i})">
+                    <div class="weapon-dot ${t.weapon || 'Mixed'}"></div>
+                    <div class="card-content">
+                        <div class="card-name">${escapeHtml(t.name)}</div>
+                        <div class="card-meta">
+                            <span class="card-date">📅 ${escapeHtml(t.date)}</span>
+                            <span class="card-city">📍 ${escapeHtml(t.city || 'Germany')}</span>
+                            ${distBadge}
+                        </div>
+                        <div class="card-meta" style="margin-top: 3px;">
+                            <span class="card-badge ${t.weapon || 'Mixed'}">${escapeHtml(t.weapon || 'Mixed')}</span>
+                            ${(Array.isArray(t.ageGroup) ? t.ageGroup : [t.ageGroup || 'Seniors']).map(a => 
+                                `<span class="card-badge age">${escapeHtml(a)}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        // ─── STATS ───────────────────────────────────────────────────
+        function updateStats(filtered) {
+            document.getElementById('totalCount').textContent = allTournaments.length;
+            document.getElementById('visibleCount').textContent = filtered.length;
+            const cities = new Set(filtered.map(t => t.city).filter(Boolean));
+            document.getElementById('cityCount').textContent = cities.size;
+        }
+
+        // ─── INTERACTIONS ────────────────────────────────────────────
+        function focusTournament(index) {
+            const filtered = getFilteredTournaments();
+            if (locationActive && userLocation) {
+                filtered.forEach(t => {
+                    t._dist = haversineKm(userLocation.lat, userLocation.lng, t.lat, t.lng);
+                });
+                filtered.sort((a, b) => a._dist - b._dist);
+            }
+            const t = filtered[index];
+            if (!t) return;
+
+            map.panTo({ lat: t.lat, lng: t.lng });
+            map.setZoom(11);
+
+            if (activeInfoWindow) activeInfoWindow.close();
+            if (markers[index] && infoWindows[index]) {
+                infoWindows[index].open(map, markers[index]);
+                activeInfoWindow = infoWindows[index];
+            }
+
+            highlightCard(index);
+
+            if (window.innerWidth <= 768) {
+                document.getElementById('sidebar').classList.remove('open');
+            }
+        }
+
+        function highlightCard(index) {
+            if (activeCardIndex >= 0) {
+                const prev = document.getElementById(`card-${activeCardIndex}`);
+                if (prev) prev.classList.remove('active');
+            }
+            const card = document.getElementById(`card-${index}`);
+            if (card) {
+                card.classList.add('active');
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            activeCardIndex = index;
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+
+        // ─── LOCATION / DISTANCE ─────────────────────────────────────
+        function toggleLocation() {
+            const btn = document.getElementById('locateBtn');
+            const wrap = document.getElementById('distanceWrap');
+
+            if (locationActive) {
+                // Deactivate
+                locationActive = false;
+                btn.classList.remove('active');
+                btn.textContent = '📍 Near Me';
+                wrap.classList.remove('enabled');
+
+                // Remove user marker and circle
+                if (userMarker) { userMarker.setMap(null); userMarker = null; }
+                if (userCircle) { userCircle.setMap(null); userCircle = null; }
+
+                // Reset map view
+                map.panTo({ lat: 51.1, lng: 10.4 });
+                map.setZoom(6);
+
+                renderAll();
+                return;
+            }
+
+            // Request geolocation
+            btn.textContent = '⏳ Locating...';
+            btn.classList.add('loading');
+
+            if (!navigator.geolocation) {
+                btn.textContent = '❌ No GPS';
+                btn.classList.remove('loading');
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+                    locationActive = true;
+
+                    btn.classList.remove('loading');
+                    btn.classList.add('active');
+                    btn.textContent = '📍 Active';
+                    wrap.classList.add('enabled');
+
+                    // Add user marker
+                    if (userMarker) userMarker.setMap(null);
+                    userMarker = new google.maps.Marker({
+                        map,
+                        position: userLocation,
+                        title: "Your location",
+                        icon: {
+                            url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" fill="#4285f4" opacity="0.25"/>
+                                    <circle cx="12" cy="12" r="6" fill="#4285f4" stroke="white" stroke-width="2"/>
+                                </svg>
+                            `)}`,
+                            scaledSize: new google.maps.Size(24, 24),
+                            anchor: new google.maps.Point(12, 12),
+                        },
+                        zIndex: 9999,
+                    });
+
+                    // Add distance circle
+                    updateDistanceCircle();
+
+                    // Zoom to show area
+                    map.panTo(userLocation);
+                    map.setZoom(8);
+
+                    renderAll();
+                },
+                (err) => {
+                    btn.classList.remove('loading');
+                    btn.textContent = '❌ Denied';
+                    setTimeout(() => { btn.textContent = '📍 Near Me'; }, 2000);
+                    console.warn("Geolocation error:", err);
+                },
+                { enableHighAccuracy: true, timeout: 10000 }
+            );
+        }
+
+        function updateDistanceCircle() {
+            if (userCircle) userCircle.setMap(null);
+            if (!userLocation || !locationActive) return;
+
+            userCircle = new google.maps.Circle({
+                map,
+                center: userLocation,
+                radius: maxDistanceKm * 1000, // meters
+                strokeColor: '#4285f4',
+                strokeOpacity: 0.3,
+                strokeWeight: 1.5,
+                fillColor: '#4285f4',
+                fillOpacity: 0.06,
+            });
+        }
+
+        // ─── FILTER HANDLERS ─────────────────────────────────────────
+        // Weapon filter
+        document.getElementById('weaponFilters').addEventListener('click', (e) => {
+            const chip = e.target.closest('.filter-chip');
+            if (!chip) return;
+
+            document.querySelectorAll('#weaponFilters .filter-chip').forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            currentWeaponFilter = chip.dataset.weapon;
+            renderAll();
+        });
+
+        // Age group filter
+        document.getElementById('ageFilters').addEventListener('click', (e) => {
+            const chip = e.target.closest('.filter-chip');
+            if (!chip) return;
+
+            document.querySelectorAll('#ageFilters .filter-chip').forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            currentAgeFilter = chip.dataset.age;
+            renderAll();
+        });
+
+        // Search
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            currentSearch = e.target.value.toLowerCase().trim();
+            renderAll();
+        });
+
+        // Distance slider
+        document.getElementById('distanceSlider').addEventListener('input', (e) => {
+            maxDistanceKm = parseInt(e.target.value);
+            document.getElementById('distanceValue').textContent = maxDistanceKm + ' km';
+            updateDistanceCircle();
+            renderAll();
+        });
+
+        // Time slider
+        document.getElementById('timeSlider').addEventListener('input', (e) => {
+            maxMonths = parseInt(e.target.value);
+            const valLabel = document.getElementById('timeValue');
+            if (maxMonths === 13) {
+                valLabel.textContent = 'Anytime';
+            } else if (maxMonths === 1) {
+                valLabel.textContent = '1 month';
+            } else {
+                valLabel.textContent = maxMonths + ' months';
+            }
+            renderAll();
+        });
+
+        // ─── UTILITY ─────────────────────────────────────────────────
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDX_CLMLwEW5Vw0V-KYOvFlCS70G3pNlPo&callback=initMap" async defer></script>
+</body>
+</html>
