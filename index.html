@@ -20,7 +20,7 @@
             --accent-epee: #4fc3f7;
             --accent-foil: #ffd54f;
             --accent-sabre: #ef5350;
-            --accent-mixed: #ab47bc;
+            --accent-mixed: #cfd8dc;
             --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --border-color: rgba(255,255,255,0.07);
             --shadow: 0 8px 32px rgba(0,0,0,0.4);
@@ -444,7 +444,6 @@
                     <button class="filter-chip" data-weapon="Epee" id="i18n-w-epee">⚡ Epee</button>
                     <button class="filter-chip" data-weapon="Foil" id="i18n-w-foil">🟡 Foil</button>
                     <button class="filter-chip" data-weapon="Sabre" id="i18n-w-sabre">🔴 Sabre</button>
-                    <button class="filter-chip" data-weapon="Mixed" id="i18n-w-mixed">🟣 Mixed</button>
                 </div>
             </div>
 
@@ -529,9 +528,9 @@
         // ─── TRANSLATION ─────────────────────────────────────────────
         const LANG_DICT = {
             "de": {
-                subtitle: "Turnier-Finder", search: "Turniere, Städte, Veranstaltungsorte suchen...",
-                weapon: "Waffe", age: "Altersklasse", time: "Zeitraum",
-                w_all: "Alle", w_epee: "⚡ Degen", w_foil: "🟡 Florett", w_sabre: "🔴 Säbel", w_mixed: "🟣 Gemischt",
+                subtitle: "Turniere finden", search: "Turniere, Städte, Veranstaltungsorte...",
+                weapon: "Waffe", age: "Altersgruppe", time: "Zeitraum",
+                w_all: "Alle", w_epee: "⚡ Degen", w_foil: "🟡 Florett", w_sabre: "🔴 Säbel",
                 a_all: "Alle", a_sen: "🤺 Aktive", a_vet: "🏅 Veteranen",
                 anytime: "Jederzeit", near_me: "📍 In meiner Nähe",
                 stat_tot: "Gesamt", stat_cit: "Städte", stat_sho: "Angezeigt",
@@ -615,8 +614,8 @@
         let activeCardIndex = -1;
 
         // Filters
-        let currentWeaponFilter = "All";
-        let currentAgeFilter = "All";
+        let activeWeapons = new Set(["All"]);
+        let activeAges = new Set(["All"]);
         let currentSearch = "";
 
         // Location/Distance
@@ -632,7 +631,7 @@
             "Epee":  { fill: "#4fc3f7", stroke: "#0288d1" },
             "Foil":  { fill: "#ffd54f", stroke: "#f9a825" },
             "Sabre": { fill: "#ef5350", stroke: "#c62828" },
-            "Mixed": { fill: "#ab47bc", stroke: "#7b1fa2" },
+            "Mixed": { fill: "#cfd8dc", stroke: "#90a4ae" },
         };
 
         // ─── MAP DARK STYLE ─────────────────────────────────────────
@@ -713,12 +712,15 @@
         function getFilteredTournaments() {
             return allTournaments.filter(t => {
                 // Weapon filter
-                if (currentWeaponFilter !== "All" && t.weapon !== currentWeaponFilter) return false;
+                if (!activeWeapons.has("All")) {
+                    const ws = Array.isArray(t.weapon) ? t.weapon : [t.weapon || 'Epee'];
+                    if (!ws.some(w => activeWeapons.has(w))) return false;
+                }
 
                 // Age group filter (ageGroup is an array)
-                if (currentAgeFilter !== "All") {
+                if (!activeAges.has("All")) {
                     const ages = Array.isArray(t.ageGroup) ? t.ageGroup : [t.ageGroup || 'Seniors'];
-                    if (!ages.includes(currentAgeFilter)) return false;
+                    if (!ages.some(a => activeAges.has(a))) return false;
                 }
 
                 // Time filter (Past Events and Future Range)
@@ -767,8 +769,10 @@
 
             tournaments.forEach((t, index) => {
                 if (!t.lat || !t.lng) return;
-
-                const colors = WEAPON_COLORS[t.weapon] || WEAPON_COLORS["Mixed"];
+                
+                const weapons = Array.isArray(t.weapon) ? t.weapon : [t.weapon || 'Epee'];
+                const dominantWeapon = weapons.length > 1 ? "Mixed" : weapons[0];
+                const colors = WEAPON_COLORS[dominantWeapon] || WEAPON_COLORS["Mixed"];
 
                 const svgIcon = {
                     url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
@@ -847,9 +851,11 @@
             container.innerHTML = tournaments.map((t, i) => {
                 const distBadge = (locationActive && userLocation && t._dist != null)
                     ? `<span class="card-distance">📏 ${Math.round(t._dist)} km</span>` : '';
+                const weaponsList = Array.isArray(t.weapon) ? t.weapon : [t.weapon || 'Epee'];
+                const domColor = weaponsList.length > 1 ? 'Mixed' : weaponsList[0];
                 return `
                 <div class="tournament-card" id="card-${i}" onclick="focusTournament(${i})">
-                    <div class="weapon-dot ${t.weapon || 'Mixed'}"></div>
+                    <div class="weapon-dot ${domColor}"></div>
                     <div class="card-content">
                         <div class="card-name">${escapeHtml(t.name)}</div>
                         <div class="card-meta">
@@ -858,7 +864,7 @@
                             ${distBadge}
                         </div>
                         <div class="card-meta" style="margin-top: 3px;">
-                            <span class="card-badge ${t.weapon || 'Mixed'}">${escapeHtml(tfWeapon(t.weapon))}</span>
+                            ${weaponsList.map(w => `<span class="card-badge ${w}">${escapeHtml(tfWeapon(w))}</span>`).join('')}
                             ${(Array.isArray(t.ageGroup) ? t.ageGroup : [t.ageGroup || 'Seniors']).map(a => 
                                 `<span class="card-badge age">${escapeHtml(tfAge(a))}</span>`
                             ).join('')}
@@ -1020,27 +1026,30 @@
         }
 
         // ─── FILTER HANDLERS ─────────────────────────────────────────
-        // Weapon filter
-        document.getElementById('weaponFilters').addEventListener('click', (e) => {
+        function handleMultiSelect(e, containerId, activeSet) {
             const chip = e.target.closest('.filter-chip');
             if (!chip) return;
+            const val = chip.dataset.weapon || chip.dataset.age;
+            
+            if (val === "All") {
+                activeSet.clear();
+                activeSet.add("All");
+            } else {
+                activeSet.delete("All");
+                if (activeSet.has(val)) activeSet.delete(val);
+                else activeSet.add(val);
+                if (activeSet.size === 0) activeSet.add("All");
+            }
 
-            document.querySelectorAll('#weaponFilters .filter-chip').forEach(c => c.classList.remove('active'));
-            chip.classList.add('active');
-            currentWeaponFilter = chip.dataset.weapon;
+            document.querySelectorAll(`#${containerId} .filter-chip`).forEach(c => {
+                const cv = c.dataset.weapon || c.dataset.age;
+                c.classList.toggle('active', activeSet.has(cv));
+            });
             renderAll();
-        });
+        }
 
-        // Age group filter
-        document.getElementById('ageFilters').addEventListener('click', (e) => {
-            const chip = e.target.closest('.filter-chip');
-            if (!chip) return;
-
-            document.querySelectorAll('#ageFilters .filter-chip').forEach(c => c.classList.remove('active'));
-            chip.classList.add('active');
-            currentAgeFilter = chip.dataset.age;
-            renderAll();
-        });
+        document.getElementById('weaponFilters').addEventListener('click', (e) => handleMultiSelect(e, 'weaponFilters', activeWeapons));
+        document.getElementById('ageFilters').addEventListener('click', (e) => handleMultiSelect(e, 'ageFilters', activeAges));
 
         // Search
         document.getElementById('searchInput').addEventListener('input', (e) => {

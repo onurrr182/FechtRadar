@@ -28,7 +28,7 @@ for a in all_links:
     
     
     raw_age = ""
-    exact_weapon = "Mixed"
+    exact_weapon = []
     try:
         parent_td = a.find_parent('td')
         if parent_td:
@@ -44,10 +44,8 @@ for a in all_links:
                 if foil_td and foil_td.find('i'): ws.append("Foil")
                 if sabre_td and sabre_td.find('i'): ws.append("Sabre")
                 
-                if len(ws) == 1:
-                    exact_weapon = ws[0]
-                elif len(ws) > 1:
-                    exact_weapon = "Mixed"
+                if len(ws) > 0:
+                    exact_weapon = ws
     except: pass
     
     event_entries.append({"id": event_id, "name": name, "raw_age": raw_age, "exact_weapon": exact_weapon})
@@ -169,7 +167,9 @@ def process_entry(entry):
                     display_address = f"{street_addr}, {display_address}"
                     geocode_query = f"{street_addr}, {p_zip} {p_city}, Germany"
                     
-        weapon = entry.get('exact_weapon', 'Mixed')
+        weapon = entry.get('exact_weapon', [])
+        if not weapon:
+            weapon = scraper.detect_weapon(entry['name'] + " " + header_text)
         age_group = scraper.detect_age_group(entry['name'] + " " + entry.get('raw_age', '') + " " + header_text)
         
         lat, lng = thread_safe_geocode(geocode_query)

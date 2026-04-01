@@ -90,11 +90,9 @@ def detect_weapon(text):
     if any(w in text_lower for w in ["säbel", "sabel", "sabre", "saber"]):
         weapons.append("Sabre")
     
-    if len(weapons) == 1:
-        return weapons[0]
-    elif len(weapons) > 1:
-        return "Mixed"
-    return "Mixed"
+    if len(weapons) > 0:
+        return weapons
+    return ["Mixed"]
 
 
 def detect_age_group(text):
