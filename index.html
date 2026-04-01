@@ -226,6 +226,26 @@
             text-align: right;
         }
 
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            margin-top: 12px;
+            font-size: 12px;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+        .custom-checkbox:hover {
+            color: #fff;
+        }
+        .custom-checkbox input {
+            accent-color: #66bb6a;
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+        }
+
         /* ─── STATS BAR ───────────────────────────────────────────── */
         .stats-bar {
             display: flex; padding: 8px 18px; gap: 14px;
@@ -454,6 +474,11 @@
                             <span class="distance-value" id="timeValue" style="min-width: 65px;">Jederzeit</span>
                         </div>
                     </div>
+                    
+                    <label class="custom-checkbox">
+                        <input type="checkbox" id="showPastToggle" onchange="renderAll()">
+                        <span id="i18n-show-past">Vergangene Turniere anzeigen</span>
+                    </label>
                 </div>
 
             <!-- Distance Filter -->
@@ -512,7 +537,8 @@
                 stat_tot: "Gesamt", stat_cit: "Städte", stat_sho: "Angezeigt",
                 load: "Turniere werden geladen...",
                 empty_msg: "Keine Turniere entsprechen Ihren Filtern.<br>Versuchen Sie, Ihre Suche anzupassen.",
-                mon: "Monat", mons: "Monate", from_u: "von Ihnen", view_det: "Details ansehen"
+                mon: "Monat", mons: "Monate", from_u: "von Ihnen", view_det: "Details ansehen",
+                show_past: "Vergangene Turniere anzeigen"
             },
             "en": {
                 subtitle: "Tournament Finder", search: "Search tournaments, cities, venues...",
@@ -523,7 +549,8 @@
                 stat_tot: "total", stat_cit: "cities", stat_sho: "showing",
                 load: "Loading tournaments...",
                 empty_msg: "No tournaments match your filters.<br>Try adjusting your search or filters.",
-                mon: "month", mons: "months", from_u: "from you", view_det: "View Details"
+                mon: "month", mons: "months", from_u: "from you", view_det: "View Details",
+                show_past: "Show past events"
             }
         };
 
@@ -555,6 +582,7 @@
             document.getElementById('i18n-stat-total').textContent = l.stat_tot;
             document.getElementById('i18n-stat-cities').textContent = l.stat_cit;
             document.getElementById('i18n-stat-showing').textContent = l.stat_sho;
+            document.getElementById('i18n-show-past').textContent = l.show_past;
             if(document.getElementById('i18n-loading')) document.getElementById('i18n-loading').textContent = l.load;
             
             document.getElementById('btn-de').style.color = currentLang === 'de' ? '#fff' : 'var(--text-muted)';
@@ -693,21 +721,21 @@
                     if (!ages.includes(currentAgeFilter)) return false;
                 }
 
-                // Time filter
+                // Time filter (Past Events and Future Range)
+                const now = new Date();
+                const tDate = new Date(`${t.date} ${t.year || now.getFullYear()}`);
+                now.setHours(0,0,0,0);
+                
+                const showPast = document.getElementById('showPastToggle').checked;
+                if (!showPast && tDate < now) {
+                    return false;
+                }
+
                 if (maxMonths < 13) {
-                    const now = new Date();
-                    const tDate = new Date(`${t.date} ${t.year || now.getFullYear()}`);
-                    
                     if (!isNaN(tDate)) {
                         const maxDate = new Date();
                         maxDate.setMonth(now.getMonth() + maxMonths);
-                        
                         if (tDate > maxDate) return false;
-                        
-                        // Exclude events older than 30 days
-                        const pastLimit = new Date();
-                        pastLimit.setDate(now.getDate() - 30);
-                        if (tDate < pastLimit) return false;
                     }
                 }
 
