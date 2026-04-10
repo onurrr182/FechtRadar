@@ -42,7 +42,13 @@ CITY_STOP_WORDS = [
 _geocode_cache = {}
 
 def geocode_city(city_name, country="Germany"):
-    """Use Nominatim (OpenStreetMap) to geocode a city name to lat/lng."""
+    """Use Nominatim (OpenStreetMap) to geocode a city name to lat/lng.
+    
+    When the input contains a German postal code (5 digits), uses Nominatim's
+    structured query parameters (postalcode, city, street, country) for precise
+    disambiguation. This prevents e.g. "29633 Munster" (Lower Saxony) from being
+    resolved as "Münster" (NRW).
+    """
     if not city_name or city_name.strip() == "":
         return None, None
     
@@ -53,8 +59,34 @@ def geocode_city(city_name, country="Germany"):
         return _geocode_cache[cache_key]
     
     try:
-        query = urllib.parse.quote(f"{city_name}, {country}")
-        url = f"https://nominatim.openstreetmap.org/search?q={query}&format=json&limit=1&countrycodes=de"
+        # Check if the query contains a German postal code (5 digits)
+        zip_match = re.match(
+            r'^(?:(.+?),\s*)?(\d{5})\s+(.+?)(?:,\s*Germany)?$',
+            city_name
+        )
+        
+        if zip_match:
+            # Use structured query for precise postal-code-based lookup
+            street = zip_match.group(1)  # optional street before ZIP
+            postalcode = zip_match.group(2)
+            city_part = zip_match.group(3).strip().rstrip(',')
+            
+            params = {
+                "postalcode": postalcode,
+                "city": city_part,
+                "country": country,
+                "format": "json",
+                "limit": "1",
+            }
+            if street:
+                params["street"] = street
+            
+            qs = urllib.parse.urlencode(params)
+            url = f"https://nominatim.openstreetmap.org/search?{qs}"
+        else:
+            # Fallback: free-text search
+            query = urllib.parse.quote(f"{city_name}, {country}")
+            url = f"https://nominatim.openstreetmap.org/search?q={query}&format=json&limit=1&countrycodes=de"
         
         req = urllib.request.Request(url, headers={
             "User-Agent": "FechtRadar/2.1 (fencing-tournament-map)"
@@ -69,6 +101,22 @@ def geocode_city(city_name, country="Germany"):
             _geocode_cache[cache_key] = (lat, lng)
             time.sleep(1.1)  # Nominatim rate limit
             return lat, lng
+        
+        # If structured query returned nothing, retry with free-text as fallback
+        if zip_match:
+            query = urllib.parse.quote(f"{city_name}, {country}")
+            url = f"https://nominatim.openstreetmap.org/search?q={query}&format=json&limit=1&countrycodes=de"
+            req = urllib.request.Request(url, headers={
+                "User-Agent": "FechtRadar/2.1 (fencing-tournament-map)"
+            })
+            with urllib.request.urlopen(req, timeout=10) as response:
+                data = json.loads(response.read().decode())
+            if data and len(data) > 0:
+                lat = float(data[0]["lat"])
+                lng = float(data[0]["lon"])
+                _geocode_cache[cache_key] = (lat, lng)
+                time.sleep(1.1)
+                return lat, lng
         
     except Exception as e:
         print(f"  ⚠️  Geocoding failed for '{city_name}': {e}")
