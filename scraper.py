@@ -221,6 +221,37 @@ def fetch_page(url):
             time.sleep(2)
     return None
 
+def fetch_page_playwright(url):
+    """Fetch a page using Playwright, auto-scrolling to the bottom to trigger lazy loads, and return a BeautifulSoup object."""
+    from playwright.sync_api import sync_playwright
+    import time
+    print(f"  --> Launching Playwright to crawl {url} (this might take a couple minutes)")
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+            page.goto(url, wait_until="domcontentloaded", timeout=90000)
+            
+            last_height = page.evaluate("document.body.scrollHeight")
+            while True:
+                page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                time.sleep(2.5)
+                new_height = page.evaluate("document.body.scrollHeight")
+                if new_height == last_height:
+                    time.sleep(2)
+                    new_height = page.evaluate("document.body.scrollHeight")
+                    if new_height == last_height:
+                        break
+                last_height = new_height
+            
+            time.sleep(1)
+            html = page.content()
+            browser.close()
+            return BeautifulSoup(html, 'html.parser')
+    except Exception as e:
+        print(f"Playwright error fetching {url}: {e}")
+        return None
+
 
 def get_precise_address(event_id):
     """Try to get venue + street address from the invitation page.
