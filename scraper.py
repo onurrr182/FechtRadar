@@ -21,6 +21,13 @@ INCLUDE_MONTHS = None
 
 # Country filter
 COUNTRY_CODE = "GER"  
+# ─── KNOWN GEOCODING ALIASES ──────────────────────────────────────────────
+# Used to bypass Nominatim's aggressive population bias for specific cities.
+GEOCODE_ALIASES = {
+    "Munster": "29633 Munster",
+    "Halle": "Halle (Saale)",
+    "Freiburg": "Freiburg im Breisgau"
+}
 
 SESSION = requests.Session()
 SESSION.headers.update({
@@ -75,6 +82,7 @@ def geocode_city(city_name, country="Germany"):
         return None, None
     
     city_name = city_name.strip()
+    city_name = GEOCODE_ALIASES.get(city_name, city_name)
     if len(country) == 3 and country.isupper():
         country = IOC_COUNTRY_MAP.get(country, country)
 
