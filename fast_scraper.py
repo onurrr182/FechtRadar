@@ -5,7 +5,7 @@ import threading
 import re
 import requests
 
-scraper.CALENDAR_URL = "https://fencing.ophardt.online/en/calendar?date-from=2025-01-01&date-to=2028-12-31&nation=GER"
+scraper.CALENDAR_URL = "https://fencing.ophardt.online/en/calendar?date-from=2025-01-01&date-to=2026-12-31"
 
 print("📡 Loading Ophardt calendar (with infinite scrolling)...")
 soup = scraper.fetch_page_playwright(scraper.CALENDAR_URL)
@@ -108,9 +108,15 @@ def process_entry(entry):
         header_text = page_text[:header_cutoff]
         
         city = None
-        city_match = re.search(r'GER\s+(?:[A-Za-zÄÖÜäöüßé]{1,4}\s+)?([A-ZÄÖÜa-zßäöüé][\wßäöüÄÖÜé\-\s/\.]+)', header_text)
+        extracted_country = "Germany" # Default if not found
+        
+        # Generic regex to capture 3-letter IOC code (GER, USA, FRA, etc.) 
+        # followed by optional region and city name
+        city_match = re.search(r'\b([A-Z]{3})\s+(?:[A-Za-zÄÖÜäöüßé]{1,4}\s+)?([A-ZÄÖÜa-zßäöüé][\wßäöüÄÖÜé\-\s/\.]+)', header_text)
+        
         if city_match: 
-            city = scraper.clean_city_name(city_match.group(1))
+            extracted_country = city_match.group(1)
+            city = scraper.clean_city_name(city_match.group(2))
         else:
             # Fallback: Many tournaments omit the structure. Grab the 2nd line of the header directly
             lines = [L.strip() for L in header_text.split('\n') if L.strip()]
@@ -154,8 +160,9 @@ def process_entry(entry):
                         precise_addr = {"venue": None, "street": None, "zip": zip_code, "city": p_city, "full": f"{zip_code} {p_city}"}
             
         venue_name = None; street_addr = None
-        display_address = f"{city}, Germany"
+        display_address = f"{city}, {extracted_country}"
         geocode_query = city
+        geocode_country = extracted_country
         
         if precise_addr:
             venue_name = precise_addr.get("venue")
@@ -170,19 +177,20 @@ def process_entry(entry):
             if precise_addr.get("zip") and precise_addr.get("city"):
                 p_city = precise_addr['city']
                 p_zip = precise_addr['zip']
-                display_address = f"{p_zip} {p_city}, Germany"
+                display_address = f"{p_zip} {p_city}, {extracted_country}"
                 geocode_query = f"{p_zip} {p_city}"
                 if street_addr:
                     display_address = f"{street_addr}, {display_address}"
-                    geocode_query = f"{street_addr}, {p_zip} {p_city}, Germany"
+                    geocode_query = f"{street_addr}, {p_zip} {p_city}, {extracted_country}"
                     
         weapon = entry.get('exact_weapon', [])
         if not weapon:
             weapon = scraper.detect_weapon(entry['name'] + " " + header_text)
         age_group = scraper.detect_age_group(entry['name'] + " " + entry.get('raw_age', '') + " " + header_text)
         
-        lat, lng = thread_safe_geocode(geocode_query)
-        if lat is None and geocode_query != city: lat, lng = thread_safe_geocode(city)
+        lat, lng = thread_safe_geocode(geocode_query, geocode_country)
+        if lat is None and geocode_query != city: 
+            lat, lng = thread_safe_geocode(city, geocode_country)
         if lat is None:
             clean = re.sub(r'[/\(\)\.\-]', ' ', city).strip()
             clean = re.sub(r'\s+', ' ', clean)

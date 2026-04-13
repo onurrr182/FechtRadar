@@ -38,21 +38,78 @@ CITY_STOP_WORDS = [
     "Provided", "Ophardt", "fencingworldwide", "Published"
 ]
 
+# ─── IOC COUNTRY MAPPING ──────────────────────────────────────────────────
+IOC_COUNTRY_MAP = {
+    "AFG": "Afghanistan", "ALB": "Albania", "ALG": "Algeria", "AND": "Andorra", 
+    "ANG": "Angola", "ANT": "Antigua and Barbuda", "ARG": "Argentina", "ARM": "Armenia", 
+    "ARU": "Aruba", "ASA": "American Samoa", "AUS": "Australia", "AUT": "Austria", 
+    "AZE": "Azerbaijan", "BAH": "Bahamas", "BAN": "Bangladesh", "BAR": "Barbados", 
+    "BDI": "Burundi", "BEL": "Belgium", "BEN": "Benin", "BER": "Bermuda", 
+    "BHU": "Bhutan", "BIH": "Bosnia and Herzegovina", "BIZ": "Belize", "BLR": "Belarus", 
+    "BOL": "Bolivia", "BOT": "Botswana", "BRA": "Brazil", "BRN": "Bahrain", 
+    "BRU": "Brunei", "BUL": "Bulgaria", "BUR": "Burkina Faso", "CAF": "Central African Republic", 
+    "CAM": "Cambodia", "CAN": "Canada", "CAY": "Cayman Islands", "CGO": "Congo", 
+    "CHA": "Chad", "CHI": "Chile", "CHN": "China", "CIV": "Ivory Coast", 
+    "CMR": "Cameroon", "COD": "D.R. Congo", "COK": "Cook Islands", "COL": "Colombia", 
+    "COM": "Comoros", "CPV": "Cape Verde", "CRC": "Costa Rica", "CRO": "Croatia", 
+    "CUB": "Cuba", "CYP": "Cyprus", "CZE": "Czech Republic", "DEN": "Denmark", 
+    "DJI": "Djibouti", "DMA": "Dominica", "DOM": "Dominican Republic", "ECU": "Ecuador", 
+    "EGY": "Egypt", "ERI": "Eritrea", "ESA": "El Salvador", "ESP": "Spain", 
+    "EST": "Estonia", "ETH": "Ethiopia", "FIJ": "Fiji", "FIN": "Finland", 
+    "FRA": "France", "FSM": "Micronesia", "GAB": "Gabon", "GAM": "Gambia", 
+    "GBR": "United Kingdom", "GBS": "Guinea-Bissau", "GEO": "Georgia", "GEQ": "Equatorial Guinea", 
+    "GER": "Germany", "GHA": "Ghana", "GRE": "Greece", "GRN": "Grenada", 
+    "GUA": "Guatemala", "GUI": "Guinea", "GUM": "Guam", "GUY": "Guyana", 
+    "HAI": "Haiti", "HKG": "Hong Kong", "HON": "Honduras", "HUN": "Hungary", 
+    "INA": "Indonesia", "IND": "India", "IRI": "Iran", "IRL": "Ireland", 
+    "IRQ": "Iraq", "ISL": "Iceland", "ISR": "Israel", "ISV": "Virgin Islands", 
+    "ITA": "Italy", "IVB": "British Virgin Islands", "JAM": "Jamaica", "JOR": "Jordan", 
+    "JPN": "Japan", "KAZ": "Kazakhstan", "KEN": "Kenya", "KGZ": "Kyrgyzstan", 
+    "KIR": "Kiribati", "KOR": "South Korea", "KSA": "Saudi Arabia", "KUW": "Kuwait", 
+    "LAO": "Laos", "LAT": "Latvia", "LBA": "Libya", "LBN": "Lebanon", 
+    "LBR": "Liberia", "LCA": "Saint Lucia", "LES": "Lesotho", "LIE": "Liechtenstein", 
+    "LTU": "Lithuania", "LUX": "Luxembourg", "MAD": "Madagascar", "MAR": "Morocco", 
+    "MAS": "Malaysia", "MAW": "Malawi", "MDA": "Moldova", "MDV": "Maldives", 
+    "MEX": "Mexico", "MGL": "Mongolia", "MHL": "Marshall Islands", "MKD": "North Macedonia", 
+    "MLI": "Mali", "MLT": "Malta", "MNE": "Montenegro", "MON": "Monaco", 
+    "MOZ": "Mozambique", "MRI": "Mauritius", "MTN": "Mauritania", "MYA": "Myanmar", 
+    "NAM": "Namibia", "NCA": "Nicaragua", "NED": "Netherlands", "NEP": "Nepal", 
+    "NGR": "Nigeria", "NIG": "Niger", "NOR": "Norway", "NRU": "Nauru", 
+    "NZL": "New Zealand", "OMA": "Oman", "PAK": "Pakistan", "PAN": "Panama", 
+    "PAR": "Paraguay", "PER": "Peru", "PHI": "Philippines", "PLE": "Palestine", 
+    "PLW": "Palau", "PNG": "Papua New Guinea", "POL": "Poland", "POR": "Portugal", 
+    "PRK": "North Korea", "PUR": "Puerto Rico", "QAT": "Qatar", "ROU": "Romania", 
+    "RSA": "South Africa", "RUS": "Russia", "RWA": "Rwanda", "SAM": "Samoa", 
+    "SEN": "Senegal", "SEY": "Seychelles", "SGP": "Singapore", "SKN": "Saint Kitts and Nevis", 
+    "SLE": "Sierra Leone", "SLO": "Slovenia", "SMR": "San Marino", "SOL": "Solomon Islands", 
+    "SOM": "Somalia", "SRB": "Serbia", "SRI": "Sri Lanka", "SSD": "South Sudan", 
+    "STP": "Sao Tome and Principe", "SUD": "Sudan", "SUI": "Switzerland", "SUR": "Suriname", 
+    "SVK": "Slovakia", "SWE": "Sweden", "SWZ": "Swaziland", "SYR": "Syria", 
+    "TAN": "Tanzania", "TGA": "Tonga", "THA": "Thailand", "TJK": "Tajikistan", 
+    "TKM": "Turkmenistan", "TLS": "Timor-Leste", "TOG": "Togo", "TPE": "Taiwan", 
+    "TTO": "Trinidad and Tobago", "TUN": "Tunisia", "TUR": "Turkey", "TUV": "Tuvalu", 
+    "UAE": "United Arab Emirates", "UGA": "Uganda", "UKR": "Ukraine", "URU": "Uruguay", 
+    "USA": "USA", "UZB": "Uzbekistan", "VAN": "Vanuatu", "VEN": "Venezuela", 
+    "VIE": "Vietnam", "VIN": "Saint Vincent", "YEM": "Yemen", "ZAM": "Zambia", "ZIM": "Zimbabwe"
+}
+
 # ─── GEOCODING CACHE ─────────────────────────────────────────────────────────
 _geocode_cache = {}
 
 def geocode_city(city_name, country="Germany"):
     """Use Nominatim (OpenStreetMap) to geocode a city name to lat/lng.
     
-    When the input contains a German postal code (5 digits), uses Nominatim's
-    structured query parameters (postalcode, city, street, country) for precise
-    disambiguation. This prevents e.g. "29633 Munster" (Lower Saxony) from being
-    resolved as "Münster" (NRW).
+    If country is a 3-letter IOC code, it is mapped to a full name first.
     """
     if not city_name or city_name.strip() == "":
         return None, None
     
     city_name = city_name.strip()
+    
+    # Map IOC codes (like GER, USA, FRA) to full names
+    if len(country) == 3 and country.isupper():
+        country = IOC_COUNTRY_MAP.get(country, country)
+    
     cache_key = f"{city_name}, {country}"
     
     if cache_key in _geocode_cache:
@@ -67,7 +124,7 @@ def geocode_city(city_name, country="Germany"):
         
         if zip_match:
             # Use structured query for precise postal-code-based lookup
-            street = zip_match.group(1)  # optional street before ZIP
+            street = zip_match.group(1)
             postalcode = zip_match.group(2)
             city_part = zip_match.group(3).strip().rstrip(',')
             
@@ -85,8 +142,14 @@ def geocode_city(city_name, country="Germany"):
             url = f"https://nominatim.openstreetmap.org/search?{qs}"
         else:
             # Fallback: free-text search
-            query = urllib.parse.quote(f"{city_name}, {country}")
-            url = f"https://nominatim.openstreetmap.org/search?q={query}&format=json&limit=1&countrycodes=de"
+            # We explicitly add the country to the query string to help disambiguation
+            clean_query = f"{city_name}, {country}"
+            query = urllib.parse.quote(clean_query)
+            url = f"https://nominatim.openstreetmap.org/search?q={query}&format=json&limit=1"
+            
+            # Use countrycodes filter only if we are absolutely sure it's Germany (to avoid Munster Ireland bug)
+            if country.lower() in ["germany", "deutschland"]:
+                url += "&countrycodes=de"
         
         req = urllib.request.Request(url, headers={
             "User-Agent": "FechtRadar/2.1 (fencing-tournament-map)"
