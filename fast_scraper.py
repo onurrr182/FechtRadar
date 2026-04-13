@@ -108,7 +108,7 @@ def process_entry(entry):
         header_text = page_text[:header_cutoff]
         
         city = None
-        city_match = re.search(r'GER\s+[A-ZÄÖÜa-zé]{2}\s+([A-ZÄÖÜa-zßäöüé][\wßäöüÄÖÜé\-\s/\.]+)', header_text)
+        city_match = re.search(r'GER\s+(?:[A-Za-zÄÖÜäöüßé]{1,4}\s+)?([A-ZÄÖÜa-zßäöüé][\wßäöüÄÖÜé\-\s/\.]+)', header_text)
         if city_match: city = scraper.clean_city_name(city_match.group(1))
         if not city or len(city) < 2: return None
 

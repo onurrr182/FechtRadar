@@ -412,7 +412,7 @@ def scrape_ophardt():
         
         city = None
         city_match = re.search(
-            r'GER\s+[A-ZÄÖÜa-zé]{2}\s+([A-ZÄÖÜa-zßäöüé][\wßäöüÄÖÜé\-\s/\.]+)',
+            r'GER\s+(?:[A-Za-zÄÖÜäöüßé]{1,4}\s+)?([A-ZÄÖÜa-zßäöüé][\wßäöüÄÖÜé\-\s/\.]+)',
             header_text
         )
         if city_match:
