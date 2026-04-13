@@ -2,7 +2,8 @@ const CACHE_NAME = 'fechtradar-v1';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
-  './icon.svg',
+  './icon-192.png',
+  './icon-512.png',
   './manifest.json',
   './tournaments.json'
 ];
