@@ -4,6 +4,7 @@ import concurrent.futures
 import threading
 import re
 import requests
+import sys
 
 scraper.CALENDAR_URL = "https://fencing.ophardt.online/en/calendar?date-from=2025-01-01&date-to=2028-12-31&nation=GER"
 
@@ -220,6 +221,12 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=30) as executor:
 print("Filtering events without date & saving...")
 final_json = [f for f in final_json if f.get('date')]
 final_json.sort(key=lambda x: (x.get('year', ''), x.get('date', '')))
+
+# Safety check: Never zero out tournaments.json if scraper fails
+if len(final_json) < 100:
+    print(f"🛑 ERROR: Only found {len(final_json)} events. This is too low (expected 1000+).")
+    print("🛑 To protect tournaments.json from being zeroed out, saving has been aborted.")
+    sys.exit(1)
 
 with open('tournaments.json', 'w', encoding='utf-8') as f:
     json.dump(final_json, f, indent=4, ensure_ascii=False)
