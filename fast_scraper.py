@@ -109,8 +109,23 @@ def process_entry(entry):
         header_text = page_text[:header_cutoff]
         
         city = None
-        city_match = re.search(r'GER\s+[A-ZÄÖÜa-zé]{2}\s+([A-ZÄÖÜa-zßäöüé][\wßäöüÄÖÜé\-\s/\.]+)', header_text)
-        if city_match: city = scraper.clean_city_name(city_match.group(1))
+        extracted_country = "Germany" # Default
+        
+        # Generic regex to capture 3-letter IOC code (GER, USA, FRA, etc.) 
+        # followed by optional region and city name
+        city_match = re.search(r'\b([A-Z]{3})\s+(?:[A-Za-zÄÖÜäöüßé]{1,4}\s+)?([A-ZÄÖÜa-zßäöüé][\wßäöüÄÖÜé\-\s/\.]+)', header_text)
+        
+        if city_match: 
+            extracted_country = city_match.group(1)
+            city = scraper.clean_city_name(city_match.group(2))
+        else:
+            # Fallback: Many tournaments omit the structure. Grab the 2nd line of the header directly
+            lines = [L.strip() for L in header_text.split('\n') if L.strip()]
+            if len(lines) > 1:
+                # Typically format is "Date Range \n Location \n ..."
+                fallback_str = lines[1]
+                city = scraper.clean_city_name(fallback_str)
+        
         if not city or len(city) < 2: return None
 
         precise_addr = None
