@@ -12,6 +12,7 @@ import re
 import time
 import urllib.parse
 import urllib.request
+import os
 
 CALENDAR_URL = "https://fencing.ophardt.online/en/calendar?date-from=2025-01-01&date-to=2028-12-31&nation=GER"
 BASE_URL = "https://fencing.ophardt.online"
