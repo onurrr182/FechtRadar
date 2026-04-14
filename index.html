@@ -810,11 +810,27 @@
             markers = [];
             infoWindows = [];
 
-            tournaments.forEach((t, index) => {
+            // Group tournaments by exact coordinates
+            const groups = {};
+            tournaments.forEach(t => {
                 if (!t.lat || !t.lng) return;
+                const key = `${t.lat},${t.lng}`;
+                if (!groups[key]) groups[key] = [];
+                groups[key].push(t);
+            });
+
+            Object.keys(groups).forEach((key, gIndex) => {
+                const group = groups[key];
+                const first = group[0];
                 
-                const weapons = Array.isArray(t.weapon) ? t.weapon : [t.weapon || 'Epee'];
-                const dominantWeapon = weapons.length > 1 ? "Mixed" : weapons[0];
+                // Determine color: if multiple weapons across group, use Mixed
+                let weapons = [];
+                group.forEach(t => {
+                    const ws = Array.isArray(t.weapon) ? t.weapon : [t.weapon || 'Epee'];
+                    weapons = weapons.concat(ws);
+                });
+                const uniqueWeapons = [...new Set(weapons)];
+                const dominantWeapon = uniqueWeapons.length > 1 ? "Mixed" : uniqueWeapons[0];
                 const colors = WEAPON_COLORS[dominantWeapon] || WEAPON_COLORS["Mixed"];
 
                 const svgIcon = {
@@ -823,7 +839,8 @@
                             <path d="M14 0C6.27 0 0 6.27 0 14c0 10.5 14 22 14 22s14-11.5 14-22C28 6.27 21.73 0 14 0z"
                                   fill="${colors.fill}" stroke="${colors.stroke}" stroke-width="1.5"/>
                             <circle cx="14" cy="13" r="5.5" fill="white" opacity="0.9"/>
-                            <circle cx="14" cy="13" r="3" fill="${colors.stroke}"/>
+                            ${group.length > 1 ? `<text x="14" y="16" font-size="8" font-weight="bold" text-anchor="middle" fill="${colors.stroke}">${group.length}</text>` 
+                                              : `<circle cx="14" cy="13" r="3" fill="${colors.stroke}"/>`}
                         </svg>
                     `)}`,
                     scaledSize: new google.maps.Size(28, 36),
@@ -832,34 +849,48 @@
 
                 const marker = new google.maps.Marker({
                     map,
-                    position: { lat: t.lat, lng: t.lng },
-                    title: t.name,
+                    position: { lat: first.lat, lng: first.lng },
+                    title: group.length > 1 ? `${group.length} Tournaments` : first.name,
                     icon: svgIcon,
                     animation: google.maps.Animation.DROP,
                     optimized: true,
                 });
 
-                const weaponLabel = tfWeapon(t.weapon);
-                const ageLabel = Array.isArray(t.ageGroup) ? t.ageGroup.map(tfAge).join(', ') : tfAge(t.ageGroup);
-                const venueHtml = t.venue ? `<div class="popup-detail">🏟️ ${escapeHtml(t.venue)}</div>` : '';
-                const cleanAddr = (t.exactAddress || t.city || 'Germany').replace(/\n/g, ', ').replace(/,\s*,/g, ',').replace(/,\s*$/, '');
-                const distHtml = (locationActive && userLocation && t._dist != null)
-                    ? `<div class="popup-detail">📏 ${Math.round(t._dist)} km ${tr('from_u')}</div>` : '';
-
-                const infoContent = `
-                    <div class="info-popup">
-                        <div class="popup-header">
-                            <h3>${escapeHtml(t.name)}</h3>
-                            <span class="popup-date">📅 ${escapeHtml(t.date)}${t.year ? ', ' + escapeHtml(t.year) : ''}</span>
-                        </div>
-                        <div class="popup-body">
-                            ${venueHtml}
-                            <div class="popup-detail">📍 ${escapeHtml(cleanAddr)}</div>
-                            <div class="popup-detail">🤺 ${escapeHtml(weaponLabel)} · ${escapeHtml(ageLabel)}</div>
+                // Build multi-event popup content
+                let itemsHtml = "";
+                group.forEach((t, i) => {
+                    const weaponLabel = tfWeapon(t.weapon);
+                    const ageLabel = Array.isArray(t.ageGroup) ? t.ageGroup.map(tfAge).join(', ') : tfAge(t.ageGroup);
+                    const distHtml = (locationActive && userLocation && t._dist != null)
+                        ? `<div class="popup-detail" style="font-size:11px; opacity:0.8;">📏 ${Math.round(t._dist)} km ${tr('from_u')}</div>` : '';
+                    
+                    itemsHtml += `
+                        <div class="popup-item" style="${i > 0 ? 'margin-top:12px; border-top:1px solid #eee; padding-top:12px;' : ''}">
+                            <h3 style="font-size:14px; margin:0 0 4px 0; color:#333;">${escapeHtml(t.name)}</h3>
+                            <div class="popup-detail" style="color:#555;">📅 ${escapeHtml(t.date)}${t.year ? ', ' + escapeHtml(t.year) : ''}</div>
+                            <div class="popup-detail" style="color:#555;">🤺 ${escapeHtml(weaponLabel)} · ${escapeHtml(ageLabel)}</div>
                             ${distHtml}
-                            <a class="popup-link" href="${escapeHtml(t.pdfLink)}" target="_blank" rel="noopener">
+                            <a class="popup-link" href="${escapeHtml(t.pdfLink)}" target="_blank" rel="noopener" style="margin-top:6px; padding:6px 12px; font-size:11px;">
                                 ${tr('view_det')} →
                             </a>
+                        </div>
+                    `;
+                });
+
+                const venueHtml = first.venue ? `<div class="popup-detail" style="margin-bottom:8px; font-weight:600; color:#444;">🏟️ ${escapeHtml(first.venue)}</div>` : '';
+                const cleanAddr = (first.exactAddress || first.city || 'Germany').replace(/\n/g, ', ').replace(/,\s*,/g, ',').replace(/,\s*$/, '');
+
+                const infoContent = `
+                    <div class="info-popup" style="max-height:400px; overflow-y:auto; padding:0; background:#fff; border-radius:10px;">
+                        <div class="popup-header" style="padding:10px 16px; border-radius:10px 10px 0 0; margin:0; background:var(--accent-gradient);">
+                            <div style="font-size:11px; color:rgba(255,255,255,0.9); text-transform:uppercase; letter-spacing:0.5px; font-weight:700;">
+                                ${group.length > 1 ? `📍 ${group.length} Events at Venue` : `📍 Tournament Detail`}
+                            </div>
+                        </div>
+                        <div class="popup-body" style="padding:16px;">
+                            ${venueHtml}
+                            <div class="popup-detail" style="margin-bottom:12px; color:#666; font-size:12px;">📍 ${escapeHtml(cleanAddr)}</div>
+                            ${itemsHtml}
                         </div>
                     </div>
                 `;
@@ -870,7 +901,6 @@
                     if (activeInfoWindow) activeInfoWindow.close();
                     infoWindow.open(map, marker);
                     activeInfoWindow = infoWindow;
-                    highlightCard(index);
                 });
 
                 markers.push(marker);
@@ -879,8 +909,35 @@
 
             // Add markers to clusterer instead of direct to map
             if (markers.length > 0) {
+                const renderer = {
+                    render: ({ count, position }) => {
+                        const color = "#667eea"; // Theme purple
+                        return new google.maps.Marker({
+                            label: { text: String(count), color: "white", fontSize: "12px", fontWeight: "bold" },
+                            position,
+                            icon: {
+                                url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                                        <circle cx="20" cy="20" r="18" fill="${color}" fill-opacity="0.9" stroke="white" stroke-width="2"/>
+                                        <circle cx="20" cy="20" r="14" fill="url(#grad)" fill-opacity="0.8"/>
+                                        <defs>
+                                            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#764ba2;stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:#667eea;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                `)}`,
+                                scaledSize: new google.maps.Size(40, 40),
+                                anchor: new google.maps.Point(20, 20),
+                            },
+                            zIndex: Number(google.maps.Marker.MAX_ZINDEX) + count,
+                        });
+                    }
+                };
+
                 if (!clusterer) {
-                    clusterer = new markerClusterer.MarkerClusterer({ map, markers });
+                    clusterer = new markerClusterer.MarkerClusterer({ map, markers, renderer });
                 } else {
                     clusterer.addMarkers(markers);
                 }
