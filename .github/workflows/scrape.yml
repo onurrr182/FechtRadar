@@ -43,11 +43,11 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
-          # Add the updated JSON file
-          git add tournaments.json
+          # Add updated files
+          git add tournaments.json geocache.json
           
           # Commit cleanly (this will intentionally fail cleanly if no changes)
-          git commit -m "Automated update: FechtRadar tournaments" || echo "No changes to commit"
+          git commit -m "Automated update: FechtRadar data & geocache" || echo "No changes to commit"
           
           # Push back to the main branch
           git push

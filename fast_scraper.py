@@ -145,8 +145,10 @@ def process_entry(entry):
                         precise_addr = {"venue": None, "street": None, "zip": zip_code, "city": p_city, "full": f"{zip_code} {p_city}"}
             
         venue_name = None; street_addr = None
-        display_address = f"{city}, Germany"
+        current_country = extracted_country
+        display_address = f"{city}, {current_country}"
         geocode_query = city
+        geocode_country = current_country
         
         if precise_addr:
             venue_name = precise_addr.get("venue")
@@ -161,11 +163,11 @@ def process_entry(entry):
             if precise_addr.get("zip") and precise_addr.get("city"):
                 p_city = precise_addr['city']
                 p_zip = precise_addr['zip']
-                display_address = f"{p_zip} {p_city}, Germany"
+                display_address = f"{p_zip} {p_city}, {current_country}"
                 geocode_query = f"{p_zip} {p_city}"
                 if street_addr:
                     display_address = f"{street_addr}, {display_address}"
-                    geocode_query = f"{street_addr}, {p_zip} {p_city}, Germany"
+                    geocode_query = f"{street_addr}, {p_zip} {p_city}, {current_country}"
                     
         weapon = entry.get('exact_weapon', [])
         if not weapon:
@@ -187,6 +189,7 @@ def process_entry(entry):
         res = {
             "name": entry['name'],
             "city": city,
+            "country": current_country,
             "venue": venue_name,
             "lat": round(lat, 5),
             "lng": round(lng, 5),
@@ -220,5 +223,7 @@ final_json.sort(key=lambda x: (x.get('year', ''), x.get('date', '')))
 
 with open('tournaments.json', 'w', encoding='utf-8') as f:
     json.dump(final_json, f, indent=4, ensure_ascii=False)
+
+scraper.save_geocache()
 
 print(f"Done! Saved {len(final_json)} valid events to tournaments.json")

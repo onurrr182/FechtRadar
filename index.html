@@ -449,6 +449,14 @@
                 <input type="text" id="searchInput" placeholder="Search tournaments, cities, venues...">
             </div>
 
+            <!-- Country Filter -->
+            <div class="filter-section" id="countrySection" style="display: none;">
+                <div class="filter-label">Country / Nation</div>
+                <div class="filters" id="countryFilters">
+                    <!-- Dynamic chips -->
+                </div>
+            </div>
+
             <!-- Weapon Filter -->
             <div class="filter-section">
                 <div class="filter-label" id="i18n-weapon-lbl">Weapon</div>
@@ -600,7 +608,13 @@
             document.getElementById('btn-en').style.color = currentLang === 'en' ? '#fff' : 'var(--text-muted)';
         }
 
-        function tr(key) { return LANG_DICT[currentLang][key]; }
+        function tr(key) { return LANG_DICT[currentLang][key] || key; }
+
+        function tfCountry(code) {
+            // Using common IOC codes for quick display, fallback to code
+            const name = IOC_COUNTRY_MAP[code] || code;
+            return name;
+        }
 
         function tfWeapon(w) {
             if (currentLang === 'en') return w || 'Mixed';
@@ -619,15 +633,24 @@
 
         // ─── STATE ───────────────────────────────────────────────────
         let map;
+        let clusterer = null;
         let allTournaments = [];
         let markers = [];
         let infoWindows = [];
         let activeInfoWindow = null;
         let activeCardIndex = -1;
+        
+        // IOC Mapping for display (simplified for frontend)
+        const IOC_COUNTRY_MAP = {
+            "GER": "Germany", "USA": "USA", "FRA": "France", "ITA": "Italy", "ESP": "Spain",
+            "GBR": "UK", "AUT": "Austria", "SUI": "Switzerland", "NED": "Netherlands",
+            "BEL": "Belgium", "POL": "Poland", "HUN": "Hungary", "CAN": "Canada",
+        };
 
         // Filters
         let activeWeapons = new Set(["All"]);
         let activeAges = new Set(["All"]);
+        let activeCountries = new Set(["All"]);
         let currentSearch = "";
 
         // Location/Distance
@@ -753,11 +776,17 @@
                     }
                 }
 
+                // Country filter
+                if (!activeCountries.has("All")) {
+                    if (!activeCountries.has(t.country || "GER")) return false;
+                }
+
                 // Search filter
                 if (currentSearch !== "") {
                     const s = currentSearch;
                     const match = t.name.toLowerCase().includes(s) ||
                         (t.city && t.city.toLowerCase().includes(s)) ||
+                        (t.country && t.country.toLowerCase().includes(s)) ||
                         (t.venue && t.venue.toLowerCase().includes(s)) ||
                         (t.date && t.date.toLowerCase().includes(s));
                     if (!match) return false;
@@ -775,7 +804,9 @@
 
         // ─── MARKERS ────────────────────────────────────────────────
         function renderMarkers(tournaments) {
-            markers.forEach(m => m.setMap(null));
+            if (clusterer) {
+                clusterer.clearMarkers();
+            }
             markers = [];
             infoWindows = [];
 
@@ -845,6 +876,15 @@
                 markers.push(marker);
                 infoWindows.push(infoWindow);
             });
+
+            // Add markers to clusterer instead of direct to map
+            if (markers.length > 0) {
+                if (!clusterer) {
+                    clusterer = new markerClusterer.MarkerClusterer({ map, markers });
+                } else {
+                    clusterer.addMarkers(markers);
+                }
+            }
         }
 
         // ─── LIST ────────────────────────────────────────────────────
@@ -1062,6 +1102,22 @@
 
         document.getElementById('weaponFilters').addEventListener('click', (e) => handleMultiSelect(e, 'weaponFilters', activeWeapons));
         document.getElementById('ageFilters').addEventListener('click', (e) => handleMultiSelect(e, 'ageFilters', activeAges));
+        document.getElementById('countryFilters').addEventListener('click', (e) => {
+            const chip = e.target.closest('.filter-chip');
+            if (!chip) return;
+            const val = chip.dataset.country;
+            if (val === "All") {
+                activeCountries.clear();
+                activeCountries.add("All");
+            } else {
+                activeCountries.delete("All");
+                if (activeCountries.has(val)) activeCountries.delete(val);
+                else activeCountries.add(val);
+                if (activeCountries.size === 0) activeCountries.add("All");
+            }
+            updateCountryFilters(allTournaments); // refresh active state
+            renderAll();
+        });
 
         // Search
         document.getElementById('searchInput').addEventListener('input', (e) => {
@@ -1106,6 +1162,10 @@
         script.async = true;
         script.defer = true;
         document.head.appendChild(script);
+
+        const clusterScript = document.createElement('script');
+        clusterScript.src = "https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js";
+        document.head.appendChild(clusterScript);
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {

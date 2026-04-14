@@ -74,58 +74,126 @@ REGION_MAP = {
     "MR": "Rheinland-Pfalz"  # Mittelrhein
 }
 
+# ─── GEOCODING CACHE ─────────────────────────────────────────────────────────
+GEO_CACHE_FILE = "geocache.json"
 _geocode_cache = {}
 
+def load_geocache():
+    """Load the geocoding cache from disk."""
+    global _geocode_cache
+    if os.path.exists(GEO_CACHE_FILE):
+        try:
+            with open(GEO_CACHE_FILE, 'r', encoding='utf-8') as f:
+                _geocode_cache = json.load(f)
+            print(f"✅ Loaded {len(_geocode_cache)} entries from {GEO_CACHE_FILE}")
+        except Exception as e:
+            print(f"⚠️  Could not load geocache: {e}")
+
+def save_geocache():
+    """Save the geocoding cache to disk."""
+    try:
+        with open(GEO_CACHE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(_geocode_cache, f, indent=4, ensure_ascii=False)
+        print(f"💾 Saved {len(_geocode_cache)} entries to {GEO_CACHE_FILE}")
+    except Exception as e:
+        print(f"⚠️  Could not save geocache: {e}")
+
+# Call load at startup
+load_geocache()
+
 def geocode_city(city_name, country="Germany"):
-    """Use Nominatim (OpenStreetMap) to geocode a city name to lat/lng."""
+    """Use Nominatim (OpenStreetMap) to geocode a city name to lat/lng.
+    
+    If country is a 3-letter IOC code, it is mapped to a full name first.
+    Results are cached on disk to avoid re-querying daily.
+    """
     if not city_name or city_name.strip() == "":
         return None, None
     
     city_name = city_name.strip()
     city_name = GEOCODE_ALIASES.get(city_name, city_name)
+    
+    # Map IOC codes (like GER, USA, FRA) to full names
     if len(country) == 3 and country.isupper():
         country = IOC_COUNTRY_MAP.get(country, country)
-
+    
     cache_key = f"{city_name}, {country}"
-    if cache_key in _geocode_cache: return _geocode_cache[cache_key]
+    
+    if cache_key in _geocode_cache:
+        val = _geocode_cache[cache_key]
+        if val and isinstance(val, list) and len(val) == 2:
+            return val[0], val[1]
     
     try:
-        zip_match = re.match(r'^(?:(.+?),\s*)?(\d{5})\s+(.+?)(?:,\s*Germany)?$', city_name)
+        # Check if the query contains a German postal code (5 digits)
+        zip_match = re.match(
+            r'^(?:(.+?),\s*)?(\d{5})\s+(.+?)(?:,\s*Germany)?$',
+            city_name
+        )
         
         if zip_match:
-            street, postalcode, city_part = zip_match.group(1), zip_match.group(2), zip_match.group(3).strip().rstrip(',')
-            params = {"postalcode": postalcode, "city": city_part, "country": country, "format": "json", "limit": "1"}
-            if street: params["street"] = street
-            url = f"https://nominatim.openstreetmap.org/search?{urllib.parse.urlencode(params)}"
+            # Use structured query for precise postal-code-based lookup
+            street = zip_match.group(1)
+            postalcode = zip_match.group(2)
+            city_part = zip_match.group(3).strip().rstrip(',')
+            
+            params = {
+                "postalcode": postalcode,
+                "city": city_part,
+                "country": country,
+                "format": "json",
+                "limit": "1",
+            }
+            if street:
+                params["street"] = street
+            
+            qs = urllib.parse.urlencode(params)
+            url = f"https://nominatim.openstreetmap.org/search?{qs}"
         else:
+            # Fallback: free-text search
             clean_query = f"{city_name}, {country}"
-            url = f"https://nominatim.openstreetmap.org/search?q={urllib.parse.quote(clean_query)}&format=json&limit=1"
-            if country.lower() in ["germany", "deutschland"]: url += "&countrycodes=de"
+            query = urllib.parse.quote(clean_query)
+            url = f"https://nominatim.openstreetmap.org/search?q={query}&format=json&limit=1"
+            
+            if country.lower() in ["germany", "deutschland"]:
+                url += "&countrycodes=de"
         
-        req = urllib.request.Request(url, headers={"User-Agent": "FechtRadar/2.3 (fencing-tournament-map)"})
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "FechtRadar/2.3 (fencing-tournament-map)"
+        })
+        
         with urllib.request.urlopen(req, timeout=10) as response:
             data = json.loads(response.read().decode())
         
         if data and len(data) > 0:
-            lat, lng = float(data[0]["lat"]), float(data[0]["lon"])
-            _geocode_cache[cache_key] = (lat, lng)
-            time.sleep(1.1)
+            lat = float(data[0]["lat"])
+            lng = float(data[0]["lon"])
+            _geocode_cache[cache_key] = [lat, lng]
+            time.sleep(1.1)  # Nominatim rate limit
             return lat, lng
         
+        # If structured query returned nothing, retry with free-text as fallback
         if zip_match:
-            url = f"https://nominatim.openstreetmap.org/search?q={urllib.parse.quote(f'{city_name}, {country}')}&format=json&limit=1&countrycodes=de"
-            req = urllib.request.Request(url, headers={"User-Agent": "FechtRadar/2.3 (fencing-tournament-map)"})
+            query = urllib.parse.quote(f"{city_name}, {country}")
+            url = f"https://nominatim.openstreetmap.org/search?q={query}&format=json&limit=1"
+            if country.lower() in ["germany", "deutschland"]:
+                url += "&countrycodes=de"
+            req = urllib.request.Request(url, headers={
+                "User-Agent": "FechtRadar/2.3 (fencing-tournament-map)"
+            })
             with urllib.request.urlopen(req, timeout=10) as response:
                 data = json.loads(response.read().decode())
             if data and len(data) > 0:
-                lat, lng = float(data[0]["lat"]), float(data[0]["lon"])
-                _geocode_cache[cache_key] = (lat, lng)
+                lat = float(data[0]["lat"])
+                lng = float(data[0]["lon"])
+                _geocode_cache[cache_key] = [lat, lng]
                 time.sleep(1.1)
                 return lat, lng
-                
-    except Exception as e: print(f"  ⚠️  Geocoding failed for '{city_name}': {e}")
+        
+    except Exception as e:
+        print(f"  ⚠️  Geocoding failed for '{city_name}': {e}")
     
-    _geocode_cache[cache_key] = (None, None)
+    _geocode_cache[cache_key] = None
     time.sleep(1.1)
     return None, None
 
