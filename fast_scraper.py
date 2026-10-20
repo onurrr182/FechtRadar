@@ -68,12 +68,12 @@ def scrape_calendar_windows():
     raw_entries = []
     seen_ids = set()
     
-    print("📡 Loading Ophardt calendar across upcoming windows...")
+    print("📡 Loading Ophardt Germany calendar across upcoming windows...")
     for start, end in windows:
         s_str = start.strftime("%Y-%m-%d")
         e_str = end.strftime("%Y-%m-%d")
-        url = f"{scraper.BASE_URL}/en/calendar?date-from={s_str}&date-to={e_str}"
-        print(f"   Fetching window {s_str} -> {e_str}...")
+        url = f"{scraper.BASE_URL}/en/calendar?date-from={s_str}&date-to={e_str}&nation=GER"
+        print(f"   Fetching Germany window {s_str} -> {e_str}...")
         
         soup = scraper.fetch_page(url)
         if not soup:
@@ -224,7 +224,12 @@ def process_entry(entry):
                 if zip_match:
                     z_code = zip_match.group(1)
                     p_city = scraper.clean_city_name(zip_match.group(2).strip())
-                    if p_city:
+                    is_valid_city = (
+                        p_city and 
+                        z_code != str(event_id) and 
+                        not any(stop in p_city.lower() for stop in ['view', 'entries', 'results', 'information', 'further', 'ophardt'])
+                    )
+                    if is_valid_city:
                         z_pos = inv_text.find(zip_match.group(0))
                         if z_pos > 0:
                             lines = inv_text[:z_pos].strip().split('\n')
@@ -250,7 +255,7 @@ def process_entry(entry):
 
         # Format display address and geocoding query
         v_name = None
-        disp_addr = f"{found_city}, {country_code}"
+        disp_addr = found_city
         g_query = found_city
 
         if precise_addr:
@@ -266,7 +271,7 @@ def process_entry(entry):
             
             p_cit = precise_addr['city']
             p_z = precise_addr['zip']
-            disp_addr = f"{p_z} {p_cit}, {country_code}"
+            disp_addr = f"{p_z} {p_cit}"
             g_query = f"{p_z} {p_cit}"
             if s_addr:
                 disp_addr = f"{s_addr}, {disp_addr}"
