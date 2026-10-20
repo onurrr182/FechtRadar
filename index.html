@@ -421,6 +421,9 @@
             background-color: #0f1117 !important;
             font-family: 'Inter', sans-serif !important;
         }
+        .map-tiles {
+            filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+        }
         .leaflet-popup-content-wrapper {
             background: #ffffff !important;
             border-radius: 10px !important;
@@ -804,10 +807,10 @@
                 zoomControl: true
             });
 
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>',
-                subdomains: 'abcd',
-                maxZoom: 19
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
+                maxZoom: 19,
+                className: 'map-tiles'
             }).addTo(map);
 
             clusterGroup = L.markerClusterGroup({
