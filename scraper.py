@@ -49,7 +49,16 @@ IOC_COUNTRY_MAP = {
     "GER": "Germany", "USA": "United States", "FRA": "France", "GBR": "United Kingdom",
     "ITA": "Italy", "ESP": "Spain", "AUT": "Austria", "SUI": "Switzerland",
     "NED": "Netherlands", "BEL": "Belgium", "CAN": "Canada", "POL": "Poland",
-    "HUN": "Hungary", "SWE": "Sweden", "DEN": "Denmark", "NOR": "Norway"
+    "HUN": "Hungary", "SWE": "Sweden", "DEN": "Denmark", "NOR": "Norway",
+    "GRE": "Greece", "TUR": "Turkey", "BRA": "Brazil", "PER": "Peru",
+    "UZB": "Uzbekistan", "GEO": "Georgia", "HKG": "Hong Kong", "JPN": "Japan",
+    "EGY": "Egypt", "CZE": "Czech Republic", "UKR": "Ukraine", "ROU": "Romania",
+    "EST": "Estonia", "KOR": "South Korea", "CHN": "China", "MEX": "Mexico",
+    "ARG": "Argentina", "CHI": "Chile", "COL": "Colombia", "VEN": "Venezuela",
+    "AUS": "Australia", "NZL": "New Zealand", "FIN": "Finland", "POR": "Portugal",
+    "IRL": "Ireland", "CRO": "Croatia", "SLO": "Slovenia", "SVK": "Slovakia",
+    "SRB": "Serbia", "BUL": "Bulgaria", "ISR": "Israel", "QAT": "Qatar",
+    "UAE": "United Arab Emirates", "KSA": "Saudi Arabia", "KUW": "Kuwait", "SGP": "Singapore"
 }
 
 # ─── OPHARDT REGION TO GERMAN STATE MAPPING ───────────────────────────────

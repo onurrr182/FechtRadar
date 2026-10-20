@@ -1286,5 +1286,889 @@
     "Oberbayern, Germany": [
         48.2405833,
         11.9699152
+    ],
+    "Lima, Peru": [
+        -12.0459808,
+        -77.0305912
+    ],
+    "Tashkent, Uzbekistan": [
+        41.3123363,
+        69.2787079
+    ],
+    "Hong Kong, Hong Kong": [
+        22.2818333,
+        114.1582831
+    ],
+    "Tbilisi, Georgia": [
+        41.6934591,
+        44.8014495
+    ],
+    "Stavanger, Norway": [
+        58.9699675,
+        5.7318101
+    ],
+    "Doha, Qatar": [
+        25.3108807,
+        51.5081812
+    ],
+    "Lund, Sweden": [
+        55.7029296,
+        13.1929449
+    ],
+    "Warszawa, Poland": [
+        52.2333742,
+        21.0711489
+    ],
+    "Etampes, France": [
+        48.4344621,
+        2.1614464
+    ],
+    "Limpopo, FFSA": null,
+    "Kalmar, Sweden": [
+        56.6628826,
+        16.3662382
+    ],
+    "Durban, FFSA": null,
+    "Hasselt, FBRCE/KBFS/KBVF": null,
+    "FLORINA, Greece": [
+        40.7794406,
+        21.4074743
+    ],
+    "Östersund, Sweden": [
+        63.1793655,
+        14.6357061
+    ],
+    "Oulu, Finland": [
+        65.0117914,
+        25.4701973
+    ],
+    "Brugge, FBRCE/KBFS/KBVF": null,
+    "Dublin, Ireland": [
+        53.3493795,
+        -6.2605593
+    ],
+    "Warwick, Great Britain": [
+        52.2184551,
+        -1.8661158
+    ],
+    "Takamatsu City, Japan": [
+        34.3440434,
+        134.0491412
+    ],
+    "TUM Campus im Olympiapark, Am Olympiacampus 11, 80809 München\nAnfahrtsweg, Germany, Germany": null,
+    "Weißenseer Weg 51-55, 13053 Berlin\nNation\nGermany\nDate, Germany, Germany": null,
+    "Brest, France": [
+        48.3912324,
+        -4.4851141
+    ],
+    "Lohackerstraße 9, 44867 Bochum\nNation\nGermany\nDate, Germany, Germany": null,
+    "Dionysiusstraße 51, 47798 Krefeld\nZufahrt Parkplätze, Germany, Germany": null,
+    "Casablanca, Morocco": [
+        33.5945144,
+        -7.6200284
+    ],
+    "Oran, Algeria": [
+        35.7044415,
+        -0.6502981
+    ],
+    "Curitiba, Brazil": [
+        -25.4295963,
+        -49.2712724
+    ],
+    "Samorin, Slovakia": [
+        48.0275832,
+        17.3115709
+    ],
+    "Henin Beaumont, France": [
+        50.4191721,
+        2.9469339
+    ],
+    "Eindhoven, Netherlands": [
+        51.4485569,
+        5.4501225
+    ],
+    "Budapest, Hungary": [
+        47.481849,
+        19.1449053
+    ],
+    "Cape Town, FFSA": null,
+    "Biel/Bienne, Switzerland": [
+        47.1402077,
+        7.2439029
+    ],
+    "Kalundborg, Denmark": [
+        55.6833793,
+        11.0993619
+    ],
+    "Dahlenwarsleber Str. 3, 39179 Barleben\nNation\nGermany\nDate, Germany, Germany": null,
+    "Küssnacht am Rigi, Switzerland": [
+        47.08385,
+        8.4386308
+    ],
+    "Turku, Finland": [
+        60.4515932,
+        22.2669991
+    ],
+    "Münchener Straße 49, 10779 Berlin\nNation\nGermany\nDate, Germany, Germany": null,
+    "Alemannenweg 23, 72119 Ammerbuch-Entringen\nNation\nGermany\nDate, Germany, Germany": null,
+    "Rodez, France": [
+        44.3511408,
+        2.5728493
+    ],
+    "In Den Bühlgärten 4, 73107 Eschenbach\nNation\nGermany\nDate, Germany, Germany": null,
+    "Karl-Liebknecht-Str. 10, 03099 Kolkwitz\nNation\nGermany\nDate, Germany, Germany": null,
+    "Martin Luther Straße Nr. 22, 77933 Lahr, Germany, Germany": [
+        48.3371802,
+        7.8537254
+    ],
+    "Embourg, FBRCE/KBFS/KBVF": null,
+    "Medellin, Colombia": [
+        6.2697324,
+        -75.6025597
+    ],
+    "Hammamet, Tunisia": [
+        36.4012665,
+        10.5572827
+    ],
+    "San Jose, Costa Rica": [
+        9.9327373,
+        -84.0796683
+    ],
+    "Kenya, KFF": null,
+    "Johannesburg Gauteng, FFSA": null,
+    "Markgrafenstr. 3, 87600 Kaufbeuren\nNation\nGermany\nDate, Germany, Germany": null,
+    "Am Schnarrenberg 1, 70376 Stuttgart-Bad Cannstatt\nNation\nGermany\nDate, Germany, Germany": null,
+    "Stuttgart BadCannstatt, Germany": null,
+    "PAIANIA, Greece": [
+        37.9537116,
+        23.8523932
+    ],
+    "Barleben, Germany": [
+        52.2007378,
+        11.6203578
+    ],
+    "Hinter den Gärten 6, 66386 St. Ingbert\nNation\nGermany\nDate, Germany, Germany": null,
+    "Argeninsel 2, 88239 Wangen im Allgäu\nNation\nGermany\nDate, Germany, Germany": null,
+    "Wangen im Allgäu, Germany": [
+        47.6856552,
+        9.8342247
+    ],
+    "Galway, Ireland": [
+        53.2744122,
+        -9.0490601
+    ],
+    "Lipfersberger Weg 1, 74653 Künzelsau\nNation\nGermany\nDate, Germany, Germany": null,
+    "Aix en Provence, France": [
+        43.5298424,
+        5.4474738
+    ],
+    "Glostrup, Denmark": [
+        55.6837485,
+        12.4128789
+    ],
+    "Baden-Badener Str. 14, 69126 Heidelberg\nNation\nGermany\nDate, Germany, Germany": null,
+    "Manzenbergstraße 31/1, 88069 Tettnang\nNation\nGermany\nDate, Germany, Germany": null,
+    "Gothenburg, Sweden": [
+        57.7072326,
+        11.9670171
+    ],
+    "Margaretenstr. 20, 47055 Duisburg\nNation\nGermany\nDate, Germany, Germany": null,
+    "Lausanne, Switzerland": [
+        46.5218269,
+        6.6327025
+    ],
+    "Lagos, Nigeria": [
+        6.4550575,
+        3.3941795
+    ],
+    "Sofia, Bulgaria": [
+        42.6977028,
+        23.3217359
+    ],
+    "Bundesstraße 96, 20144 Hamburg\nNation\nGermany\nDate, Germany, Germany": null,
+    "Oslo, Norway": [
+        59.9133301,
+        10.7389701
+    ],
+    "Klagenfurt, Austria": [
+        46.623943,
+        14.3075976
+    ],
+    "Storlach-Sporthalle: Mittnachtstraße 205, 72760 Reutlingen\nund\nDietweg-Halle, Germany, Germany": null,
+    "ΙΟΑΝΝΙΝΑ, Greece": [
+        39.6639818,
+        20.8522784
+    ],
+    "Sint-Niklaas, FBRCE/KBFS/KBVF": null,
+    "Trondheim, Norway": [
+        63.4304475,
+        10.3952118
+    ],
+    "Timisoara, Romania": [
+        45.7538355,
+        21.2257474
+    ],
+    "Langer Wall 2, 31785 Hameln\n- Eingang von der Papenstraße -\nNation\nGermany\nDate, Germany, Germany": null,
+    "Reykjavik, Island": [
+        64.145981,
+        -21.9422367
+    ],
+    "Helsinki, Finland": [
+        60.1666204,
+        24.9435408
+    ],
+    "Madrid, Spain": [
+        40.416782,
+        -3.703507
+    ],
+    "Erich-Billert-Weg 5, 04758 Oschatz\nNation\nGermany\nDate, Germany, Germany": null,
+    "IOANNINA, Greece": [
+        39.6639818,
+        20.8522784
+    ],
+    "Bern, Switzerland": [
+        46.9484742,
+        7.4521749
+    ],
+    "Rsende, Brazil": null,
+    "Manama, Bahrain": [
+        26.2235041,
+        50.5822436
+    ],
+    "Châtelaine, Switzerland": [
+        46.2109359,
+        6.1144659
+    ],
+    "Nieder-Ramstädter Str. 120, 64285 Darmstadt\nDie Sporthalle, Germany, Germany": null,
+    "Stockholm, Sweden": [
+        59.3251172,
+        18.0710935
+    ],
+    "Leopoldsburg, FBRCE/KBFS/KBVF": null,
+    "Wittkuller Str. 64, 42719 Solingen\nNation\nGermany\nDate, Germany, Germany": null,
+    "Thessaloniki, Greece": [
+        40.6403167,
+        22.9352716
+    ],
+    "Badstraße 25, 08645 Bad Elster\nNation\nGermany\nDate, Germany, Germany": null,
+    "Euskirchenerstr. 124-126, 52351 Düren\nNation\nGermany\nDate, Germany, Germany": null,
+    "Haspelstraße 30, 66538 Neunkirchen\nNation\nGermany\nDate, Germany, Germany": null,
+    "Johann-Sebastian-Bach-Straße 2, 99096 Erfurt\nNation\nGermany\nDate, Germany, Germany": null,
+    "Küllenhahner Str. 130, 42349 Wuppertal\nNation\nGermany\nDate, Germany, Germany": null,
+    "Clara-Zetkin-Straße 4, 01877 Bischofswerda\nNation\nGermany\nDate, Germany, Germany": null,
+    "Goethestrasse. 21, 01662 Meißen\nNation\nGermany\nDate, Germany, Germany": null,
+    "Ystad, Sweden": [
+        55.4295203,
+        13.8201171
+    ],
+    "Joensuu, Finland": [
+        62.6006375,
+        29.7619759
+    ],
+    "Berliner Ring 16, 71522 Backnang\nHandy Turniertag, Germany, Germany": null,
+    "Lessingstr. 5-8, 12169 Berlin\nNation\nGermany\nDate, Germany, Germany": null,
+    "Dakar, Senegal": [
+        14.693425,
+        -17.447938
+    ],
+    "Ludwigstraße 4, D-, 76467 Rastatt\nNation\nGermany\nDate, Germany, Germany": null,
+    "Ludwigstraße 4, 76437 Rastatt\nNation\nGermany\nDate, Germany, Germany": null,
+    "Pont-à-Mousson, France": [
+        48.9025946,
+        6.0547691
+    ],
+    "Plovdiv, Bulgaria": [
+        42.1418541,
+        24.7499297
+    ],
+    "Cairo, Egypt": [
+        30.0443879,
+        31.2357257
+    ],
+    "Berne, Switzerland": [
+        46.9484742,
+        7.4521749
+    ],
+    "Lindenschulstraße 20, 70327 Stuttgart\nNation\nGermany\nDate, Germany, Germany": null,
+    "Wuxi, China": [
+        31.5776626,
+        120.2952752
+    ],
+    "Bergstr. 36, 29633 Munster\nNation\nGermany\nDate, Germany, Germany": null,
+    "Pau, France": [
+        43.2957547,
+        -0.3685668
+    ],
+    "Magdeburger Str. 10, 01067 Dresden, Germany, Germany": [
+        51.0621275,
+        13.7222127
+    ],
+    "Örebro, Sweden": [
+        59.2747287,
+        15.2151181
+    ],
+    "Bergen, Norway": [
+        60.3943055,
+        5.3259192
+    ],
+    "Sandnerstrasse 7, 84034 Landshut\nNation\nGermany\nDate, Germany, Germany": null,
+    "Bachzimmererstr. 25, 78194 Immendingen\nNation\nGermany\nDate, Germany, Germany": null,
+    "Leopold-Lucas-Str. 20, 35037 Marburg\nNation\nGermany\nDate, Germany, Germany": null,
+    "Landauer Straße 22, 66482 Zweibrücken\nhttps, Germany, Germany": null,
+    "Baumschulenweg 6-10, 28213 Bremen\nNation\nGermany\nDate, Germany, Germany": null,
+    "Cork, Ireland": [
+        51.8985136,
+        -8.4726423
+    ],
+    "Ruppertstraße 5, 80337 München\nNation\nGermany\nDate, Germany, Germany": null,
+    "Munich, Germany": [
+        48.1371079,
+        11.5753822
+    ],
+    "Novi Sad, Serbia": [
+        45.2551338,
+        19.8451756
+    ],
+    "Warsaw, Poland": [
+        52.2333742,
+        21.0711489
+    ],
+    "Grenoble, France": [
+        45.1875602,
+        5.7357819
+    ],
+    "Brindisi, Italy": [
+        40.6358599,
+        17.6884975
+    ],
+    "Marly, Switzerland": [
+        46.7747743,
+        7.1601827
+    ],
+    "Datumer Chaussee 2, 25421 Pinneberg, Germany, Germany": [
+        53.6437959,
+        9.7971549
+    ],
+    "Virchowstraße 28, 89518 Heidenheim an der Brenz\nMannschaftswettbewerb\nLandkreishalle Heidenheim\nHeckentalstraße, Germany, Germany": null,
+    "Am Golfplatz 6, 90768 Fürth\nNation\nGermany\nDate, Germany, Germany": null,
+    "Fuerth, Germany": [
+        49.4885711,
+        10.9587203
+    ],
+    "Gembloux, FBRCE/KBFS/KBVF": null,
+    "Riemekertraße 130a, 33098 Paderborn\nNation\nGermany\nDate, Germany, Germany": null,
+    "Weißenseer Weg 53, 13053 Berlin\nNation\nGermany\nDate, Germany, Germany": null,
+    "Maynooth, Ireland": [
+        53.3830239,
+        -6.5922806
+    ],
+    "Roermond, Netherlands": [
+        51.1933903,
+        5.9882649
+    ],
+    "Birmingham, Great Britain": null,
+    "Rio de, Brazil": [
+        -22.905313,
+        -43.2268365
+    ],
+    "Boston, United States": [
+        42.3588336,
+        -71.0578303
+    ],
+    "Nairobi, KFF": null,
+    "Flawil, Switzerland": [
+        47.414613,
+        9.1861489
+    ],
+    "Monaco, France": [
+        42.2803146,
+        9.4304477
+    ],
+    "Landsberger Str. 5B, 04435 Schkeuditz - Radefeld\nNation\nGermany\nDate, Germany, Germany": null,
+    "Riesstr. 40, 80992 München, Germany, Germany": [
+        48.1808672,
+        11.5380489
+    ],
+    "Eschenbachstraße 85, 67063 Ludwigshafen\nNation\nGermany\nDate, Germany, Germany": null,
+    "Am Neuen Lindenhof 2, 53117 Bonn\nNation\nGermany\nDate, Germany, Germany": null,
+    "Halle 1: Hechtsheimer Str. 29, 55131 Mainz\nHalle, Germany, Germany": null,
+    "Etalle, FBRCE/KBFS/KBVF": null,
+    "Malmö, Sweden": [
+        55.6052931,
+        13.0001566
+    ],
+    "Maison Alfort, France": [
+        48.800288,
+        2.4297614
+    ],
+    "Klint 26, 38100 Braunschweig\nNation\nGermany\nDate, Germany, Germany": null,
+    "Küssnacht, Switzerland": [
+        47.08385,
+        8.4386308
+    ],
+    "Asunción, Ecuador": [
+        -2.5144344,
+        -78.2596416
+    ],
+    "Vancouver, Canada": [
+        49.2608724,
+        -123.113952
+    ],
+    "Xiongan, China": [
+        39.0480479,
+        115.9075331
+    ],
+    "Orléans, France": [
+        47.9027336,
+        1.9086066
+    ],
+    "Cabries, France": [
+        43.4411965,
+        5.3798882
+    ],
+    "Sao Paulo, Brazil": [
+        -23.5506507,
+        -46.6333824
+    ],
+    "Varna, Bulgaria": [
+        43.2073873,
+        27.9166653
+    ],
+    "Copenhagen, Denmark": [
+        55.6867243,
+        12.5700724
+    ],
+    "Wilrijk, FBRCE/KBFS/KBVF": null,
+    "Laubachweg 52, 88471 Laupheim\nNation\nGermany\nDate, Germany, Germany": null,
+    "Nuremberg, Germany": [
+        49.453872,
+        11.077298
+    ],
+    "Seehansen 5, 71254 Ditzingen\nNation\nGermany\nDate, Germany, Germany": null,
+    "Watermael-Boisfort, FBRCE/KBFS/KBVF": null,
+    "Basel, Switzerland": [
+        47.5581077,
+        7.5878261
+    ],
+    "Senefelderstr. 265, 63069 Offenbach\nHalle, Germany, Germany": null,
+    "Hospitalgasse 6, 55543 Bad Kreuznach\nhttps, Germany, Germany": null,
+    "Öschhalle 1 , Talstr. 54, 73054 Eislingen\nÖschhalle, Germany, Germany": null,
+    "Belgrade, Serbia": [
+        44.8153318,
+        20.4456588
+    ],
+    "Riga, Latvia": [
+        56.9493977,
+        24.1051846
+    ],
+    "Baumschulenweg 6, 28213 Bremen\nNation\nGermany\nDate, Germany, Germany": null,
+    "Laupheim, Germany": [
+        48.2300738,
+        9.8837005
+    ],
+    "Große Paaschburg 68, 25524 Itzehoe, Germany, Germany": [
+        53.9196845,
+        9.5246373
+    ],
+    "Öschhalle 1, Talstr. 54, 73054 Eislingen\nÖschhalle, Germany, Germany": null,
+    "Zug, Switzerland": [
+        47.1486137,
+        8.5539378
+    ],
+    "Göteborg, Sweden": [
+        57.7072326,
+        11.9670171
+    ],
+    "Am Bahnhof 3, 18119 Rostock\nNation\nGermany\nDate, Germany, Germany": null,
+    "Udine, Italy": [
+        46.0634632,
+        13.2358377
+    ],
+    "Shanghai, China": [
+        31.2312707,
+        121.4700152
+    ],
+    "Busan, Korea": [
+        35.1799528,
+        129.0752365
+    ],
+    "Burgos, Spain": [
+        42.3448498,
+        -3.6812477
+    ],
+    "Zagreb, Croatia": [
+        45.8130967,
+        15.9772795
+    ],
+    "Vossacker 19, 58089 Hagen\nNation\nGermany\nDate, Germany, Germany": null,
+    "Lomianki, Poland": [
+        52.3355273,
+        20.895012
+    ],
+    "Dr.-Max-Straße 20, 82031 Grünwald\nNation\nGermany\nDate, Germany, Germany": null,
+    "München Grünwald, Germany": [
+        48.032556,
+        11.5201634
+    ],
+    "Ghent, FBRCE/KBFS/KBVF": null,
+    "Erlenweg 24, 69124 Heidelberg\nNation\nGermany\nDate, Germany, Germany": null,
+    "Hiärm-Grupe-Straße 8, Eingang Ohnesorgestraße, 49080 Osnabrück\nNation\nGermany\nDate, Germany, Germany": null,
+    "Bale, Switzerland": [
+        47.5581077,
+        7.5878261
+    ],
+    "Best, Netherlands": [
+        51.5033671,
+        5.3938665
+    ],
+    "Guildford - London, Great Britain": null,
+    "Segovia, Spain": [
+        40.9481192,
+        -4.1172101
+    ],
+    "Konin, Poland": [
+        52.2559021,
+        18.2678662
+    ],
+    "Watermael-Boitsfort, FBRCE/KBFS/KBVF": null,
+    "Horner Weg 89, 22111 Hamburg\nNation\nGermany\nDate, Germany, Germany": null,
+    "Kuopio, Finland": [
+        62.8924628,
+        27.6783603
+    ],
+    "Aalborg, Denmark": [
+        57.0462626,
+        9.9215263
+    ],
+    "Rektor-Forestier-Str. 2, 55124 Mainz\nhttps, Germany, Germany": null,
+    "Fujairah, United Arab Emirates": [
+        25.4147357,
+        56.2313667
+    ],
+    "Paris, France": [
+        48.8588897,
+        2.320041
+    ],
+    "New Delhi, India": [
+        28.6138954,
+        77.2090057
+    ],
+    "Tunis, Tunisia": [
+        36.8002068,
+        10.1857757
+    ],
+    "Osnabrueck, Germany": [
+        52.2719595,
+        8.047635
+    ],
+    "Poznan, Poland": [
+        52.4006632,
+        16.9197326
+    ],
+    "Krakow, Poland": [
+        50.0469432,
+        19.9971534
+    ],
+    "Orange Grove Johannesburg (GA), FFSA": null,
+    "Wildmoosstraße 36, 82194 Gröbenzell\nNation\nGermany\nDate, Germany, Germany": null,
+    "Groebenzell, Germany": [
+        48.1942336,
+        11.370911
+    ],
+    "Braine l'Alleud, FBRCE/KBFS/KBVF": null,
+    "Bruges, FBRCE/KBFS/KBVF": null,
+    "Dieppe, France": [
+        49.9246182,
+        1.0791444
+    ],
+    "Roubaix, France": [
+        50.6915893,
+        3.1741734
+    ],
+    "Singapore, Singapore": [
+        1.2899175,
+        103.8519072
+    ],
+    "Rajgir, India": [
+        25.0299973,
+        85.4207368
+    ],
+    "Ljubljana, Slovenia": [
+        46.0500268,
+        14.5069289
+    ],
+    "Dörnigheim, Germany": [
+        50.1334166,
+        8.8393158
+    ],
+    "Jesinger Halde 1, 73230 Kirchheim unter Teck\nBitte den Parkplatz, Germany, Germany": null,
+    "Tampere, Finland": [
+        61.4977988,
+        23.7616335
+    ],
+    "Monthey, Switzerland": [
+        46.252844,
+        6.9478263
+    ],
+    "Olympischer Weg 6, 14471 Potsdam\nNation\nGermany\nDate, Germany, Germany": null,
+    "Kirchheim, Germany": [
+        48.6480545,
+        9.4510227
+    ],
+    "Littau Dorf / Lucerne, Switzerland": [
+        47.0511355,
+        8.258829
+    ],
+    "Sundsvall, Sweden": [
+        62.3907552,
+        17.3071024
+    ],
+    "Praha, Czechia": [
+        50.0874654,
+        14.4212535
+    ],
+    "Kittilä, Finland": [
+        67.7723589,
+        25.0553441
+    ],
+    "Helsingborg, Sweden": [
+        56.0442098,
+        12.703706
+    ],
+    "Karlskrona, Sweden": [
+        56.1621073,
+        15.5866422
+    ],
+    "Neufchâteau, FBRCE/KBFS/KBVF": null,
+    "Astrid-Lindgren-Str. 3, 81829 München, Germany, Germany": [
+        48.1317138,
+        11.706922
+    ],
+    "Maaseik, FBRCE/KBFS/KBVF": null,
+    "Ub, Serbia": [
+        44.4561913,
+        20.073995
+    ],
+    "Nivelles, FBRCE/KBFS/KBVF": null,
+    "Talstr. 54, 73054 Eislingen\nNation\nGermany\nDate, Germany, Germany": null,
+    "Berliner Straße 16, 74523 Schwäbisch Hall\nNation\nGermany\nDate, Germany, Germany": null,
+    "Espoo, Finland": [
+        60.2049651,
+        24.6559808
+    ],
+    "Baden, Switzerland": [
+        47.4736827,
+        8.3086822
+    ],
+    "London, Great Britain": [
+        51.5237826,
+        -0.139949
+    ],
+    "Utrecht, Netherlands": [
+        52.0907006,
+        5.1215634
+    ],
+    "Eschenbachs. 85, 67063 Ludwigshafen\nNation\nGermany\nDate, Germany, Germany": null,
+    "Carl-Diem-Straße 130, 72760 Reutlingen\nNation\nGermany\nDate, Germany, Germany": null,
+    "Faches-Thumesnil, France": [
+        50.6026031,
+        3.0697877
+    ],
+    "Athens, Greece": [
+        37.9755648,
+        23.7348324
+    ],
+    "Padua, Italy": [
+        45.3984428,
+        11.8956829
+    ],
+    "Lulea, Sweden": [
+        65.5831187,
+        22.1459535
+    ],
+    "Von-der-Tann-Straße 1, 85049 Ingolstadt\nNation\nGermany\nDate, Germany, Germany": null,
+    "Wettkampfhalle: Friesenstraße 29 a, 19059 Schwerin\nJ, Germany, Germany": null,
+    "Uhlandstr. 46, 90408 Nürnberg\nNation\nGermany\nDate, Germany, Germany": null,
+    "Gand, FBRCE/KBFS/KBVF": null,
+    "Torino, Italy": [
+        45.0677551,
+        7.6824892
+    ],
+    "Charleville Mezieres, France": [
+        49.7735712,
+        4.7206939
+    ],
+    "Mechelen, FBRCE/KBFS/KBVF": null,
+    "Napoli, Italy": [
+        40.8358846,
+        14.2487679
+    ],
+    "Brno, Czechia": [
+        49.1922443,
+        16.6113382
+    ],
+    "Differdange, Luxembourg": [
+        49.5219856,
+        5.8753061
+    ],
+    "Brucknerstraße 55, 71404 Korb\nParkplätze, Germany, Germany": null,
+    "Dieter Storzum, Schiffergasse 2-4, 67278 Bockenheim an der Weinstraße\nE-Mail, Germany, Germany": null,
+    "Wächtersbacher Str. 80, 60386 Frankfurt, Germany, Germany": [
+        50.1327266,
+        8.7462689
+    ],
+    "Ljungby, Sweden": [
+        56.8325886,
+        13.9359916
+    ],
+    "Nijmegen, Netherlands": [
+        51.8474946,
+        5.8637771
+    ],
+    "Istanbul, Türkey": [
+        41.006381,
+        28.9758715
+    ],
+    "Cambridge, Great Britain": null,
+    "Lappeenranta, Finland": [
+        61.0583417,
+        28.1862293
+    ],
+    "Panagyurishte, Bulgaria": [
+        42.5043065,
+        24.1888411
+    ],
+    "Florina, Greece": [
+        40.7794406,
+        21.4074743
+    ],
+    "Ciudad Real, Spain": [
+        38.9597347,
+        -3.8828744
+    ],
+    "Uccle, FBRCE/KBFS/KBVF": null,
+    "Sassenheim, Netherlands": [
+        52.2246356,
+        4.5199218
+    ],
+    "Heerlen, Netherlands": [
+        50.8775239,
+        5.9815066
+    ],
+    "Astana, Kazakhstan": [
+        51.1282804,
+        71.4304708
+    ],
+    "Rovereto, Italy": [
+        45.886548,
+        11.0452369
+    ],
+    "Daugavpils, Latvia": [
+        55.8712267,
+        26.5159337
+    ],
+    "Ankara, Türkey": [
+        39.9207759,
+        32.8540497
+    ],
+    "Melun, France": [
+        48.539927,
+        2.6608169
+    ],
+    "Malmo, Sweden": [
+        55.6052931,
+        13.0001566
+    ],
+    "Kuessnacht am Rigi, Switzerland": [
+        47.08385,
+        8.4386308
+    ],
+    "Charleroi, FBRCE/KBFS/KBVF": null,
+    "Zrenjanin, Serbia": [
+        45.3802683,
+        20.3907614
+    ],
+    "Liege, FBRCE/KBFS/KBVF": null,
+    "Barcelona, Spain": [
+        41.3825802,
+        2.177073
+    ],
+    "Wien, Austria": [
+        48.2083537,
+        16.3725042
+    ],
+    "Ciney, FBRCE/KBFS/KBVF": null,
+    "St. Légier, Switzerland": [
+        46.4835731,
+        6.9141039
+    ],
+    "Härnösand, Sweden": [
+        62.6323084,
+        17.9379914
+    ],
+    "Salzburg, Austria": [
+        47.7981346,
+        13.0464806
+    ],
+    "Asker, Norway": [
+        59.6812603,
+        10.474836
+    ],
+    "Homburg/ Saarland, Germany": [
+        49.32146,
+        7.3409031
+    ],
+    "Dalkey, Ireland": [
+        53.2754961,
+        -6.1025614
+    ],
+    "Sint-Truiden, FBRCE/KBFS/KBVF": null,
+    "Podgorica, MFF": null,
+    "Luxembourg, Luxembourg": [
+        49.6112768,
+        6.129799
+    ],
+    "Kai-Uwe Hickl, Fuhrenkamp 31, 29633 Munster\nE-Mail, Germany, Germany": null,
+    "Umea, Sweden": [
+        63.8256568,
+        20.2630745
+    ],
+    "Kamnik, Slovenia": [
+        46.2750998,
+        14.6267707
+    ],
+    "Renaix, FBRCE/KBFS/KBVF": null,
+    "Grodzisk, Poland": [
+        52.5839704,
+        22.7384197
+    ],
+    "Alkmaar, Netherlands": [
+        52.6008538,
+        4.8170994
+    ],
+    "Seoul, Korea": [
+        37.5666791,
+        126.9782914
+    ],
+    "Alost, FBRCE/KBFS/KBVF": null,
+    "Neuchâtel, Switzerland": [
+        46.9895828,
+        6.9292641
+    ],
+    "Glockenturmstraße 3-5, 14053 Berlin\nDas Finale der Top, Germany, Germany": null,
+    "Medellín, Colombia": [
+        6.2697324,
+        -75.6025597
+    ],
+    "Shumen, Bulgaria": [
+        43.3088188,
+        27.0197261
+    ],
+    "Florian-Geyer-Straße 77, 99427 Weimar\nNation\nGermany\nDate, Germany, Germany": null,
+    "Huy, FBRCE/KBFS/KBVF": null,
+    "Dortnbirn, Austria": null,
+    "Rösrath, Germany": [
+        50.8963758,
+        7.1825445
     ]
 }

@@ -451,7 +451,7 @@
 
             <!-- Country Filter -->
             <div class="filter-section" id="countrySection" style="display: none;">
-                <div class="filter-label">Country / Nation</div>
+                <div class="filter-label" id="i18n-country-lbl">Country / Nation</div>
                 <div class="filters" id="countryFilters">
                     <!-- Dynamic chips -->
                 </div>
@@ -553,6 +553,7 @@
                 weapon: "Waffe", age: "Altersgruppe", time: "Zeitraum",
                 w_all: "Alle", w_epee: "⚡ Degen", w_foil: "🟡 Florett", w_sabre: "🔴 Säbel",
                 a_all: "Alle", a_sen: "🤺 Aktive", a_vet: "🏅 Veteranen",
+                country: "Land / Nation",
                 anytime: "Jederzeit", near_me: "📍 In meiner Nähe",
                 stat_tot: "Gesamt", stat_cit: "Städte", stat_sho: "Angezeigt",
                 load: "Turniere werden geladen...",
@@ -563,6 +564,7 @@
             "en": {
                 subtitle: "Tournament Finder", search: "Search tournaments, cities, venues...",
                 weapon: "Weapon", age: "Age Group", time: "Timeframe",
+                country: "Country / Nation",
                 w_all: "All", w_epee: "⚡ Epee", w_foil: "🟡 Foil", w_sabre: "🔴 Sabre", w_mixed: "🟣 Mixed",
                 a_all: "All", a_sen: "🤺 Seniors", a_vet: "🏅 Veterans",
                 anytime: "Anytime", near_me: "📍 Near Me",
@@ -587,6 +589,8 @@
             document.getElementById('searchInput').placeholder = l.search;
             document.getElementById('i18n-weapon-lbl').textContent = l.weapon;
             document.getElementById('i18n-age-lbl').textContent = l.age;
+            const countryLbl = document.getElementById('i18n-country-lbl');
+            if (countryLbl) countryLbl.textContent = l.country;
             document.getElementById('i18n-w-all').textContent = l.w_all;
             document.getElementById('i18n-w-epee').textContent = l.w_epee;
             document.getElementById('i18n-w-foil').textContent = l.w_foil;
@@ -610,10 +614,39 @@
 
         function tr(key) { return LANG_DICT[currentLang][key] || key; }
 
+        // Comprehensive IOC Mapping with flags for UI display
+        const IOC_COUNTRY_MAP = {
+            "GER": { nameEn: "Germany", nameDe: "Deutschland", flag: "🇩🇪" },
+            "FRA": { nameEn: "France", nameDe: "Frankreich", flag: "🇫🇷" },
+            "HUN": { nameEn: "Hungary", nameDe: "Ungarn", flag: "🇭🇺" },
+            "ITA": { nameEn: "Italy", nameDe: "Italien", flag: "🇮🇹" },
+            "USA": { nameEn: "USA", nameDe: "USA", flag: "🇺🇸" },
+            "AUT": { nameEn: "Austria", nameDe: "Österreich", flag: "🇦🇹" },
+            "SUI": { nameEn: "Switzerland", nameDe: "Schweiz", flag: "🇨🇭" },
+            "GBR": { nameEn: "UK", nameDe: "Großbritannien", flag: "🇬🇧" },
+            "POL": { nameEn: "Poland", nameDe: "Polen", flag: "🇵🇱" },
+            "ESP": { nameEn: "Spain", nameDe: "Spanien", flag: "🇪🇸" },
+            "GRE": { nameEn: "Greece", nameDe: "Griechenland", flag: "🇬🇷" },
+            "TUR": { nameEn: "Turkey", nameDe: "Türkei", flag: "🇹🇷" },
+            "BRA": { nameEn: "Brazil", nameDe: "Brasilien", flag: "🇧🇷" },
+            "BEL": { nameEn: "Belgium", nameDe: "Belgien", flag: "🇧🇪" },
+            "NED": { nameEn: "Netherlands", nameDe: "Niederlande", flag: "🇳🇱" },
+            "SWE": { nameEn: "Sweden", nameDe: "Schweden", flag: "🇸🇪" },
+            "DEN": { nameEn: "Denmark", nameDe: "Dänemark", flag: "🇩🇰" },
+            "NOR": { nameEn: "Norway", nameDe: "Norwegen", flag: "🇳🇴" },
+            "CAN": { nameEn: "Canada", nameDe: "Kanada", flag: "🇨🇦" },
+            "JPN": { nameEn: "Japan", nameDe: "Japan", flag: "🇯🇵" },
+            "EGY": { nameEn: "Egypt", nameDe: "Ägypten", flag: "🇪🇬" },
+            "CZE": { nameEn: "Czechia", nameDe: "Tschechien", flag: "🇨🇿" }
+        };
+
         function tfCountry(code) {
-            // Using common IOC codes for quick display, fallback to code
-            const name = IOC_COUNTRY_MAP[code] || code;
-            return name;
+            const entry = IOC_COUNTRY_MAP[code];
+            if (entry) {
+                const label = currentLang === 'de' ? entry.nameDe : entry.nameEn;
+                return `${entry.flag} ${label}`;
+            }
+            return code || "Other";
         }
 
         function tfWeapon(w) {
@@ -637,15 +670,9 @@
         let allTournaments = [];
         let markers = [];
         let infoWindows = [];
+        let coordinateMap = new Map();
         let activeInfoWindow = null;
         let activeCardIndex = -1;
-        
-        // IOC Mapping for display (simplified for frontend)
-        const IOC_COUNTRY_MAP = {
-            "GER": "Germany", "USA": "USA", "FRA": "France", "ITA": "Italy", "ESP": "Spain",
-            "GBR": "UK", "AUT": "Austria", "SUI": "Switzerland", "NED": "Netherlands",
-            "BEL": "Belgium", "POL": "Poland", "HUN": "Hungary", "CAN": "Canada",
-        };
 
         // Filters
         let activeWeapons = new Set(["All"]);
@@ -715,6 +742,7 @@
             try {
                 const response = await fetch('tournaments.json');
                 allTournaments = await response.json();
+                updateCountryFilters(allTournaments);
                 renderAll();
             } catch (e) {
                 console.error("Error loading or rendering tournaments:", e);
@@ -809,6 +837,7 @@
             }
             markers = [];
             infoWindows = [];
+            coordinateMap.clear();
 
             // Group tournaments by exact coordinates
             const groups = {};
@@ -901,10 +930,14 @@
                     if (activeInfoWindow) activeInfoWindow.close();
                     infoWindow.open(map, marker);
                     activeInfoWindow = infoWindow;
+                    const curFiltered = getFilteredTournaments();
+                    const cardIdx = curFiltered.findIndex(t => t.lat === first.lat && t.lng === first.lng);
+                    if (cardIdx !== -1) highlightCard(cardIdx);
                 });
 
                 markers.push(marker);
                 infoWindows.push(infoWindow);
+                coordinateMap.set(key, { marker, infoWindow });
             });
 
             // Add markers to clusterer instead of direct to map
@@ -1007,9 +1040,11 @@
             map.setZoom(11);
 
             if (activeInfoWindow) activeInfoWindow.close();
-            if (markers[index] && infoWindows[index]) {
-                infoWindows[index].open(map, markers[index]);
-                activeInfoWindow = infoWindows[index];
+            const key = `${t.lat},${t.lng}`;
+            const entry = coordinateMap.get(key);
+            if (entry) {
+                entry.infoWindow.open(map, entry.marker);
+                activeInfoWindow = entry.infoWindow;
             }
 
             highlightCard(index);
@@ -1135,6 +1170,40 @@
         }
 
         // ─── FILTER HANDLERS ─────────────────────────────────────────
+        function updateCountryFilters(tournaments) {
+            const section = document.getElementById('countrySection');
+            const container = document.getElementById('countryFilters');
+            if (!section || !container) return;
+
+            const countrySet = new Set();
+            (tournaments || []).forEach(t => {
+                if (t.country && t.country.length === 3 && t.country === t.country.toUpperCase()) {
+                    countrySet.add(t.country);
+                }
+            });
+
+            if (countrySet.size <= 1) {
+                section.style.display = 'none';
+                return;
+            }
+
+            section.style.display = 'block';
+            const sorted = Array.from(countrySet).sort((a, b) => {
+                if (a === 'GER') return -1;
+                if (b === 'GER') return 1;
+                return a.localeCompare(b);
+            });
+
+            const allActive = activeCountries.has("All");
+            let html = `<button class="filter-chip ${allActive ? 'active' : ''}" data-country="All">All</button>`;
+            sorted.forEach(code => {
+                const isActive = activeCountries.has(code);
+                const label = tfCountry(code);
+                html += `<button class="filter-chip ${isActive ? 'active' : ''}" data-country="${escapeHtml(code)}">${escapeHtml(label)}</button>`;
+            });
+            container.innerHTML = html;
+        }
+
         function handleMultiSelect(e, containerId, activeSet) {
             const chip = e.target.closest('.filter-chip');
             if (!chip) return;
