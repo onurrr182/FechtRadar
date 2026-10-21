@@ -367,8 +367,21 @@ try:
     with open('sitemap.xml', 'w', encoding='utf-8') as f:
         f.write(sitemap_content)
     print(f"Updated sitemap.xml lastmod to {today_str}")
+
+    # Notify search engines via IndexNow
+    payload = {
+        "host": "fechtradar.de",
+        "key": "c74900a89d7145b597cfa906e69d7a21",
+        "keyLocation": "https://fechtradar.de/c74900a89d7145b597cfa906e69d7a21.txt",
+        "urlList": [
+            "https://fechtradar.de/",
+            "https://fechtradar.de/sitemap.xml"
+        ]
+    }
+    resp = requests.post("https://api.indexnow.org/indexnow", json=payload, timeout=10)
+    print(f"IndexNow notification sent, status: {resp.status_code}")
 except Exception as e:
-    print(f"Could not update sitemap.xml: {e}")
+    print(f"Could not update sitemap.xml or ping IndexNow: {e}")
 
 scraper.save_geocache()
 print(f"🎉 Done! Successfully saved {len(final_json)} valid upcoming global tournaments to tournaments.json")
