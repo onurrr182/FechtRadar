@@ -351,5 +351,24 @@ if len(final_json) < 50:
 with open('tournaments.json', 'w', encoding='utf-8') as f:
     json.dump(final_json, f, indent=4, ensure_ascii=False)
 
+# Update sitemap.xml lastmod date
+try:
+    today_str = datetime.now().strftime("%Y-%m-%d")
+    sitemap_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://fechtradar.de/</loc>
+    <lastmod>{today_str}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+"""
+    with open('sitemap.xml', 'w', encoding='utf-8') as f:
+        f.write(sitemap_content)
+    print(f"Updated sitemap.xml lastmod to {today_str}")
+except Exception as e:
+    print(f"Could not update sitemap.xml: {e}")
+
 scraper.save_geocache()
 print(f"🎉 Done! Successfully saved {len(final_json)} valid upcoming global tournaments to tournaments.json")

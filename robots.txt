@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fechtradar.de/sitemap.xml

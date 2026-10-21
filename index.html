@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FechtRadar — Fencing Tournament Map</title>
-    <meta name="description" content="Interactive map of fencing tournaments in Germany. Find epee, foil, and sabre competitions near you.">
+    <title>FechtRadar — Fechtturniere &amp; Turnierkalender Deutschland</title>
+    <meta name="description" content="Interaktive Landkarte und Turnierkalender für Fechtturniere in Deutschland. Finde aktuelle Wettkämpfe für Degen, Florett und Säbel mit Entfernungsrechner.">
+    <meta name="keywords" content="Fechten, Fechtturniere, Fechtkalender, Turnierkalender, Fechtturniere Deutschland, Degen, Florett, Säbel, Fechtsport, Ophardt Fechten, Fencing tournaments Germany, FechtRadar">
+    <meta name="author" content="FechtRadar">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://fechtradar.de/">
+    <meta name="google-site-verification" content="8kOut5hOA5z67LNRNPW4tqkp4_dEftcPH20gCQuglDA">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fechtradar.de/">
+    <meta property="og:title" content="FechtRadar — Fechtturniere &amp; Turnierkalender Deutschland">
+    <meta property="og:description" content="Interaktive Landkarte und Turnierkalender für Fechtturniere in Deutschland. Finde aktuelle Wettkämpfe für Degen, Florett und Säbel mit Entfernungsrechner.">
+    <meta property="og:image" content="https://fechtradar.de/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="FechtRadar">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://fechtradar.de/">
+    <meta name="twitter:title" content="FechtRadar — Fechtturniere &amp; Turnierkalender Deutschland">
+    <meta name="twitter:description" content="Interaktive Landkarte und Turnierkalender für Fechtturniere in Deutschland. Finde aktuelle Wettkämpfe für Degen, Florett und Säbel mit Entfernungsrechner.">
+    <meta name="twitter:image" content="https://fechtradar.de/og-image.png">
+
+    <!-- JSON-LD Structured Data for Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "FechtRadar",
+      "url": "https://fechtradar.de/",
+      "description": "Interaktive Landkarte und Suchplattform für Fechtturniere in Deutschland (Degen, Florett, Säbel).",
+      "applicationCategory": "SportsApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "inLanguage": ["de", "en"]
+    }
+    </script>
+
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#0f1117">
     <link rel="apple-touch-icon" href="./icon.svg">
@@ -714,6 +758,13 @@
         </div>
 
             <div class="tournament-list" id="tournamentList">
+                <noscript>
+                    <div style="padding: 16px; color: var(--text-secondary); font-size: 13px; line-height: 1.6;">
+                        <h2 style="font-size: 15px; color: #fff; margin-bottom: 8px;">FechtRadar — Fechtturniere &amp; Turnierkalender Deutschland</h2>
+                        <p>Finde alle offiziellen Fechtturniere in Deutschland für die Waffen Degen, Florett und Säbel. Filtere nach Altersklasse (U9 bis Senioren/Veteranen), Datum und berechne die Entfernung von deinem Heimatverein.</p>
+                        <p style="margin-top: 10px; font-size: 12px; color: var(--text-muted);">Hinweis: Bitte aktiviere JavaScript, um die interaktive Landkarte, Filter und Turnierdetails anzuzeigen.</p>
+                    </div>
+                </noscript>
                 <div class="loading">
                     <div class="dots">
                         <span>●</span><span>●</span><span>●</span>
