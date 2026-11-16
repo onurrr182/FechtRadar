@@ -127,14 +127,14 @@ def scrape_calendar_windows():
             city_raw = city_td.get("title", "").strip() or city_td.get_text(" ", strip=True)
             
             # Age
-            raw_age = tds[8].get_text(" ", strip=True) if len(tds) > 8 else ""
+            raw_age = tds[9].get_text(" ", strip=True) if len(tds) > 9 else ""
             
             # Weapons from icon columns
             exact_weapons = []
             if len(tds) >= 13:
-                if len(tds[10].find_all("i")) > 0: exact_weapons.append("Epee")
-                if len(tds[11].find_all("i")) > 0: exact_weapons.append("Foil")
-                if len(tds[12].find_all("i")) > 0: exact_weapons.append("Sabre")
+                if len(tds[10].find_all(["i", "img"])) > 0 or "fa-" in str(tds[10]): exact_weapons.append("Epee")
+                if len(tds[11].find_all(["i", "img"])) > 0 or "fa-" in str(tds[11]): exact_weapons.append("Foil")
+                if len(tds[12].find_all(["i", "img"])) > 0 or "fa-" in str(tds[12]): exact_weapons.append("Sabre")
                 
             # PDF / Invitation link
             pdf_link = f"{scraper.BASE_URL}/en/widget/event/{event_id}"
@@ -175,6 +175,54 @@ final_json = []
 processed_count = 0
 count_lock = threading.Lock()
 
+AGE_ORDER = ["U9", "U11", "U13", "U15", "U17", "U20", "Seniors", "Veterans"]
+WEAPON_ORDER = ["Epee", "Foil", "Sabre"]
+
+SKIP_ROW_WORDS = [
+    "referee", "kampfrichter", "fine", "penalty", "jury", "equipment", 
+    "ausrüstung", "liability", "haftung", "payment", "zahlung", 
+    "catering", "verpflegung", "organizer", "veranstalter", "license level",
+    "licence level", "entries ind."
+]
+
+def extract_competitions_from_soup(soup):
+    weapons = set()
+    ages = set()
+    if not soup:
+        return weapons, ages
+        
+    for tr in soup.find_all("tr"):
+        row_text = tr.get_text(" ", strip=True)
+        row_lower = row_text.lower()
+        if any(skip in row_lower for skip in SKIP_ROW_WORDS):
+            continue
+            
+        is_comp = any(k in row_lower for k in [
+            "epee", "épée", "degen", "foil", "florett", "sabre", "säbel", "saber",
+            "women", "men", "individual", "team", "view entries", "entries list", 
+            "medalists", "allowed"
+        ])
+        if not is_comp:
+            continue
+            
+        if any(w in row_lower for w in ["epee", "épée", "degen"]):
+            weapons.add("Epee")
+        if any(w in row_lower for w in ["foil", "florett"]):
+            weapons.add("Foil")
+        if any(w in row_lower for w in ["sabre", "säbel", "saber"]):
+            weapons.add("Sabre")
+            
+        for m in re.findall(r"\bU\s?(\d+)\b", row_text, re.IGNORECASE):
+            num = int(m)
+            if num in [9, 11, 13, 15, 17, 20]:
+                ages.add(f"U{num}")
+        if any(v in row_lower for v in ["veteran", "ak40", "ak50", "ak60", "ak70", "vet"]):
+            ages.add("Veterans")
+        if any(s in row_lower for s in ["senior", "aktive", "senioren", "masters"]):
+            ages.add("Seniors")
+            
+    return weapons, ages
+
 def process_entry(entry):
     global processed_count
     try:
@@ -213,12 +261,20 @@ def process_entry(entry):
         if not found_city or len(found_city) < 2 or found_city.lower() in ["tbd", "n/a"]:
             return None
 
-        # Fetch invitation for precise venue / street address if German event
+        # Fetch invitation or widget page for precise venue and competition categories
         precise_addr = None
+        inv_soup = None
+        comp_weapons = set()
+        comp_ages = set()
+
         if country_code == "GER":
             inv_url = f"{scraper.BASE_URL}/en/invitation/view/{event_id}/html"
             inv_soup = my_fetch(inv_url)
             if inv_soup:
+                cw, ca = extract_competitions_from_soup(inv_soup)
+                comp_weapons.update(cw)
+                comp_ages.update(ca)
+
                 inv_text = inv_soup.get_text("\n", strip=True)
                 zip_match = re.search(r'(\d{5})\s+([A-ZÄÖÜa-zßäöü][A-ZÄÖÜa-zßäöü\-\.]+(?:\s+[A-ZÄÖÜa-zßäöü\-\.]+)*)', inv_text)
                 if zip_match:
@@ -252,6 +308,15 @@ def process_entry(entry):
                             if street: addr_full = f"{street}, {addr_full}"
                             if venue and venue != street: addr_full = f"{venue}, {addr_full}"
                             precise_addr = {"venue": venue, "street": street, "zip": z_code, "city": p_city, "full": addr_full}
+
+        # If no competition categories found yet, fetch widget page (works worldwide)
+        if not comp_ages or not comp_weapons:
+            w_url = f"{scraper.BASE_URL}/en/widget/event/{event_id}"
+            w_soup = my_fetch(w_url)
+            if w_soup:
+                cw, ca = extract_competitions_from_soup(w_soup)
+                comp_weapons.update(cw)
+                comp_ages.update(ca)
 
         # Format display address and geocoding query
         v_name = None
@@ -291,12 +356,40 @@ def process_entry(entry):
             lat, lng = (51.1657, 10.4515) if country_code == "GER" else (48.8566, 2.3522)
 
         # Standardize weapons
-        weapon = entry.get('exact_weapon', [])
+        all_weapons = set(entry.get('exact_weapon', [])) | comp_weapons
+        if not all_weapons:
+            all_weapons = set(scraper.detect_weapon(entry['name']))
+        weapon = [w for w in WEAPON_ORDER if w in all_weapons]
+        for w in all_weapons:
+            if w not in weapon:
+                weapon.append(w)
         if not weapon:
-            weapon = scraper.detect_weapon(entry['name'])
+            weapon = ["Mixed"]
 
         # Standardize age groups
-        age = scraper.detect_age_group(entry['name'] + " " + entry.get('raw_age', ''))
+        all_ages = set(comp_ages)
+        cal_age_str = entry.get('raw_age', '')
+        if cal_age_str:
+            for m in re.findall(r"\bU\s?(\d+)\b", cal_age_str, re.IGNORECASE):
+                num = int(m)
+                if num in [9, 11, 13, 15, 17, 20]:
+                    all_ages.add(f"U{num}")
+            cal_lower = cal_age_str.lower()
+            if any(v in cal_lower for v in ["veteran", "ak40", "ak50", "ak60", "ak70", "vet"]):
+                all_ages.add("Veterans")
+            if any(s in cal_lower for s in ["senior", "aktive", "senioren", "masters"]):
+                all_ages.add("Seniors")
+
+        if not all_ages:
+            title_ages = scraper.detect_age_group(entry['name'] + " " + cal_age_str)
+            all_ages.update(title_ages)
+
+        age = [a for a in AGE_ORDER if a in all_ages]
+        for a in all_ages:
+            if a not in age:
+                age.append(a)
+        if not age:
+            age = ["Seniors"]
 
         return {
             "name": entry['name'],
@@ -323,38 +416,39 @@ def process_entry(entry):
                 print(f"[{processed_count}/{len(event_entries)}] processed")
 
 # ─── MAIN EXECUTION ──────────────────────────────────────────────────────────
-event_entries = scrape_calendar_windows()
+if __name__ == "__main__":
+    event_entries = scrape_calendar_windows()
 
-print(f"Starting worker threads (max 30 workers) for {len(event_entries)} events...")
-with concurrent.futures.ThreadPoolExecutor(max_workers=30) as executor:
-    futures = [executor.submit(process_entry, entry) for entry in event_entries]
-    for future in concurrent.futures.as_completed(futures):
-        res = future.result()
-        if res:
-            final_json.append(res)
+    print(f"Starting worker threads (max 30 workers) for {len(event_entries)} events...")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=30) as executor:
+        futures = [executor.submit(process_entry, entry) for entry in event_entries]
+        for future in concurrent.futures.as_completed(futures):
+            res = future.result()
+            if res:
+                final_json.append(res)
 
-print("Filtering events and sorting chronologically...")
-final_json = [f for f in final_json if f.get('date')]
-final_json.sort(key=lambda x: x.get('sort_key', (9999, 12, 31)))
+    print("Filtering events and sorting chronologically...")
+    final_json = [f for f in final_json if f.get('date')]
+    final_json.sort(key=lambda x: x.get('sort_key', (9999, 12, 31)))
 
-# Remove temporary sort key before saving JSON
-for f in final_json:
-    if 'sort_key' in f:
-        del f['sort_key']
+    # Remove temporary sort key before saving JSON
+    for f in final_json:
+        if 'sort_key' in f:
+            del f['sort_key']
 
-# Safety check: Protect tournaments.json from being zeroed out
-if len(final_json) < 50:
-    print(f"🛑 ERROR: Only found {len(final_json)} events. This is too low (expected 200+).")
-    print("🛑 To protect tournaments.json from being zeroed out, saving has been aborted.")
-    sys.exit(1)
+    # Safety check: Protect tournaments.json from being zeroed out
+    if len(final_json) < 50:
+        print(f"🛑 ERROR: Only found {len(final_json)} events. This is too low (expected 200+).")
+        print("🛑 To protect tournaments.json from being zeroed out, saving has been aborted.")
+        sys.exit(1)
 
-with open('tournaments.json', 'w', encoding='utf-8') as f:
-    json.dump(final_json, f, indent=4, ensure_ascii=False)
+    with open('tournaments.json', 'w', encoding='utf-8') as f:
+        json.dump(final_json, f, indent=4, ensure_ascii=False)
 
-# Update sitemap.xml lastmod date
-try:
-    today_str = datetime.now().strftime("%Y-%m-%d")
-    sitemap_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+    # Update sitemap.xml lastmod date
+    try:
+        today_str = datetime.now().strftime("%Y-%m-%d")
+        sitemap_content = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fechtradar.de/</loc>
@@ -364,24 +458,25 @@ try:
   </url>
 </urlset>
 """
-    with open('sitemap.xml', 'w', encoding='utf-8') as f:
-        f.write(sitemap_content)
-    print(f"Updated sitemap.xml lastmod to {today_str}")
+        with open('sitemap.xml', 'w', encoding='utf-8') as f:
+            f.write(sitemap_content)
+        print(f"Updated sitemap.xml lastmod to {today_str}")
 
-    # Notify search engines via IndexNow
-    payload = {
-        "host": "fechtradar.de",
-        "key": "c74900a89d7145b597cfa906e69d7a21",
-        "keyLocation": "https://fechtradar.de/c74900a89d7145b597cfa906e69d7a21.txt",
-        "urlList": [
-            "https://fechtradar.de/",
-            "https://fechtradar.de/sitemap.xml"
-        ]
-    }
-    resp = requests.post("https://api.indexnow.org/indexnow", json=payload, timeout=10)
-    print(f"IndexNow notification sent, status: {resp.status_code}")
-except Exception as e:
-    print(f"Could not update sitemap.xml or ping IndexNow: {e}")
+        # Notify search engines via IndexNow
+        payload = {
+            "host": "fechtradar.de",
+            "key": "c74900a89d7145b597cfa906e69d7a21",
+            "keyLocation": "https://fechtradar.de/c74900a89d7145b597cfa906e69d7a21.txt",
+            "urlList": [
+                "https://fechtradar.de/",
+                "https://fechtradar.de/sitemap.xml"
+            ]
+        }
+        resp = requests.post("https://api.indexnow.org/indexnow", json=payload, timeout=10)
+        print(f"IndexNow notification sent, status: {resp.status_code}")
+    except Exception as e:
+        print(f"Could not update sitemap.xml or ping IndexNow: {e}")
 
-scraper.save_geocache()
-print(f"🎉 Done! Successfully saved {len(final_json)} valid upcoming global tournaments to tournaments.json")
+    scraper.save_geocache()
+    print(f"🎉 Done! Successfully saved {len(final_json)} valid upcoming global tournaments to tournaments.json")
+

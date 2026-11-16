@@ -217,6 +217,8 @@ def detect_weapon(text):
     return weapons if weapons else ["Mixed"]
 
 
+AGE_ORDER = ["U9", "U11", "U13", "U15", "U17", "U20", "Seniors", "Veterans"]
+
 def detect_age_group(text):
     text_lower = text.lower()
     groups = []
@@ -227,12 +229,14 @@ def detect_age_group(text):
             tag = f"U{age}"
             if tag not in groups: groups.append(tag)
     
-    if any(w in text_lower for w in ["veteran", "ak40", "ak50", "ak60", "ak70"]) and "Veterans" not in groups: groups.append("Veterans")
-    if any(w in text_lower for w in ["senior", "masters", "aktive"]) and "Seniors" not in groups: groups.append("Seniors")
+    if any(w in text_lower for w in ["veteran", "ak40", "ak50", "ak60", "ak70", "vet"]) and "Veterans" not in groups: groups.append("Veterans")
+    if any(w in text_lower for w in ["senior", "masters", "aktive", "senioren"]) and "Seniors" not in groups: groups.append("Seniors")
     if any(w in text_lower for w in ["kids", "kinder", "youngster"]) and not any(g.startswith("U") for g in groups) and "U11" not in groups: groups.append("U11")
     if any(w in text_lower for w in ["jugend", "junior", "youth", "cadets"]) and not any(g.startswith("U") for g in groups) and "U17" not in groups: groups.append("U17")
     
-    return groups if groups else ["Seniors"]
+    if not groups:
+        return ["Seniors"]
+    return sorted(groups, key=lambda a: AGE_ORDER.index(a) if a in AGE_ORDER else 99)
 
 
 def clean_city_name(raw_city):

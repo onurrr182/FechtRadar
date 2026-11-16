@@ -891,6 +891,10 @@
         }
 
         function tfWeapon(w) {
+            if (Array.isArray(w)) {
+                if (w.length === 0) return currentLang === 'en' ? 'Mixed' : 'Gemischt';
+                return w.map(tfWeapon).join(', ');
+            }
             if (currentLang === 'en') return w || 'Mixed';
             if (w === 'Epee') return 'Degen';
             if (w === 'Foil') return 'Florett';
@@ -899,6 +903,10 @@
         }
 
         function tfAge(a) {
+            if (Array.isArray(a)) {
+                if (a.length === 0) return currentLang === 'en' ? 'Seniors' : 'Aktive';
+                return a.map(tfAge).join(', ');
+            }
             if (currentLang === 'en') return a || 'Seniors';
             if (a === 'Seniors') return 'Aktive';
             if (a === 'Veterans') return 'Veteranen';
