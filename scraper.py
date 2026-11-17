@@ -239,6 +239,19 @@ def detect_age_group(text):
     return sorted(groups, key=lambda a: AGE_ORDER.index(a) if a in AGE_ORDER else 99)
 
 
+GENDER_ORDER = ["Men", "Women"]
+
+def detect_gender(text):
+    text_lower = text.lower()
+    genders = []
+    if any(w in text_lower for w in ["damen", "women", "weiblich", "female", "ladies", "girls", "dame"]):
+        genders.append("Women")
+    if re.search(r'\b(herren|men|männlich|male|boys|herr)\b', text_lower):
+        genders.append("Men")
+    if not genders:
+        return ["Men", "Women"]
+    return [g for g in GENDER_ORDER if g in genders]
+
 def clean_city_name(raw_city):
     if not raw_city: return None
     city = raw_city.strip()

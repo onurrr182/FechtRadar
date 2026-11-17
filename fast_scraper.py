@@ -129,12 +129,27 @@ def scrape_calendar_windows():
             # Age
             raw_age = tds[9].get_text(" ", strip=True) if len(tds) > 9 else ""
             
-            # Weapons from icon columns
+            # Weapons and Genders from icon columns
             exact_weapons = []
+            exact_genders = set()
             if len(tds) >= 13:
-                if len(tds[10].find_all(["i", "img"])) > 0 or "fa-" in str(tds[10]): exact_weapons.append("Epee")
-                if len(tds[11].find_all(["i", "img"])) > 0 or "fa-" in str(tds[11]): exact_weapons.append("Foil")
-                if len(tds[12].find_all(["i", "img"])) > 0 or "fa-" in str(tds[12]): exact_weapons.append("Sabre")
+                cols = [(10, "Epee"), (11, "Foil"), (12, "Sabre")]
+                for col_idx, w_name in cols:
+                    c_icons = tds[col_idx].find_all(["i", "img"])
+                    if len(c_icons) > 0 or "fa-" in str(tds[col_idx]):
+                        exact_weapons.append(w_name)
+                    for el in c_icons:
+                        classes = " ".join(el.get("class", []))
+                        title_attr = (el.get("title") or "").lower()
+                        if "fa-mars" in classes or "male" in title_attr:
+                            if "fa-venus-mars" not in classes:
+                                exact_genders.add("Men")
+                        if "fa-venus" in classes or "female" in title_attr:
+                            if "fa-venus-mars" not in classes:
+                                exact_genders.add("Women")
+                        if "fa-venus-mars" in classes or "mixed" in title_attr or "open" in title_attr:
+                            exact_genders.add("Men")
+                            exact_genders.add("Women")
                 
             # PDF / Invitation link
             pdf_link = f"{scraper.BASE_URL}/en/widget/event/{event_id}"
@@ -156,6 +171,7 @@ def scrape_calendar_windows():
                 "sort_key": sort_key,
                 "raw_age": raw_age,
                 "exact_weapon": exact_weapons,
+                "exact_gender": list(exact_genders),
                 "pdf_link": pdf_link
             })
             
@@ -188,8 +204,9 @@ SKIP_ROW_WORDS = [
 def extract_competitions_from_soup(soup):
     weapons = set()
     ages = set()
+    genders = set()
     if not soup:
-        return weapons, ages
+        return weapons, ages, genders
         
     for tr in soup.find_all("tr"):
         row_text = tr.get_text(" ", strip=True)
@@ -199,7 +216,7 @@ def extract_competitions_from_soup(soup):
             
         is_comp = any(k in row_lower for k in [
             "epee", "épée", "degen", "foil", "florett", "sabre", "säbel", "saber",
-            "women", "men", "individual", "team", "view entries", "entries list", 
+            "women", "men", "damen", "herren", "individual", "team", "view entries", "entries list", 
             "medalists", "allowed"
         ])
         if not is_comp:
@@ -220,8 +237,16 @@ def extract_competitions_from_soup(soup):
             ages.add("Veterans")
         if any(s in row_lower for s in ["senior", "aktive", "senioren", "masters"]):
             ages.add("Seniors")
+
+        if any(w in row_lower for w in ["women", "damen", "weiblich", "female", "dame"]):
+            genders.add("Women")
+        if re.search(r'\b(men|herren|männlich|male|herr)\b', row_lower):
+            genders.add("Men")
+        if any(w in row_lower for w in ["mixed", "gemischt", "open"]):
+            genders.add("Men")
+            genders.add("Women")
             
-    return weapons, ages
+    return weapons, ages, genders
 
 def process_entry(entry):
     global processed_count
@@ -266,14 +291,16 @@ def process_entry(entry):
         inv_soup = None
         comp_weapons = set()
         comp_ages = set()
+        comp_genders = set()
 
         if country_code == "GER":
             inv_url = f"{scraper.BASE_URL}/en/invitation/view/{event_id}/html"
             inv_soup = my_fetch(inv_url)
             if inv_soup:
-                cw, ca = extract_competitions_from_soup(inv_soup)
+                cw, ca, cg = extract_competitions_from_soup(inv_soup)
                 comp_weapons.update(cw)
                 comp_ages.update(ca)
+                comp_genders.update(cg)
 
                 inv_text = inv_soup.get_text("\n", strip=True)
                 zip_match = re.search(r'(\d{5})\s+([A-ZÄÖÜa-zßäöü][A-ZÄÖÜa-zßäöü\-\.]+(?:\s+[A-ZÄÖÜa-zßäöü\-\.]+)*)', inv_text)
@@ -314,9 +341,10 @@ def process_entry(entry):
             w_url = f"{scraper.BASE_URL}/en/widget/event/{event_id}"
             w_soup = my_fetch(w_url)
             if w_soup:
-                cw, ca = extract_competitions_from_soup(w_soup)
+                cw, ca, cg = extract_competitions_from_soup(w_soup)
                 comp_weapons.update(cw)
                 comp_ages.update(ca)
+                comp_genders.update(cg)
 
         # Format display address and geocoding query
         v_name = None
@@ -366,6 +394,21 @@ def process_entry(entry):
         if not weapon:
             weapon = ["Mixed"]
 
+        # Standardize gender
+        GENDER_ORDER = ["Men", "Women"]
+        all_genders = set(entry.get('exact_gender', [])) | comp_genders
+        if not all_genders:
+            name_lower = entry['name'].lower()
+            if any(w in name_lower for w in ["damen", "women", "weiblich", "female"]):
+                all_genders.add("Women")
+            if re.search(r'\b(herren|men|männlich|male)\b', name_lower):
+                all_genders.add("Men")
+
+        if not all_genders:
+            all_genders = {"Men", "Women"}
+
+        gender = [g for g in GENDER_ORDER if g in all_genders]
+
         # Standardize age groups
         all_ages = set(comp_ages)
         cal_age_str = entry.get('raw_age', '')
@@ -402,6 +445,7 @@ def process_entry(entry):
             "year": entry.get("year", ""),
             "sort_key": entry.get("sort_key", (9999, 12, 31)),
             "weapon": weapon,
+            "gender": gender,
             "ageGroup": age,
             "exactAddress": disp_addr,
             "pdfLink": entry.get("pdf_link", f"{scraper.BASE_URL}/en/widget/event/{event_id}")

@@ -192,6 +192,10 @@
         .filter-chip[data-age="All"].active { background: var(--accent-gradient); }
         .filter-chip[data-age].active:not([data-age="All"]) { background: #4caf50; }
 
+        .filter-chip[data-gender="All"].active { background: var(--accent-gradient); }
+        .filter-chip[data-gender="Men"].active { background: #3b82f6; }
+        .filter-chip[data-gender="Women"].active { background: #ec4899; }
+
         /* ─── DISTANCE FILTER ─────────────────────────────────────── */
         .distance-section {
             margin-top: 4px;
@@ -373,6 +377,54 @@
         .card-badge.Mixed { background: rgba(171,71,188,0.15); color: var(--accent-mixed); }
 
         .card-badge.age { background: rgba(76,175,80,0.12); color: #81c784; }
+        .card-badge.gender { background: rgba(59,130,246,0.15); color: #93c5fd; }
+        .card-badge.gender.Women { background: rgba(236,72,153,0.15); color: #f472b6; }
+
+        /* ─── SIDEBAR FOOTER & CONTACT ────────────────────────────── */
+        .sidebar-footer {
+            padding: 10px 18px;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 11px;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .sidebar-footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .sidebar-footer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .header-contact-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            transition: var(--transition);
+            padding: 2px 4px;
+            border-radius: 4px;
+            opacity: 0.85;
+        }
+
+        .header-contact-link:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
 
         /* ─── MAP ─────────────────────────────────────────────────── */
         .map-container { flex: 1; position: relative; }
@@ -666,6 +718,7 @@
                     </div>
                 </div>
                 <div class="lang-toggle" style="display:flex; gap: 6px; align-items: center;">
+                    <a href="mailto:keles182@protonmail.com" class="header-contact-link" title="Contact: keles182@protonmail.com" aria-label="Contact">✉️</a>
                     <button id="btn-de" onclick="setLang('de')" style="background:none; border:none; cursor:pointer; font-size:12px; font-weight:600; color:var(--text-muted);">DE</button>
                     <span style="color:var(--text-muted); font-size:10px;">|</span>
                     <button id="btn-en" onclick="setLang('en')" style="background:none; border:none; cursor:pointer; font-size:12px; font-weight:600; color:var(--text-muted);">EN</button>
@@ -694,6 +747,16 @@
                     <button class="filter-chip" data-weapon="Epee" id="i18n-w-epee">⚡ Epee</button>
                     <button class="filter-chip" data-weapon="Foil" id="i18n-w-foil">🟡 Foil</button>
                     <button class="filter-chip" data-weapon="Sabre" id="i18n-w-sabre">🔴 Sabre</button>
+                </div>
+            </div>
+
+            <!-- Category Filter (Men / Women) -->
+            <div class="filter-section">
+                <div class="filter-label" id="i18n-gender-lbl">Category</div>
+                <div class="filters" id="genderFilters">
+                    <button class="filter-chip active" data-gender="All" id="i18n-g-all">All</button>
+                    <button class="filter-chip" data-gender="Men" id="i18n-g-men">🤺 Men</button>
+                    <button class="filter-chip" data-gender="Women" id="i18n-g-women">🤺 Women</button>
                 </div>
             </div>
 
@@ -772,6 +835,13 @@
                     <p style="margin-top: 12px;" id="i18n-loading">Loading tournaments...</p>
                 </div>
             </div>
+
+            <!-- Sidebar Footer with Contact Link -->
+            <div class="sidebar-footer">
+                <a href="mailto:keles182@protonmail.com" class="contact-link" id="i18n-contact">
+                    ✉️ Kontakt: keles182@protonmail.com
+                </a>
+            </div>
         </div>
 
         <!-- Sidebar Backdrop for Mobile -->
@@ -791,8 +861,9 @@
         const LANG_DICT = {
             "de": {
                 subtitle: "Turniere finden", search: "Turniere, Städte, Veranstaltungsorte...",
-                weapon: "Waffe", age: "Altersgruppe", time: "Zeitraum",
+                weapon: "Waffe", gender: "Kategorie", age: "Altersgruppe", time: "Zeitraum",
                 w_all: "Alle", w_epee: "⚡ Degen", w_foil: "🟡 Florett", w_sabre: "🔴 Säbel",
+                g_all: "Alle", g_men: "🤺 Herren", g_women: "🤺 Damen",
                 a_all: "Alle", a_sen: "🤺 Aktive", a_vet: "🏅 Veteranen",
                 country: "Land / Nation",
                 anytime: "Jederzeit", near_me: "📍 In meiner Nähe",
@@ -800,20 +871,23 @@
                 load: "Turniere werden geladen...",
                 empty_msg: "Keine Turniere entsprechen Ihren Filtern.<br>Versuchen Sie, Ihre Suche anzupassen.",
                 mon: "Monat", mons: "Monate", from_u: "von Ihnen", view_det: "Details ansehen",
-                show_past: "Vergangene Turniere anzeigen"
+                show_past: "Vergangene Turniere anzeigen",
+                contact: "✉️ Kontakt: keles182@protonmail.com"
             },
             "en": {
                 subtitle: "Tournament Finder", search: "Search tournaments, cities, venues...",
-                weapon: "Weapon", age: "Age Group", time: "Timeframe",
+                weapon: "Weapon", gender: "Category", age: "Age Group", time: "Timeframe",
                 country: "Country / Nation",
                 w_all: "All", w_epee: "⚡ Epee", w_foil: "🟡 Foil", w_sabre: "🔴 Sabre", w_mixed: "🟣 Mixed",
+                g_all: "All", g_men: "🤺 Men", g_women: "🤺 Women",
                 a_all: "All", a_sen: "🤺 Seniors", a_vet: "🏅 Veterans",
                 anytime: "Anytime", near_me: "📍 Near Me",
                 stat_tot: "total", stat_cit: "cities", stat_sho: "showing",
                 load: "Loading tournaments...",
                 empty_msg: "No tournaments match your filters.<br>Try adjusting your search or filters.",
                 mon: "month", mons: "months", from_u: "from you", view_det: "View Details",
-                show_past: "Show past events"
+                show_past: "Show past events",
+                contact: "✉️ Contact: keles182@protonmail.com"
             }
         };
 
@@ -829,6 +903,10 @@
             document.getElementById('i18n-subtitle').textContent = l.subtitle;
             document.getElementById('searchInput').placeholder = l.search;
             document.getElementById('i18n-weapon-lbl').textContent = l.weapon;
+            if (document.getElementById('i18n-gender-lbl')) document.getElementById('i18n-gender-lbl').textContent = l.gender;
+            if (document.getElementById('i18n-g-all')) document.getElementById('i18n-g-all').textContent = l.g_all;
+            if (document.getElementById('i18n-g-men')) document.getElementById('i18n-g-men').textContent = l.g_men;
+            if (document.getElementById('i18n-g-women')) document.getElementById('i18n-g-women').textContent = l.g_women;
             document.getElementById('i18n-age-lbl').textContent = l.age;
             const countryLbl = document.getElementById('i18n-country-lbl');
             if (countryLbl) countryLbl.textContent = l.country;
@@ -847,6 +925,7 @@
             document.getElementById('i18n-stat-cities').textContent = l.stat_cit;
             document.getElementById('i18n-stat-showing').textContent = l.stat_sho;
             document.getElementById('i18n-show-past').textContent = l.show_past;
+            if (document.getElementById('i18n-contact')) document.getElementById('i18n-contact').textContent = l.contact;
             if(document.getElementById('i18n-loading')) document.getElementById('i18n-loading').textContent = l.load;
             
             document.getElementById('btn-de').style.color = currentLang === 'de' ? '#fff' : 'var(--text-muted)';
@@ -913,6 +992,16 @@
             return a;
         }
 
+        function tfGender(g) {
+            if (Array.isArray(g)) {
+                if (g.length === 2 || g.length === 0) return currentLang === 'de' ? 'Herren & Damen' : 'Men & Women';
+                return g.map(tfGender).join(', ');
+            }
+            if (g === 'Men') return currentLang === 'de' ? 'Herren' : 'Men';
+            if (g === 'Women') return currentLang === 'de' ? 'Damen' : 'Women';
+            return g || (currentLang === 'de' ? 'Herren & Damen' : 'Men & Women');
+        }
+
         // ─── STATE ───────────────────────────────────────────────────
         let map;
         let clusterGroup = null;
@@ -923,6 +1012,7 @@
 
         // Filters
         let activeWeapons = new Set(["All"]);
+        let activeGenders = new Set(["All"]);
         let activeAges = new Set(["All"]);
         let activeCountries = new Set(["All"]);
         let currentSearch = "";
@@ -1026,6 +1116,12 @@
                 if (!activeWeapons.has("All")) {
                     const ws = Array.isArray(t.weapon) ? t.weapon : [t.weapon || 'Epee'];
                     if (!ws.some(w => activeWeapons.has(w))) return false;
+                }
+
+                // Category / Gender filter
+                if (!activeGenders.has("All")) {
+                    const genders = Array.isArray(t.gender) ? t.gender : (t.gender ? [t.gender] : ["Men", "Women"]);
+                    if (!genders.some(g => activeGenders.has(g))) return false;
                 }
 
                 // Age group filter (ageGroup is an array)
@@ -1137,6 +1233,7 @@
                 group.forEach((t, i) => {
                     const weaponLabel = tfWeapon(t.weapon);
                     const ageLabel = Array.isArray(t.ageGroup) ? t.ageGroup.map(tfAge).join(', ') : tfAge(t.ageGroup);
+                    const genderLabel = tfGender(t.gender);
                     const distHtml = (locationActive && userLocation && t._dist != null)
                         ? `<div class="popup-detail" style="font-size:11px; opacity:0.8;">📏 ${Math.round(t._dist)} km ${tr('from_u')}</div>` : '';
                     
@@ -1144,7 +1241,7 @@
                         <div class="popup-item" style="${i > 0 ? 'margin-top:12px; border-top:1px solid #eee; padding-top:12px;' : ''}">
                             <h3 style="font-size:14px; margin:0 0 4px 0; color:#333; font-weight:700;">${escapeHtml(t.name)}</h3>
                             <div class="popup-detail" style="color:#555;">📅 ${escapeHtml(t.date)}${t.year ? ', ' + escapeHtml(t.year) : ''}</div>
-                            <div class="popup-detail" style="color:#555;">🤺 ${escapeHtml(weaponLabel)} · ${escapeHtml(ageLabel)}</div>
+                            <div class="popup-detail" style="color:#555;">🤺 ${escapeHtml(weaponLabel)} · ${escapeHtml(ageLabel)} · ${escapeHtml(genderLabel)}</div>
                             ${distHtml}
                             <a class="popup-link" href="${escapeHtml(t.pdfLink)}" target="_blank" rel="noopener" style="margin-top:6px; padding:6px 12px; font-size:11px;">
                                 ${tr('view_det')} →
@@ -1203,6 +1300,10 @@
                     ? `<span class="card-distance">📏 ${Math.round(t._dist)} km</span>` : '';
                 const weaponsList = Array.isArray(t.weapon) ? t.weapon : [t.weapon || 'Epee'];
                 const domColor = weaponsList.length > 1 ? 'Mixed' : weaponsList[0];
+                const genders = Array.isArray(t.gender) ? t.gender : (t.gender ? [t.gender] : ['Men', 'Women']);
+                const genderBadge = (genders.length === 1)
+                    ? `<span class="card-badge gender ${genders[0]}">🤺 ${escapeHtml(tfGender(genders[0]))}</span>`
+                    : '';
                 return `
                 <div class="tournament-card" id="card-${i}" onclick="focusTournament(${i})">
                     <div class="weapon-dot ${domColor}"></div>
@@ -1218,6 +1319,7 @@
                             ${(Array.isArray(t.ageGroup) ? t.ageGroup : [t.ageGroup || 'Seniors']).map(a => 
                                 `<span class="card-badge age">${escapeHtml(tfAge(a))}</span>`
                             ).join('')}
+                            ${genderBadge}
                         </div>
                     </div>
                 </div>`;
@@ -1432,7 +1534,7 @@
         function handleMultiSelect(e, containerId, activeSet) {
             const chip = e.target.closest('.filter-chip');
             if (!chip) return;
-            const val = chip.dataset.weapon || chip.dataset.age;
+            const val = chip.dataset.weapon || chip.dataset.gender || chip.dataset.age;
             
             if (val === "All") {
                 activeSet.clear();
@@ -1445,13 +1547,16 @@
             }
 
             document.querySelectorAll(`#${containerId} .filter-chip`).forEach(c => {
-                const cv = c.dataset.weapon || c.dataset.age;
+                const cv = c.dataset.weapon || c.dataset.gender || c.dataset.age;
                 c.classList.toggle('active', activeSet.has(cv));
             });
             renderAll();
         }
 
         document.getElementById('weaponFilters').addEventListener('click', (e) => handleMultiSelect(e, 'weaponFilters', activeWeapons));
+        if (document.getElementById('genderFilters')) {
+            document.getElementById('genderFilters').addEventListener('click', (e) => handleMultiSelect(e, 'genderFilters', activeGenders));
+        }
         document.getElementById('ageFilters').addEventListener('click', (e) => handleMultiSelect(e, 'ageFilters', activeAges));
         document.getElementById('countryFilters').addEventListener('click', (e) => {
             const chip = e.target.closest('.filter-chip');
