@@ -1,5 +1,79 @@
 [
     {
+        "name": "Q-Turniere Degen U11, U13, U15 & U17 2026 Herbstturnier",
+        "city": "Immendingen",
+        "country": "GER",
+        "venue": "Sporthalle Immendingen",
+        "lat": 47.93916,
+        "lng": 8.73442,
+        "date": "Nov 14",
+        "year": "2026",
+        "weapon": [
+            "Epee",
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U11",
+            "U13",
+            "U15",
+            "U17",
+            "U20",
+            "Seniors"
+        ],
+        "exactAddress": "Bachzimmererstr. 25, 78194 Immendingen Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35431"
+    },
+    {
+        "name": "EFC / DFB U17 Qualifikationsturnier 2026 Cadet Circuit",
+        "city": "Dresden",
+        "country": "GER",
+        "venue": "JOYNEXT Arena",
+        "lat": 51.06213,
+        "lng": 13.72221,
+        "date": "Nov 14",
+        "year": "2026",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U17"
+        ],
+        "exactAddress": "Magdeburger Str. 10, 01067 Dresden",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34830"
+    },
+    {
+        "name": "Qualifikationsturnier für Bremen 62 Youth Tournament 2026",
+        "city": "Bremen",
+        "country": "GER",
+        "venue": "Bremen 1860 - Halle 1-3",
+        "lat": 53.07582,
+        "lng": 8.80716,
+        "date": "Nov 14",
+        "year": "2026",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U11",
+            "U13",
+            "U15"
+        ],
+        "exactAddress": "Baumschulenweg 6-10, 28213 Bremen Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34290"
+    },
+    {
         "name": "2 Isar Cup",
         "city": "Munich",
         "country": "GER",
@@ -47,28 +121,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35112"
     },
     {
-        "name": "EFC / DFB U17 Qualifikationsturnier 2026 Cadet Circuit",
-        "city": "Dresden",
-        "country": "GER",
-        "venue": "JOYNEXT Arena",
-        "lat": 51.06213,
-        "lng": 13.72221,
-        "date": "Nov 14",
-        "year": "2026",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U17"
-        ],
-        "exactAddress": "Magdeburger Str. 10, 01067 Dresden",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34830"
-    },
-    {
         "name": "Championships of Berlin",
         "city": "Berlin",
         "country": "GER",
@@ -92,30 +144,6 @@
         ],
         "exactAddress": "Weißenseer Weg 53, 13053 Berlin Timezone of venue Europe",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35387"
-    },
-    {
-        "name": "Qualifikationsturnier für Bremen 62 Youth Tournament 2026",
-        "city": "Bremen",
-        "country": "GER",
-        "venue": "Bremen 1860 - Halle 1-3",
-        "lat": 53.07582,
-        "lng": 8.80716,
-        "date": "Nov 14",
-        "year": "2026",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U11",
-            "U13",
-            "U15"
-        ],
-        "exactAddress": "Baumschulenweg 6-10, 28213 Bremen Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34290"
     },
     {
         "name": "24 Championships of Marburg 2026",
@@ -144,34 +172,6 @@
         ],
         "exactAddress": "Leopold-Lucas-Str. 20, 35037 Marburg Timezone of venue Europe",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34530"
-    },
-    {
-        "name": "Q-Turniere Degen U11, U13, U15 & U17 2026 Herbstturnier",
-        "city": "Immendingen",
-        "country": "GER",
-        "venue": "Sporthalle Immendingen",
-        "lat": 47.93916,
-        "lng": 8.73442,
-        "date": "Nov 14",
-        "year": "2026",
-        "weapon": [
-            "Epee",
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U11",
-            "U13",
-            "U15",
-            "U17",
-            "U20",
-            "Seniors"
-        ],
-        "exactAddress": "Bachzimmererstr. 25, 78194 Immendingen Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35431"
     },
     {
         "name": "Open Championships Süd-West",
@@ -248,106 +248,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35127"
     },
     {
-        "name": "Cup Epee",
-        "city": "Ludwigshafen - Friesenheim",
-        "country": "GER",
-        "venue": "TSG Sportzentrum",
-        "lat": 49.49709,
-        "lng": 8.41647,
-        "date": "Nov 21",
-        "year": "2026",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11",
-            "U13",
-            "U15",
-            "U17",
-            "Seniors"
-        ],
-        "exactAddress": "Eschenbachstraße 85, 67063 Ludwigshafen Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/33761"
-    },
-    {
-        "name": "BFV Qualifikationsturnier U15/U20 9 András Cup 2026",
-        "city": "Fuerth",
-        "country": "GER",
-        "venue": "Turnhalle der Otto-Lilienthal-Schule",
-        "lat": 49.48857,
-        "lng": 10.95872,
-        "date": "Nov 21",
-        "year": "2026",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11",
-            "U13",
-            "U15",
-            "U17",
-            "U20"
-        ],
-        "exactAddress": "Am Golfplatz 6, 90768 Fürth Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35402"
-    },
-    {
-        "name": "DFB Qualifikationsturnier 2026 Heidenheimer Volksbank International Tournament",
-        "city": "Heidenheim",
-        "country": "GER",
-        "venue": "Fechtzentrum Heidenheim",
-        "lat": 48.67676,
-        "lng": 10.15292,
-        "date": "Nov 21",
-        "year": "2026",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U17"
-        ],
-        "exactAddress": "Virchowstraße 28, 89518 Heidenheim an der Brenz Mannschaftswettbewerb Landkreishalle Heidenheim Heckentalstraße",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34784"
-    },
-    {
-        "name": "Kreismeisterschaft im Fechtsport 2026 VESTMEISTERSCHAFT",
-        "city": "Recklinghausen",
-        "country": "GER",
-        "venue": "Alte Sporthalle Gymnasium Petrinum",
-        "lat": 51.61438,
-        "lng": 7.19785,
-        "date": "Nov 21",
-        "year": "2026",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U11",
-            "U15",
-            "Seniors"
-        ],
-        "exactAddress": "Herzogswall 29, 45657 Recklinghausen Zugang über den Schulhof Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35537"
-    },
-    {
         "name": "2. Paderborner Degenmarathon",
         "city": "Paderborn",
         "country": "GER",
@@ -400,6 +300,106 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35427"
     },
     {
+        "name": "DFB Qualifikationsturnier 2026 Heidenheimer Volksbank International Tournament",
+        "city": "Heidenheim",
+        "country": "GER",
+        "venue": "Fechtzentrum Heidenheim",
+        "lat": 48.67676,
+        "lng": 10.15292,
+        "date": "Nov 21",
+        "year": "2026",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U17"
+        ],
+        "exactAddress": "Virchowstraße 28, 89518 Heidenheim an der Brenz Mannschaftswettbewerb Landkreishalle Heidenheim Heckentalstraße",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34784"
+    },
+    {
+        "name": "BFV Qualifikationsturnier U15/U20 9 András Cup 2026",
+        "city": "Fuerth",
+        "country": "GER",
+        "venue": "Turnhalle der Otto-Lilienthal-Schule",
+        "lat": 49.48857,
+        "lng": 10.95872,
+        "date": "Nov 21",
+        "year": "2026",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U9",
+            "U11",
+            "U13",
+            "U15",
+            "U17",
+            "U20"
+        ],
+        "exactAddress": "Am Golfplatz 6, 90768 Fürth Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35402"
+    },
+    {
+        "name": "Kreismeisterschaft im Fechtsport 2026 VESTMEISTERSCHAFT",
+        "city": "Recklinghausen",
+        "country": "GER",
+        "venue": "Alte Sporthalle Gymnasium Petrinum",
+        "lat": 51.61438,
+        "lng": 7.19785,
+        "date": "Nov 21",
+        "year": "2026",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U11",
+            "U15",
+            "Seniors"
+        ],
+        "exactAddress": "Herzogswall 29, 45657 Recklinghausen Zugang über den Schulhof Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35537"
+    },
+    {
+        "name": "Cup Epee",
+        "city": "Ludwigshafen - Friesenheim",
+        "country": "GER",
+        "venue": "TSG Sportzentrum",
+        "lat": 49.49709,
+        "lng": 8.41647,
+        "date": "Nov 21",
+        "year": "2026",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U9",
+            "U11",
+            "U13",
+            "U15",
+            "U17",
+            "Seniors"
+        ],
+        "exactAddress": "Eschenbachstraße 85, 67063 Ludwigshafen Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/33761"
+    },
+    {
         "name": "EFC Coupe d'Europe",
         "city": "Heidenheim",
         "country": "GER",
@@ -424,36 +424,12 @@
         "pdfLink": "https://efc-prod.s3.amazonaws.com/documents/ger/whf/bxd/Couped%60Europe%202026.pdf"
     },
     {
-        "name": "34 Sächsisches Wichtel Cup 2026",
-        "city": "Schkeuditz",
+        "name": "26 Braunschweiger Jugend-Degen-Turnier",
+        "city": "Braunschweig",
         "country": "GER",
-        "venue": "Sporthalle Radefeld",
-        "lat": 51.39386,
-        "lng": 12.22085,
-        "date": "Nov 28",
-        "year": "2026",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11",
-            "U13"
-        ],
-        "exactAddress": "Landsberger Str. 5B, 04435 Schkeuditz - Radefeld Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35254"
-    },
-    {
-        "name": "Qualifikationsturnier für die Rangliste des Bayerischen Fechtverbands 2026 Ludwig-Meider-Turnier",
-        "city": "Ingolstadt",
-        "country": "GER",
-        "venue": "Bezirkssportanlage Nord-West",
-        "lat": 48.76302,
-        "lng": 11.42504,
+        "venue": "Sporthalle der Grundschule Klint",
+        "lat": 52.26466,
+        "lng": 10.52361,
         "date": "Nov 28",
         "year": "2026",
         "weapon": [
@@ -464,81 +440,13 @@
             "Women"
         ],
         "ageGroup": [
-            "Seniors"
-        ],
-        "exactAddress": "Richard-Wagner-Straße 65, 85057 Ingolstadt Zufahrt über Permoserstr. Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35531"
-    },
-    {
-        "name": "4 Rhein-Main Degen-Challenge",
-        "city": "Offenbach",
-        "country": "GER",
-        "venue": "Fechtclub Offenbach von 1863 e.V.",
-        "lat": 50.1055,
-        "lng": 8.76107,
-        "date": "Nov 28",
-        "year": "2026",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U13"
-        ],
-        "exactAddress": "Senefelderstr. 265, 63069 Offenbach Halle",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35286"
-    },
-    {
-        "name": "NRW-Q U17, U20, Senioren 2026 Foil of Bonn",
-        "city": "Bonn",
-        "country": "GER",
-        "venue": "Fechtzentrum Bonn",
-        "lat": 50.73526,
-        "lng": 7.10246,
-        "date": "Nov 28",
-        "year": "2026",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U11",
             "U13",
+            "U15",
             "U17",
-            "U20",
-            "Seniors"
+            "U20"
         ],
-        "exactAddress": "Am Neuen Lindenhof 2, 53117 Bonn Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35375"
-    },
-    {
-        "name": "EVF - DFB Qu 7 EVF Circuit Memoriam Max Geuter 2026",
-        "city": "Munich",
-        "country": "GER",
-        "venue": "Sporthalle der Städtischen Berufsschule für Informationstechnik",
-        "lat": 48.18087,
-        "lng": 11.53805,
-        "date": "Nov 28",
-        "year": "2026",
-        "weapon": [
-            "Foil",
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Veterans"
-        ],
-        "exactAddress": "Riesstr. 40, 80992 München",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34654"
+        "exactAddress": "Klint 26, 38100 Braunschweig Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35043"
     },
     {
         "name": "DFB Qualifikationsturnier 2027 Deutschland Challenge",
@@ -589,12 +497,61 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34643"
     },
     {
-        "name": "26 Braunschweiger Jugend-Degen-Turnier",
-        "city": "Braunschweig",
+        "name": "EVF - DFB Qu 7 EVF Circuit Memoriam Max Geuter 2026",
+        "city": "Munich",
         "country": "GER",
-        "venue": "Sporthalle der Grundschule Klint",
-        "lat": 52.26466,
-        "lng": 10.52361,
+        "venue": "Sporthalle der Städtischen Berufsschule für Informationstechnik",
+        "lat": 48.18087,
+        "lng": 11.53805,
+        "date": "Nov 28",
+        "year": "2026",
+        "weapon": [
+            "Foil",
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "Veterans"
+        ],
+        "exactAddress": "Riesstr. 40, 80992 München",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34654"
+    },
+    {
+        "name": "NRW-Q U17, U20, Senioren 2026 Foil of Bonn",
+        "city": "Bonn",
+        "country": "GER",
+        "venue": "Fechtzentrum Bonn",
+        "lat": 50.73526,
+        "lng": 7.10246,
+        "date": "Nov 28",
+        "year": "2026",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U11",
+            "U13",
+            "U17",
+            "U20",
+            "Seniors"
+        ],
+        "exactAddress": "Am Neuen Lindenhof 2, 53117 Bonn Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35375"
+    },
+    {
+        "name": "4 Rhein-Main Degen-Challenge",
+        "city": "Offenbach",
+        "country": "GER",
+        "venue": "Fechtclub Offenbach von 1863 e.V.",
+        "lat": 50.1055,
+        "lng": 8.76107,
         "date": "Nov 28",
         "year": "2026",
         "weapon": [
@@ -605,13 +562,56 @@
             "Women"
         ],
         "ageGroup": [
-            "U13",
-            "U15",
-            "U17",
-            "U20"
+            "U13"
         ],
-        "exactAddress": "Klint 26, 38100 Braunschweig Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35043"
+        "exactAddress": "Senefelderstr. 265, 63069 Offenbach Halle",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35286"
+    },
+    {
+        "name": "34 Sächsisches Wichtel Cup 2026",
+        "city": "Schkeuditz",
+        "country": "GER",
+        "venue": "Sporthalle Radefeld",
+        "lat": 51.39386,
+        "lng": 12.22085,
+        "date": "Nov 28",
+        "year": "2026",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U9",
+            "U11",
+            "U13"
+        ],
+        "exactAddress": "Landsberger Str. 5B, 04435 Schkeuditz - Radefeld Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35254"
+    },
+    {
+        "name": "Qualifikationsturnier für die Rangliste des Bayerischen Fechtverbands 2026 Ludwig-Meider-Turnier",
+        "city": "Ingolstadt",
+        "country": "GER",
+        "venue": "Bezirkssportanlage Nord-West",
+        "lat": 48.76302,
+        "lng": 11.42504,
+        "date": "Nov 28",
+        "year": "2026",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "Seniors"
+        ],
+        "exactAddress": "Richard-Wagner-Straße 65, 85057 Ingolstadt Zufahrt über Permoserstr. Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35531"
     },
     {
         "name": "1 Fencing marathon “Beat the Denys!”",
@@ -641,61 +641,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35546"
     },
     {
-        "name": "Nikolaus Cup",
-        "city": "Duisburg",
-        "country": "GER",
-        "venue": "Fechthallen, BSA-Wedau III",
-        "lat": 51.435,
-        "lng": 6.75956,
-        "date": "Dec 5",
-        "year": "2026",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11",
-            "U13",
-            "U15"
-        ],
-        "exactAddress": "Margaretenstr. 20, 47055 Duisburg Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/33962"
-    },
-    {
-        "name": "12 Rauschgoldengel of Nuremberg 2026",
-        "city": "Nuremberg",
-        "country": "GER",
-        "venue": "Dreifachturnhalle der Geschwister-Scholl-Realschule",
-        "lat": 49.45387,
-        "lng": 11.0773,
-        "date": "Dec 5",
-        "year": "2026",
-        "weapon": [
-            "Epee",
-            "Foil",
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U11",
-            "U13",
-            "U15",
-            "U17",
-            "U20",
-            "Seniors",
-            "Veterans"
-        ],
-        "exactAddress": "Muggenhofer Straße 122, 90429 Nürnberg Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35261"
-    },
-    {
         "name": "WFB RegioCup-Serie der Sportregion Stuttgart 2026 RegioCup Ditzingen",
         "city": "Ditzingen",
         "country": "GER",
@@ -720,6 +665,28 @@
         ],
         "exactAddress": "Seehansen 5, 71254 Ditzingen Timezone of venue Europe",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35430"
+    },
+    {
+        "name": "EFC Josef-Uhlmann-Cup",
+        "city": "Laupheim",
+        "country": "GER",
+        "venue": "Rottumhalle  Laubachhalle",
+        "lat": 48.23007,
+        "lng": 9.8837,
+        "date": "Dec 5",
+        "year": "2026",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "Seniors"
+        ],
+        "exactAddress": "Laubachweg 52, 88471 Laupheim Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34903"
     },
     {
         "name": "DFB Qualifikationsturnier 21 International Händel-Cup",
@@ -770,6 +737,36 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35411"
     },
     {
+        "name": "12 Rauschgoldengel of Nuremberg 2026",
+        "city": "Nuremberg",
+        "country": "GER",
+        "venue": "Dreifachturnhalle der Geschwister-Scholl-Realschule",
+        "lat": 49.45387,
+        "lng": 11.0773,
+        "date": "Dec 5",
+        "year": "2026",
+        "weapon": [
+            "Epee",
+            "Foil",
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U11",
+            "U13",
+            "U15",
+            "U17",
+            "U20",
+            "Seniors",
+            "Veterans"
+        ],
+        "exactAddress": "Muggenhofer Straße 122, 90429 Nürnberg Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35261"
+    },
+    {
         "name": "34 Nikolaus Turnier",
         "city": "Berlin",
         "country": "GER",
@@ -793,26 +790,29 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34574"
     },
     {
-        "name": "EFC Josef-Uhlmann-Cup",
-        "city": "Laupheim",
+        "name": "Nikolaus Cup",
+        "city": "Duisburg",
         "country": "GER",
-        "venue": "Rottumhalle  Laubachhalle",
-        "lat": 48.23007,
-        "lng": 9.8837,
+        "venue": "Fechthallen, BSA-Wedau III",
+        "lat": 51.435,
+        "lng": 6.75956,
         "date": "Dec 5",
         "year": "2026",
         "weapon": [
-            "Epee"
+            "Foil"
         ],
         "gender": [
             "Men",
             "Women"
         ],
         "ageGroup": [
-            "Seniors"
+            "U9",
+            "U11",
+            "U13",
+            "U15"
         ],
-        "exactAddress": "Laubachweg 52, 88471 Laupheim Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34903"
+        "exactAddress": "Margaretenstr. 20, 47055 Duisburg Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/33962"
     },
     {
         "name": "8 Championships of Rheinland-Pfalz",
@@ -838,6 +838,28 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34875"
     },
     {
+        "name": "EFC EFC U14 Circuit",
+        "city": "Eislingen",
+        "country": "GER",
+        "venue": "Öschhalle 1 + 2",
+        "lat": 48.69679,
+        "lng": 9.70377,
+        "date": "Dec 11",
+        "year": "2026",
+        "weapon": [
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "Seniors"
+        ],
+        "exactAddress": "Öschhalle 1 , Talstr. 54, 73054 Eislingen Öschhalle",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34649"
+    },
+    {
         "name": "Weihnachtliches Mitternachtsfechten",
         "city": "Warnemünde",
         "country": "GER",
@@ -860,28 +882,6 @@
         ],
         "exactAddress": "Warnemünde",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35102"
-    },
-    {
-        "name": "EFC EFC U14 Circuit",
-        "city": "Eislingen",
-        "country": "GER",
-        "venue": "Öschhalle 1 + 2",
-        "lat": 48.69679,
-        "lng": 9.70377,
-        "date": "Dec 11",
-        "year": "2026",
-        "weapon": [
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Seniors"
-        ],
-        "exactAddress": "Öschhalle 1 , Talstr. 54, 73054 Eislingen Öschhalle",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34649"
     },
     {
         "name": "2026 VS-Möbel-Cup",
@@ -910,16 +910,18 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35485"
     },
     {
-        "name": "Q-Turnier für Schleswig-Holstein und Hamburg 15 Itzehoer Alcedo-Cup 2026",
-        "city": "Itzehoe",
+        "name": "Open State Championship of Bremen",
+        "city": "Bremen",
         "country": "GER",
-        "venue": "Sporthalle der Auguste-Viktoria-Schule",
-        "lat": 53.91968,
-        "lng": 9.52464,
+        "venue": "Halle 1-3",
+        "lat": 53.07582,
+        "lng": 8.80716,
         "date": "Dec 12",
         "year": "2026",
         "weapon": [
-            "Epee"
+            "Epee",
+            "Foil",
+            "Sabre"
         ],
         "gender": [
             "Men",
@@ -928,35 +930,11 @@
         "ageGroup": [
             "U9",
             "U11",
-            "U13",
             "U15",
-            "U17"
+            "Seniors"
         ],
-        "exactAddress": "Große Paaschburg 68, 25524 Itzehoe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34774"
-    },
-    {
-        "name": "Cup of Epee",
-        "city": "Leipzig",
-        "country": "GER",
-        "venue": "Fechthalle QUARTERBACK Immobilien ARENA lEIPZIG",
-        "lat": 51.34063,
-        "lng": 12.37473,
-        "date": "Dec 12",
-        "year": "2026",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U13",
-            "U15"
-        ],
-        "exactAddress": "Am Sportforum 2, 04105 Leipzig Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35108"
+        "exactAddress": "Baumschulenweg 6, 28213 Bremen Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34461"
     },
     {
         "name": "Open Southwest German Championships",
@@ -984,6 +962,200 @@
         ],
         "exactAddress": "Rektor-Forestier-Str. 2, 55124 Mainz https",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34877"
+    },
+    {
+        "name": "NRW-Q U13, U15, U20 65 Leineweber-Turnier",
+        "city": "Bielefeld",
+        "country": "GER",
+        "venue": "Carl-Severing-Schule Halle 2",
+        "lat": 52.0191,
+        "lng": 8.53101,
+        "date": "Dec 12",
+        "year": "2026",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U13",
+            "U15",
+            "U20",
+            "Seniors"
+        ],
+        "exactAddress": "Flachsstr. 1, 33607 Bielefeld Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35276"
+    },
+    {
+        "name": "Ranglistenturnier Mecklenburg-Vorpommern Veteranen Senioren 2026 President's Cup",
+        "city": "Warnemünde",
+        "country": "GER",
+        "venue": "Sportschule LSB MV",
+        "lat": 54.1779,
+        "lng": 12.08129,
+        "date": "Dec 12",
+        "year": "2026",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "Seniors",
+            "Veterans"
+        ],
+        "exactAddress": "Am Bahnhof 3, 18119 Rostock Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35101"
+    },
+    {
+        "name": "Q-Turnier des Fechtverbandes Niedersachsen und Bremen 2026 Wappen von Osnabrück",
+        "city": "Osnabrueck",
+        "country": "GER",
+        "venue": "Sportzentrum des Osnabrücker Sportclubs",
+        "lat": 52.27196,
+        "lng": 8.04763,
+        "date": "Dec 12",
+        "year": "2026",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U9",
+            "U11",
+            "U13",
+            "U15",
+            "U17",
+            "U20"
+        ],
+        "exactAddress": "Hiärm-Grupe-Straße 8, Eingang Ohnesorgestraße, 49080 Osnabrück Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35184"
+    },
+    {
+        "name": "11 Itzehoer Team-Cup 2026",
+        "city": "Itzehoe",
+        "country": "GER",
+        "venue": "Sporthalle der Auguste-Viktoria-Schule",
+        "lat": 53.91968,
+        "lng": 9.52464,
+        "date": "Dec 12",
+        "year": "2026",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U15",
+            "U17",
+            "Seniors"
+        ],
+        "exactAddress": "Große Paaschburg 68, 25524 Itzehoe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34780"
+    },
+    {
+        "name": "2026 NRW Kids Challenge",
+        "city": "Bielefeld",
+        "country": "GER",
+        "venue": "Carl-Severing-Schule Halle 2",
+        "lat": 52.0191,
+        "lng": 8.53101,
+        "date": "Dec 12",
+        "year": "2026",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U9",
+            "U11"
+        ],
+        "exactAddress": "Flachsstr. 1, 33607 Bielefeld Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35495"
+    },
+    {
+        "name": "Winter Tournament (only internal)",
+        "city": "Delmenhorst",
+        "country": "GER",
+        "venue": null,
+        "lat": 53.0481,
+        "lng": 8.62861,
+        "date": "Dec 12",
+        "year": "2026",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U9",
+            "U11",
+            "U13",
+            "U15",
+            "U17",
+            "Seniors"
+        ],
+        "exactAddress": "Delmenhorst",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34513"
+    },
+    {
+        "name": "Cup of Epee",
+        "city": "Leipzig",
+        "country": "GER",
+        "venue": "Fechthalle QUARTERBACK Immobilien ARENA lEIPZIG",
+        "lat": 51.34063,
+        "lng": 12.37473,
+        "date": "Dec 12",
+        "year": "2026",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U13",
+            "U15"
+        ],
+        "exactAddress": "Am Sportforum 2, 04105 Leipzig Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35108"
+    },
+    {
+        "name": "EFC 2026 Allstar - Cup",
+        "city": "Eislingen",
+        "country": "GER",
+        "venue": "Öschhallen in Eislingen",
+        "lat": 48.69679,
+        "lng": 9.70377,
+        "date": "Dec 12",
+        "year": "2026",
+        "weapon": [
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U17"
+        ],
+        "exactAddress": "Öschhalle 1, Talstr. 54, 73054 Eislingen Öschhalle",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34650"
     },
     {
         "name": "2026 Christmas Tournament",
@@ -1014,159 +1186,7 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35553"
     },
     {
-        "name": "Q-Turnier des Fechtverbandes Niedersachsen und Bremen 2026 Wappen von Osnabrück",
-        "city": "Osnabrueck",
-        "country": "GER",
-        "venue": "Sportzentrum des Osnabrücker Sportclubs",
-        "lat": 52.27196,
-        "lng": 8.04763,
-        "date": "Dec 12",
-        "year": "2026",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11",
-            "U13",
-            "U15",
-            "U17",
-            "U20"
-        ],
-        "exactAddress": "Hiärm-Grupe-Straße 8, Eingang Ohnesorgestraße, 49080 Osnabrück Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35184"
-    },
-    {
-        "name": "Ranglistenturnier Mecklenburg-Vorpommern Veteranen Senioren 2026 President's Cup",
-        "city": "Warnemünde",
-        "country": "GER",
-        "venue": "Sportschule LSB MV",
-        "lat": 54.1779,
-        "lng": 12.08129,
-        "date": "Dec 12",
-        "year": "2026",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Seniors",
-            "Veterans"
-        ],
-        "exactAddress": "Am Bahnhof 3, 18119 Rostock Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35101"
-    },
-    {
-        "name": "Winter Tournament (only internal)",
-        "city": "Delmenhorst",
-        "country": "GER",
-        "venue": null,
-        "lat": 53.0481,
-        "lng": 8.62861,
-        "date": "Dec 12",
-        "year": "2026",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11",
-            "U13",
-            "U15",
-            "U17",
-            "Seniors"
-        ],
-        "exactAddress": "Delmenhorst",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34513"
-    },
-    {
-        "name": "2026 NRW Kids Challenge",
-        "city": "Bielefeld",
-        "country": "GER",
-        "venue": "Carl-Severing-Schule Halle 2",
-        "lat": 52.0191,
-        "lng": 8.53101,
-        "date": "Dec 12",
-        "year": "2026",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11"
-        ],
-        "exactAddress": "Flachsstr. 1, 33607 Bielefeld Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35495"
-    },
-    {
-        "name": "Open State Championship of Bremen",
-        "city": "Bremen",
-        "country": "GER",
-        "venue": "Halle 1-3",
-        "lat": 53.07582,
-        "lng": 8.80716,
-        "date": "Dec 12",
-        "year": "2026",
-        "weapon": [
-            "Epee",
-            "Foil",
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11",
-            "U15",
-            "Seniors"
-        ],
-        "exactAddress": "Baumschulenweg 6, 28213 Bremen Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34461"
-    },
-    {
-        "name": "NRW-Q U13, U15, U20 65 Leineweber-Turnier",
-        "city": "Bielefeld",
-        "country": "GER",
-        "venue": "Carl-Severing-Schule Halle 2",
-        "lat": 52.0191,
-        "lng": 8.53101,
-        "date": "Dec 12",
-        "year": "2026",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U13",
-            "U15",
-            "U20",
-            "Seniors"
-        ],
-        "exactAddress": "Flachsstr. 1, 33607 Bielefeld Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35276"
-    },
-    {
-        "name": "11 Itzehoer Team-Cup 2026",
+        "name": "Q-Turnier für Schleswig-Holstein und Hamburg 15 Itzehoer Alcedo-Cup 2026",
         "city": "Itzehoe",
         "country": "GER",
         "venue": "Sporthalle der Auguste-Viktoria-Schule",
@@ -1182,34 +1202,14 @@
             "Women"
         ],
         "ageGroup": [
+            "U9",
+            "U11",
+            "U13",
             "U15",
-            "U17",
-            "Seniors"
-        ],
-        "exactAddress": "Große Paaschburg 68, 25524 Itzehoe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34780"
-    },
-    {
-        "name": "EFC 2026 Allstar - Cup",
-        "city": "Eislingen",
-        "country": "GER",
-        "venue": "Öschhallen in Eislingen",
-        "lat": 48.69679,
-        "lng": 9.70377,
-        "date": "Dec 12",
-        "year": "2026",
-        "weapon": [
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
             "U17"
         ],
-        "exactAddress": "Öschhalle 1, Talstr. 54, 73054 Eislingen Öschhalle",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34650"
+        "exactAddress": "Große Paaschburg 68, 25524 Itzehoe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34774"
     },
     {
         "name": "Würzburger Weihnachtswichtel",
@@ -1235,49 +1235,27 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35625"
     },
     {
-        "name": "DFB Qualifikationsturnier 2 International Dresdner Elbe-Nisa Cup 2026",
-        "city": "Dresden",
+        "name": "EFC U23 European Circuit",
+        "city": "München Grünwald",
         "country": "GER",
-        "venue": "Sporthalle Gymnasium Pieschen",
-        "lat": 51.04933,
-        "lng": 13.73814,
+        "venue": "Helmi-Mühlbauer Halle",
+        "lat": 48.03256,
+        "lng": 11.52016,
         "date": "Dec 19",
         "year": "2026",
         "weapon": [
-            "Foil"
+            "Epee",
+            "Sabre"
         ],
         "gender": [
             "Men",
             "Women"
         ],
         "ageGroup": [
-            "U15"
-        ],
-        "exactAddress": "Erfurter Straße 17, 01127 Dresden Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34793"
-    },
-    {
-        "name": "2027 Championships of Baden-Nord - Württemberg",
-        "city": "Heidelberg",
-        "country": "GER",
-        "venue": "Sportzentrum Erlenweg",
-        "lat": 49.40936,
-        "lng": 8.69472,
-        "date": "Dec 19",
-        "year": "2026",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U15",
             "Seniors"
         ],
-        "exactAddress": "Erlenweg 24, 69126 Heidelberg Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35354"
+        "exactAddress": "Dr.-Max-Straße 20, 82031 Grünwald Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34905"
     },
     {
         "name": "2027 Championship of Nordrhein Westfalen",
@@ -1300,6 +1278,28 @@
         ],
         "exactAddress": "Vossacker 19, 58089 Hagen Timezone of venue Europe",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35285"
+    },
+    {
+        "name": "DFB Qualifikationsturnier 2 International Dresdner Elbe-Nisa Cup 2026",
+        "city": "Dresden",
+        "country": "GER",
+        "venue": "Sporthalle Gymnasium Pieschen",
+        "lat": 51.04933,
+        "lng": 13.73814,
+        "date": "Dec 19",
+        "year": "2026",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U15"
+        ],
+        "exactAddress": "Erfurter Straße 17, 01127 Dresden Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34793"
     },
     {
         "name": "NRW-Qu U11, U15, U17, Senioren 27 Ruhr-Volme-Epee-Cup",
@@ -1327,27 +1327,27 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35277"
     },
     {
-        "name": "EFC U23 European Circuit",
-        "city": "München Grünwald",
+        "name": "2027 Championships of Baden-Nord - Württemberg",
+        "city": "Heidelberg",
         "country": "GER",
-        "venue": "Helmi-Mühlbauer Halle",
-        "lat": 48.03256,
-        "lng": 11.52016,
+        "venue": "Sportzentrum Erlenweg",
+        "lat": 49.40936,
+        "lng": 8.69472,
         "date": "Dec 19",
         "year": "2026",
         "weapon": [
-            "Epee",
-            "Sabre"
+            "Epee"
         ],
         "gender": [
             "Men",
             "Women"
         ],
         "ageGroup": [
+            "U15",
             "Seniors"
         ],
-        "exactAddress": "Dr.-Max-Straße 20, 82031 Grünwald Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34905"
+        "exactAddress": "Erlenweg 24, 69126 Heidelberg Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35354"
     },
     {
         "name": "Regional Tournament",
@@ -1396,53 +1396,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/33961"
     },
     {
-        "name": "Challenge Saalfeld",
-        "city": "Saalfeld",
-        "country": "GER",
-        "venue": "Dreifelderhalle \"Grüne Mitte\"",
-        "lat": 50.64791,
-        "lng": 11.361,
-        "date": "Jan 9",
-        "year": "2027",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U20",
-            "Seniors"
-        ],
-        "exactAddress": "Grüne Mitte 19, 07318 Saalfeld Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34505"
-    },
-    {
-        "name": "2026 Open Hamburg Championships",
-        "city": "Hamburg",
-        "country": "GER",
-        "venue": "Sporthalle der Stadtteilschule Horn",
-        "lat": 53.55017,
-        "lng": 10.00132,
-        "date": "Jan 9",
-        "year": "2027",
-        "weapon": [
-            "Epee",
-            "Foil",
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Seniors"
-        ],
-        "exactAddress": "Horner Weg 89, 22111 Hamburg Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35355"
-    },
-    {
         "name": "2027 Chemnitz Youth Tournament",
         "city": "Chemnitz",
         "country": "GER",
@@ -1467,6 +1420,30 @@
         ],
         "exactAddress": "Forststr.9, 09130 Chemnitz Timezone of venue Europe",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35105"
+    },
+    {
+        "name": "2026 Open Hamburg Championships",
+        "city": "Hamburg",
+        "country": "GER",
+        "venue": "Sporthalle der Stadtteilschule Horn",
+        "lat": 53.55017,
+        "lng": 10.00132,
+        "date": "Jan 9",
+        "year": "2027",
+        "weapon": [
+            "Epee",
+            "Foil",
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "Seniors"
+        ],
+        "exactAddress": "Horner Weg 89, 22111 Hamburg Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35355"
     },
     {
         "name": "U15 DFB Qualifikationsturnier Van der Valk Cup Moers",
@@ -1515,6 +1492,29 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35356"
     },
     {
+        "name": "Challenge Saalfeld",
+        "city": "Saalfeld",
+        "country": "GER",
+        "venue": "Dreifelderhalle \"Grüne Mitte\"",
+        "lat": 50.64791,
+        "lng": 11.361,
+        "date": "Jan 9",
+        "year": "2027",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U20",
+            "Seniors"
+        ],
+        "exactAddress": "Grüne Mitte 19, 07318 Saalfeld Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34505"
+    },
+    {
         "name": "Cup of Thuringia",
         "city": "Saalfeld",
         "country": "GER",
@@ -1539,7 +1539,7 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34508"
     },
     {
-        "name": "2027 XXIX. Winterturnier",
+        "name": "2027 Open Veterans Championships of Schleswig-Holstein",
         "city": "Bad Segeberg",
         "country": "GER",
         "venue": null,
@@ -1548,21 +1548,19 @@
         "date": "Jan 16",
         "year": "2027",
         "weapon": [
-            "Epee"
+            "Epee",
+            "Foil",
+            "Sabre"
         ],
         "gender": [
             "Men",
             "Women"
         ],
         "ageGroup": [
-            "U11",
-            "U13",
-            "U15",
-            "U17",
-            "U20"
+            "Veterans"
         ],
         "exactAddress": "Bad Segeberg",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34781"
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34778"
     },
     {
         "name": "NRW-Q U13, U17, Senioren Quernheimer Florettturnier",
@@ -1592,30 +1590,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35376"
     },
     {
-        "name": "2027 Open Veterans Championships of Schleswig-Holstein",
-        "city": "Bad Segeberg",
-        "country": "GER",
-        "venue": null,
-        "lat": 53.93693,
-        "lng": 10.30448,
-        "date": "Jan 16",
-        "year": "2027",
-        "weapon": [
-            "Epee",
-            "Foil",
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Veterans"
-        ],
-        "exactAddress": "Bad Segeberg",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34778"
-    },
-    {
         "name": "2027 Max Geuter Children Marathon",
         "city": "Groebenzell",
         "country": "GER",
@@ -1639,27 +1613,6 @@
         ],
         "exactAddress": "Wildmoosstraße 36, 82194 Gröbenzell Timezone of venue Europe",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35260"
-    },
-    {
-        "name": "Herrenflorett U17 Team 2027 Championship of Nordrhein Westfalen",
-        "city": "Kirchlengern",
-        "country": "GER",
-        "venue": null,
-        "lat": 52.19835,
-        "lng": 8.644,
-        "date": "Jan 16",
-        "year": "2027",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men"
-        ],
-        "ageGroup": [
-            "U17"
-        ],
-        "exactAddress": "Kirchlengern",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35381"
     },
     {
         "name": "Cup GIG",
@@ -1686,13 +1639,13 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35400"
     },
     {
-        "name": "2027 Wildmoos Mixed Team Tournament",
-        "city": "Groebenzell",
+        "name": "2027 XXIX. Winterturnier",
+        "city": "Bad Segeberg",
         "country": "GER",
-        "venue": "Freizeitzentrum Gröbenzell",
-        "lat": 48.19423,
-        "lng": 11.37091,
-        "date": "Jan 17",
+        "venue": null,
+        "lat": 53.93693,
+        "lng": 10.30448,
+        "date": "Jan 16",
         "year": "2027",
         "weapon": [
             "Epee"
@@ -1702,12 +1655,35 @@
             "Women"
         ],
         "ageGroup": [
+            "U11",
+            "U13",
+            "U15",
             "U17",
-            "U20",
-            "Seniors"
+            "U20"
         ],
-        "exactAddress": "Wildmoosstraße 36, 82194 Gröbenzell Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35259"
+        "exactAddress": "Bad Segeberg",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34781"
+    },
+    {
+        "name": "Herrenflorett U17 Team 2027 Championship of Nordrhein Westfalen",
+        "city": "Kirchlengern",
+        "country": "GER",
+        "venue": null,
+        "lat": 52.19835,
+        "lng": 8.644,
+        "date": "Jan 16",
+        "year": "2027",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men"
+        ],
+        "ageGroup": [
+            "U17"
+        ],
+        "exactAddress": "Kirchlengern",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35381"
     },
     {
         "name": "Offenes IBF-Ranglisten Turnier 9 Montfort FloreTT Cup",
@@ -1737,6 +1713,30 @@
         ],
         "exactAddress": "Tettnang",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35160"
+    },
+    {
+        "name": "2027 Wildmoos Mixed Team Tournament",
+        "city": "Groebenzell",
+        "country": "GER",
+        "venue": "Freizeitzentrum Gröbenzell",
+        "lat": 48.19423,
+        "lng": 11.37091,
+        "date": "Jan 17",
+        "year": "2027",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U17",
+            "U20",
+            "Seniors"
+        ],
+        "exactAddress": "Wildmoosstraße 36, 82194 Gröbenzell Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35259"
     },
     {
         "name": "4. Lütjenseer Florett-Cup 25 years anniversary Fechtclub Lütjensee",
@@ -1791,6 +1791,33 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35467"
     },
     {
+        "name": "Ranglistenturnier Säbel des FBSH und des Hamburger Fechtverbandes 25 years anniversary Fechtclub Lütjensee (international)",
+        "city": "Trittau",
+        "country": "GER",
+        "venue": null,
+        "lat": 53.61175,
+        "lng": 10.40439,
+        "date": "Jan 23",
+        "year": "2027",
+        "weapon": [
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U9",
+            "U11",
+            "U13",
+            "U15",
+            "U17",
+            "Seniors"
+        ],
+        "exactAddress": "Trittau",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35196"
+    },
+    {
         "name": "NRW-Q U15, U20, Sen 2027 Sabre of Bonn",
         "city": "Bonn",
         "country": "GER",
@@ -1817,76 +1844,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35341"
     },
     {
-        "name": "Senioren Team 2027 Championships of Nordrhein-Westfalen",
-        "city": "Bonn",
-        "country": "GER",
-        "venue": null,
-        "lat": 50.73526,
-        "lng": 7.10246,
-        "date": "Jan 23",
-        "year": "2027",
-        "weapon": [
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Seniors"
-        ],
-        "exactAddress": "Bonn",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35489"
-    },
-    {
-        "name": "DFB Qualifikationsturnier QB 2027 International Competition",
-        "city": "Dörnigheim",
-        "country": "GER",
-        "venue": null,
-        "lat": 50.13342,
-        "lng": 8.83932,
-        "date": "Jan 23",
-        "year": "2027",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Seniors"
-        ],
-        "exactAddress": "Dörnigheim",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34801"
-    },
-    {
-        "name": "Epee Cup of Oschatz",
-        "city": "Oschatz",
-        "country": "GER",
-        "venue": "Sporthalle Am roten Vorwerk (Achtung neu!!!)",
-        "lat": 51.29796,
-        "lng": 13.10811,
-        "date": "Jan 23",
-        "year": "2027",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U13",
-            "U15",
-            "U17",
-            "U20",
-            "Seniors"
-        ],
-        "exactAddress": "Jan 22, 2027, 3:00 PM, 04758 Oschatz",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35106"
-    },
-    {
         "name": "Potsdamer Degen-Fest Alter Fritz + Königin Luise",
         "city": "Potsdam",
         "country": "GER",
@@ -1908,33 +1865,6 @@
         ],
         "exactAddress": "Olympischer Weg 6, 14471 Potsdam Timezone of venue Europe",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35041"
-    },
-    {
-        "name": "Ranglistenturnier Säbel des FBSH und des Hamburger Fechtverbandes 25 years anniversary Fechtclub Lütjensee (international)",
-        "city": "Trittau",
-        "country": "GER",
-        "venue": null,
-        "lat": 53.61175,
-        "lng": 10.40439,
-        "date": "Jan 23",
-        "year": "2027",
-        "weapon": [
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11",
-            "U13",
-            "U15",
-            "U17",
-            "Seniors"
-        ],
-        "exactAddress": "Trittau",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35196"
     },
     {
         "name": "NRW-Q U15, U20, Senioren 21 Epee Cup of Leverkusen",
@@ -1988,6 +1918,76 @@
         ],
         "exactAddress": "Astrid-Lindgren-Str. 3, 81829 München",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35031"
+    },
+    {
+        "name": "DFB Qualifikationsturnier QB 2027 International Competition",
+        "city": "Dörnigheim",
+        "country": "GER",
+        "venue": null,
+        "lat": 50.13342,
+        "lng": 8.83932,
+        "date": "Jan 23",
+        "year": "2027",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "Seniors"
+        ],
+        "exactAddress": "Dörnigheim",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34801"
+    },
+    {
+        "name": "Senioren Team 2027 Championships of Nordrhein-Westfalen",
+        "city": "Bonn",
+        "country": "GER",
+        "venue": null,
+        "lat": 50.73526,
+        "lng": 7.10246,
+        "date": "Jan 23",
+        "year": "2027",
+        "weapon": [
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "Seniors"
+        ],
+        "exactAddress": "Bonn",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35489"
+    },
+    {
+        "name": "Epee Cup of Oschatz",
+        "city": "Oschatz",
+        "country": "GER",
+        "venue": "Sporthalle Am roten Vorwerk (Achtung neu!!!)",
+        "lat": 51.29796,
+        "lng": 13.10811,
+        "date": "Jan 23",
+        "year": "2027",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U13",
+            "U15",
+            "U17",
+            "U20",
+            "Seniors"
+        ],
+        "exactAddress": "Jan 22, 2027, 3:00 PM, 04758 Oschatz",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35106"
     },
     {
         "name": "53 Backnanger Stafettenturnier 2027",
@@ -2108,6 +2108,33 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34790"
     },
     {
+        "name": "3 Delme-Cup",
+        "city": "Delmenhorst",
+        "country": "GER",
+        "venue": null,
+        "lat": 53.0481,
+        "lng": 8.62861,
+        "date": "Jan 30",
+        "year": "2027",
+        "weapon": [
+            "Epee",
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U9",
+            "U11",
+            "U13",
+            "U15",
+            "U17"
+        ],
+        "exactAddress": "Delmenhorst",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34512"
+    },
+    {
         "name": "Dorsch Turnier",
         "city": "Würzburg",
         "country": "GER",
@@ -2182,6 +2209,54 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35358"
     },
     {
+        "name": "2027 Championships of Hamburg",
+        "city": "Hamburg",
+        "country": "GER",
+        "venue": "Sporthalle der Stadtteilschule Horn",
+        "lat": 53.55017,
+        "lng": 10.00132,
+        "date": "Jan 30",
+        "year": "2027",
+        "weapon": [
+            "Epee",
+            "Foil",
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U15"
+        ],
+        "exactAddress": "Horner Weg 89, 22111 Hamburg Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35357"
+    },
+    {
+        "name": "2027 Hamburg Open Youth Team Championships",
+        "city": "Hamburg",
+        "country": "GER",
+        "venue": "Sporthalle der Stadtteilschule Horn",
+        "lat": 53.55017,
+        "lng": 10.00132,
+        "date": "Jan 30",
+        "year": "2027",
+        "weapon": [
+            "Epee",
+            "Foil",
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U20"
+        ],
+        "exactAddress": "Horner Weg 89, 22111 Hamburg Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35359"
+    },
+    {
         "name": "Little Owl Cup",
         "city": "Ludwigshafen - Friesenheim",
         "country": "GER",
@@ -2208,32 +2283,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/33760"
     },
     {
-        "name": "Recklinghäuser Schneeballschlacht",
-        "city": "Recklinghausen",
-        "country": "GER",
-        "venue": null,
-        "lat": 51.61438,
-        "lng": 7.19785,
-        "date": "Jan 30",
-        "year": "2027",
-        "weapon": [
-            "Epee",
-            "Foil",
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11",
-            "U13"
-        ],
-        "exactAddress": "Recklinghausen",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35384"
-    },
-    {
         "name": "Damenflorett U17 Team 2027 Championship of Nordrhein Westfalen",
         "city": "Recklinghausen",
         "country": "GER",
@@ -2254,33 +2303,6 @@
         ],
         "exactAddress": "Recklinghausen",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35488"
-    },
-    {
-        "name": "3 Delme-Cup",
-        "city": "Delmenhorst",
-        "country": "GER",
-        "venue": null,
-        "lat": 53.0481,
-        "lng": 8.62861,
-        "date": "Jan 30",
-        "year": "2027",
-        "weapon": [
-            "Epee",
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11",
-            "U13",
-            "U15",
-            "U17"
-        ],
-        "exactAddress": "Delmenhorst",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34512"
     },
     {
         "name": "NRW-Q U13, U15, U17, Senioren 2027 International Tournament",
@@ -2309,12 +2331,12 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35377"
     },
     {
-        "name": "2027 Hamburg Open Youth Team Championships",
-        "city": "Hamburg",
+        "name": "Recklinghäuser Schneeballschlacht",
+        "city": "Recklinghausen",
         "country": "GER",
-        "venue": "Sporthalle der Stadtteilschule Horn",
-        "lat": 53.55017,
-        "lng": 10.00132,
+        "venue": null,
+        "lat": 51.61438,
+        "lng": 7.19785,
         "date": "Jan 30",
         "year": "2027",
         "weapon": [
@@ -2327,34 +2349,12 @@
             "Women"
         ],
         "ageGroup": [
-            "U20"
+            "U9",
+            "U11",
+            "U13"
         ],
-        "exactAddress": "Horner Weg 89, 22111 Hamburg Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35359"
-    },
-    {
-        "name": "2027 Championships of Hamburg",
-        "city": "Hamburg",
-        "country": "GER",
-        "venue": "Sporthalle der Stadtteilschule Horn",
-        "lat": 53.55017,
-        "lng": 10.00132,
-        "date": "Jan 30",
-        "year": "2027",
-        "weapon": [
-            "Epee",
-            "Foil",
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U15"
-        ],
-        "exactAddress": "Horner Weg 89, 22111 Hamburg Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35357"
+        "exactAddress": "Recklinghausen",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35384"
     },
     {
         "name": "Große Degenrunde Owls Cup",
@@ -2501,6 +2501,31 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35601"
     },
     {
+        "name": "2027 Open Championships of Schleswig-Holstein",
+        "city": "Itzehoe",
+        "country": "GER",
+        "venue": "Sporthalle der Auguste-Viktoria-Schule",
+        "lat": 53.91968,
+        "lng": 9.52464,
+        "date": "Feb 13",
+        "year": "2027",
+        "weapon": [
+            "Epee",
+            "Foil",
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U15",
+            "U17"
+        ],
+        "exactAddress": "Große Paaschburg 68, 25524 Itzehoe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34777"
+    },
+    {
         "name": "Internationales Fechtturnier Nordheide 31 Buchholzer Wespenstich 2027",
         "city": "Buchholz",
         "country": "GER",
@@ -2574,6 +2599,53 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34867"
     },
     {
+        "name": "32 Int. Achalm Cup of Reutlingen 2027",
+        "city": "Reutlingen",
+        "country": "GER",
+        "venue": "Dietweghalle",
+        "lat": 48.49195,
+        "lng": 9.21141,
+        "date": "Feb 13",
+        "year": "2027",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U11",
+            "U13",
+            "U15"
+        ],
+        "exactAddress": "Carl-Diem-Straße 130, 72760 Reutlingen Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35312"
+    },
+    {
+        "name": "NWT Berlin 18 Kleiner Weißer Bär 2026",
+        "city": "Berlin",
+        "country": "GER",
+        "venue": "Olympiapark Berlin, Hanns-Braun-Str. /Adlerplatz",
+        "lat": 52.51739,
+        "lng": 13.39513,
+        "date": "Feb 13",
+        "year": "2027",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U11",
+            "U13"
+        ],
+        "exactAddress": "Feb 10, 2027, 11:59 PM, 14053 Berlin Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34862"
+    },
+    {
         "name": "XVI. Lili-Marleen-Degen-Cup",
         "city": "Munster",
         "country": "GER",
@@ -2601,78 +2673,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35103"
     },
     {
-        "name": "NWT Berlin 18 Kleiner Weißer Bär 2026",
-        "city": "Berlin",
-        "country": "GER",
-        "venue": "Olympiapark Berlin, Hanns-Braun-Str. /Adlerplatz",
-        "lat": 52.51739,
-        "lng": 13.39513,
-        "date": "Feb 13",
-        "year": "2027",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U11",
-            "U13"
-        ],
-        "exactAddress": "Feb 10, 2027, 11:59 PM, 14053 Berlin Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34862"
-    },
-    {
-        "name": "32 Int. Achalm Cup of Reutlingen 2027",
-        "city": "Reutlingen",
-        "country": "GER",
-        "venue": "Dietweghalle",
-        "lat": 48.49195,
-        "lng": 9.21141,
-        "date": "Feb 13",
-        "year": "2027",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U11",
-            "U13",
-            "U15"
-        ],
-        "exactAddress": "Carl-Diem-Straße 130, 72760 Reutlingen Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35312"
-    },
-    {
-        "name": "2027 Open Championships of Schleswig-Holstein",
-        "city": "Itzehoe",
-        "country": "GER",
-        "venue": "Sporthalle der Auguste-Viktoria-Schule",
-        "lat": 53.91968,
-        "lng": 9.52464,
-        "date": "Feb 13",
-        "year": "2027",
-        "weapon": [
-            "Epee",
-            "Foil",
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U15",
-            "U17"
-        ],
-        "exactAddress": "Große Paaschburg 68, 25524 Itzehoe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34777"
-    },
-    {
         "name": "4 Cup of Minden 2027",
         "city": "Minden",
         "country": "GER",
@@ -2698,6 +2698,28 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35632"
     },
     {
+        "name": "8 Epee Marathon of Minden",
+        "city": "Minden",
+        "country": "GER",
+        "venue": null,
+        "lat": 52.2881,
+        "lng": 8.91689,
+        "date": "Feb 14",
+        "year": "2027",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "Seniors"
+        ],
+        "exactAddress": "Minden",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35631"
+    },
+    {
         "name": "Cup of Thüringen",
         "city": "Kraftsdorf",
         "country": "GER",
@@ -2720,28 +2742,6 @@
         ],
         "exactAddress": "Kraftsdorf",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35602"
-    },
-    {
-        "name": "8 Epee Marathon of Minden",
-        "city": "Minden",
-        "country": "GER",
-        "venue": null,
-        "lat": 52.2881,
-        "lng": 8.91689,
-        "date": "Feb 14",
-        "year": "2027",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Seniors"
-        ],
-        "exactAddress": "Minden",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35631"
     },
     {
         "name": "FIE 73 Heidenheimer Pokal",
@@ -2890,40 +2890,12 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35401"
     },
     {
-        "name": "Q-Turnier des Fechterbundes Schleswig-Holstein Elmshorn International",
-        "city": "Elmshorn",
+        "name": "Level7 - Turnier 44 Friesen Tournament",
+        "city": "Bremen",
         "country": "GER",
-        "venue": null,
-        "lat": 53.75325,
-        "lng": 9.65246,
-        "date": "Feb 20",
-        "year": "2027",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11",
-            "U13",
-            "U15",
-            "U17",
-            "U20",
-            "Seniors"
-        ],
-        "exactAddress": "Elmshorn",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34775"
-    },
-    {
-        "name": "Schanzer Night-Fencing",
-        "city": "Ingolstadt",
-        "country": "GER",
-        "venue": "Bezirkssportanlage Mitte \"MTV-Halle\"",
-        "lat": 48.76302,
-        "lng": 11.42504,
+        "venue": "Bremen 1860",
+        "lat": 53.07582,
+        "lng": 8.80716,
         "date": "Feb 20",
         "year": "2027",
         "weapon": [
@@ -2936,30 +2908,8 @@
         "ageGroup": [
             "Seniors"
         ],
-        "exactAddress": "Von-der-Tann-Straße 1, 85049 Ingolstadt Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35370"
-    },
-    {
-        "name": "Team U20 2027 Championship of Nordrhein Westfalen",
-        "city": "Münster",
-        "country": "GER",
-        "venue": "Dreifach-Sporthalle TG Zentrum mit Harald-Eimermacher-Saal (1. OG, Treppe neben dem Eingang nutzen)",
-        "lat": 51.96251,
-        "lng": 7.62519,
-        "date": "Feb 20",
-        "year": "2027",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U20"
-        ],
-        "exactAddress": "Lotharinger Str. 17, 48147 Münster Weitere Wettkampfstätte",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35383"
+        "exactAddress": "Baumschulenweg 6-10, 28213 Bremen Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34289"
     },
     {
         "name": "NRW-Q U13, U15, U20 43 International Tournament 2027",
@@ -2989,12 +2939,62 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35378"
     },
     {
-        "name": "Level7 - Turnier 44 Friesen Tournament",
-        "city": "Bremen",
+        "name": "Q-Turnier des Fechterbundes Schleswig-Holstein Elmshorn International",
+        "city": "Elmshorn",
         "country": "GER",
-        "venue": "Bremen 1860",
-        "lat": 53.07582,
-        "lng": 8.80716,
+        "venue": null,
+        "lat": 53.75325,
+        "lng": 9.65246,
+        "date": "Feb 20",
+        "year": "2027",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U9",
+            "U11",
+            "U13",
+            "U15",
+            "U17",
+            "U20",
+            "Seniors"
+        ],
+        "exactAddress": "Elmshorn",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34775"
+    },
+    {
+        "name": "Team U20 2027 Championship of Nordrhein Westfalen",
+        "city": "Münster",
+        "country": "GER",
+        "venue": "Dreifach-Sporthalle TG Zentrum mit Harald-Eimermacher-Saal (1. OG, Treppe neben dem Eingang nutzen)",
+        "lat": 51.96251,
+        "lng": 7.62519,
+        "date": "Feb 20",
+        "year": "2027",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U20"
+        ],
+        "exactAddress": "Lotharinger Str. 17, 48147 Münster Weitere Wettkampfstätte",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35383"
+    },
+    {
+        "name": "Schanzer Night-Fencing",
+        "city": "Ingolstadt",
+        "country": "GER",
+        "venue": "Bezirkssportanlage Mitte \"MTV-Halle\"",
+        "lat": 48.76302,
+        "lng": 11.42504,
         "date": "Feb 20",
         "year": "2027",
         "weapon": [
@@ -3007,8 +3007,8 @@
         "ageGroup": [
             "Seniors"
         ],
-        "exactAddress": "Baumschulenweg 6-10, 28213 Bremen Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34289"
+        "exactAddress": "Von-der-Tann-Straße 1, 85049 Ingolstadt Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35370"
     },
     {
         "name": "FIE Voith Cup",
@@ -3030,30 +3030,6 @@
         ],
         "exactAddress": "Heidenheim",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34634"
-    },
-    {
-        "name": "DFB Qualifikationsturnier Coat of Hamburg",
-        "city": "Hamburg",
-        "country": "GER",
-        "venue": "Sporthalle der Stadtteilschule Horn",
-        "lat": 53.55017,
-        "lng": 10.00132,
-        "date": "Feb 27",
-        "year": "2027",
-        "weapon": [
-            "Epee",
-            "Foil",
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Veterans"
-        ],
-        "exactAddress": "Horner Weg 89, 22111 Hamburg Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34238"
     },
     {
         "name": "DFB Qualifikationsturnier 18 Stefan-Haukler-Memoriam 2027",
@@ -3103,6 +3079,31 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35403"
     },
     {
+        "name": "NRW-Q U15, U20, Senioren Essener Hügel Cup 2027",
+        "city": "Essen",
+        "country": "GER",
+        "venue": "ETUF Mehrzweckhalle am Baldeneysee",
+        "lat": 51.45822,
+        "lng": 7.01582,
+        "date": "Feb 27",
+        "year": "2027",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U13",
+            "U15",
+            "U20",
+            "Seniors"
+        ],
+        "exactAddress": "Freiherr-vom-Stein-Str. 204a, 45133 Essen Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35379"
+    },
+    {
         "name": "U20 Team Championships of Nordrhein-Westfalen",
         "city": "Kenten",
         "country": "GER",
@@ -3123,29 +3124,6 @@
         ],
         "exactAddress": "Gutenbergstr. 2 - 6, 50126 Bergheim Timezone of venue Europe",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35490"
-    },
-    {
-        "name": "NRW Kids Challenge - Florett",
-        "city": "Essen",
-        "country": "GER",
-        "venue": "ETUF Mehrzweckhalle am Baldeneysee",
-        "lat": 51.45822,
-        "lng": 7.01582,
-        "date": "Feb 27",
-        "year": "2027",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11"
-        ],
-        "exactAddress": "Freiherr-vom-Stein-Str. 204a, 45133 Essen Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35604"
     },
     {
         "name": "Senioren Team 2027 Championship of Nordrhein Westfalen",
@@ -3170,29 +3148,28 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35382"
     },
     {
-        "name": "NRW-Q U15, U20, Senioren Essener Hügel Cup 2027",
-        "city": "Essen",
+        "name": "DFB Qualifikationsturnier Coat of Hamburg",
+        "city": "Hamburg",
         "country": "GER",
-        "venue": "ETUF Mehrzweckhalle am Baldeneysee",
-        "lat": 51.45822,
-        "lng": 7.01582,
+        "venue": "Sporthalle der Stadtteilschule Horn",
+        "lat": 53.55017,
+        "lng": 10.00132,
         "date": "Feb 27",
         "year": "2027",
         "weapon": [
-            "Foil"
+            "Epee",
+            "Foil",
+            "Sabre"
         ],
         "gender": [
             "Men",
             "Women"
         ],
         "ageGroup": [
-            "U13",
-            "U15",
-            "U20",
-            "Seniors"
+            "Veterans"
         ],
-        "exactAddress": "Freiherr-vom-Stein-Str. 204a, 45133 Essen Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35379"
+        "exactAddress": "Horner Weg 89, 22111 Hamburg Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34238"
     },
     {
         "name": "NRW-Q U13, U15, U20 18 Crocodil of Kenten",
@@ -3245,6 +3222,29 @@
         ],
         "exactAddress": "Heideblick 20, 38110 Braunschweig-Wenden Timezone of venue Europe",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35335"
+    },
+    {
+        "name": "NRW Kids Challenge - Florett",
+        "city": "Essen",
+        "country": "GER",
+        "venue": "ETUF Mehrzweckhalle am Baldeneysee",
+        "lat": 51.45822,
+        "lng": 7.01582,
+        "date": "Feb 27",
+        "year": "2027",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U9",
+            "U11"
+        ],
+        "exactAddress": "Freiherr-vom-Stein-Str. 204a, 45133 Essen Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35604"
     },
     {
         "name": "2027 Championships of Brandenburg",
@@ -3301,33 +3301,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35024"
     },
     {
-        "name": "NRW-Q U13, U15, U17, U20, Senioren 2 Hoch Hinaus Cup",
-        "city": "Bielefeld",
-        "country": "GER",
-        "venue": null,
-        "lat": 52.0191,
-        "lng": 8.53101,
-        "date": "Mar 6",
-        "year": "2027",
-        "weapon": [
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U11",
-            "U13",
-            "U15",
-            "U17",
-            "U20",
-            "Seniors"
-        ],
-        "exactAddress": "Bielefeld",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35342"
-    },
-    {
         "name": "DFB Qualifikationsturnier 2027 Allstar Deutschland Challenge",
         "city": "Frankfurt",
         "country": "GER",
@@ -3374,28 +3347,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35166"
     },
     {
-        "name": "U17 Team 2027 Championships of Nordrhein-Westfalen",
-        "city": "Bielefeld",
-        "country": "GER",
-        "venue": null,
-        "lat": 52.0191,
-        "lng": 8.53101,
-        "date": "Mar 6",
-        "year": "2027",
-        "weapon": [
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U17"
-        ],
-        "exactAddress": "Bielefeld",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35491"
-    },
-    {
         "name": "17 Cup Emichburg 2027",
         "city": "Bockenheim an der Weinstraße",
         "country": "GER",
@@ -3421,6 +3372,55 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35252"
     },
     {
+        "name": "U17 Team 2027 Championships of Nordrhein-Westfalen",
+        "city": "Bielefeld",
+        "country": "GER",
+        "venue": null,
+        "lat": 52.0191,
+        "lng": 8.53101,
+        "date": "Mar 6",
+        "year": "2027",
+        "weapon": [
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U17"
+        ],
+        "exactAddress": "Bielefeld",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35491"
+    },
+    {
+        "name": "NRW-Q U13, U15, U17, U20, Senioren 2 Hoch Hinaus Cup",
+        "city": "Bielefeld",
+        "country": "GER",
+        "venue": null,
+        "lat": 52.0191,
+        "lng": 8.53101,
+        "date": "Mar 6",
+        "year": "2027",
+        "weapon": [
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U11",
+            "U13",
+            "U15",
+            "U17",
+            "U20",
+            "Seniors"
+        ],
+        "exactAddress": "Bielefeld",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35342"
+    },
+    {
         "name": "NRW-Q U13, U20, Senioren 2027 Epee of Bonn",
         "city": "Bonn",
         "country": "GER",
@@ -3444,6 +3444,31 @@
         ],
         "exactAddress": "Bonn",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35280"
+    },
+    {
+        "name": "Q-Turnier für den Fechtverband Niedersachsen Championships of Niedersachsen",
+        "city": "Osnabrueck",
+        "country": "GER",
+        "venue": "Sportzentrum des Osnabrücker SC",
+        "lat": 52.27196,
+        "lng": 8.04763,
+        "date": "Mar 13",
+        "year": "2027",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U11",
+            "U13",
+            "U15",
+            "U17"
+        ],
+        "exactAddress": "Hiärm-Grupe-Straße 8, Eingang Ohnesorgestraße, 49080 Osnabrück Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35236"
     },
     {
         "name": "DFB Qualifikationsturnier 28 International Bergstraßen Competition",
@@ -3492,29 +3517,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35305"
     },
     {
-        "name": "2027 XLII. Springtime Tournaments",
-        "city": "Bad Segeberg",
-        "country": "GER",
-        "venue": null,
-        "lat": 53.93693,
-        "lng": 10.30448,
-        "date": "Mar 13",
-        "year": "2027",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U17",
-            "Seniors"
-        ],
-        "exactAddress": "Bad Segeberg",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34779"
-    },
-    {
         "name": "2027 Open Saarland Championships",
         "city": "Saarbrücken",
         "country": "GER",
@@ -3541,12 +3543,12 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35097"
     },
     {
-        "name": "Q-Turnier für den Fechtverband Niedersachsen Championships of Niedersachsen",
-        "city": "Osnabrueck",
+        "name": "2027 XLII. Springtime Tournaments",
+        "city": "Bad Segeberg",
         "country": "GER",
-        "venue": "Sportzentrum des Osnabrücker SC",
-        "lat": 52.27196,
-        "lng": 8.04763,
+        "venue": null,
+        "lat": 53.93693,
+        "lng": 10.30448,
         "date": "Mar 13",
         "year": "2027",
         "weapon": [
@@ -3557,13 +3559,11 @@
             "Women"
         ],
         "ageGroup": [
-            "U11",
-            "U13",
-            "U15",
-            "U17"
+            "U17",
+            "Seniors"
         ],
-        "exactAddress": "Hiärm-Grupe-Straße 8, Eingang Ohnesorgestraße, 49080 Osnabrück Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35236"
+        "exactAddress": "Bad Segeberg",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34779"
     },
     {
         "name": "2027 Championship of Nordrhein Westfalen",
@@ -3608,29 +3608,6 @@
         ],
         "exactAddress": "Bonn",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34788"
-    },
-    {
-        "name": "30 OSC Frühlingsturnier",
-        "city": "Berlin",
-        "country": "GER",
-        "venue": null,
-        "lat": 52.51739,
-        "lng": 13.39513,
-        "date": "Mar 20",
-        "year": "2027",
-        "weapon": [
-            "Epee",
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Seniors"
-        ],
-        "exactAddress": "Berlin",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35343"
     },
     {
         "name": "17. Munsteraner Drachenturnier",
@@ -3681,41 +3658,16 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34901"
     },
     {
-        "name": "2027 Hamburg Youth Championships",
-        "city": "Hamburg",
+        "name": "30 OSC Frühlingsturnier",
+        "city": "Berlin",
         "country": "GER",
-        "venue": "Sporthalle der Stadtteilschule Horn",
-        "lat": 53.55017,
-        "lng": 10.00132,
-        "date": "Apr 3",
+        "venue": null,
+        "lat": 52.51739,
+        "lng": 13.39513,
+        "date": "Mar 20",
         "year": "2027",
         "weapon": [
             "Epee",
-            "Foil",
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U11",
-            "U13",
-            "U17"
-        ],
-        "exactAddress": "Horner Weg 89, 22111 Hamburg Timezone of venue Europe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35360"
-    },
-    {
-        "name": "34 Cup Wenzel 2027",
-        "city": "Altenburg",
-        "country": "GER",
-        "venue": null,
-        "lat": 50.98524,
-        "lng": 12.4341,
-        "date": "Apr 3",
-        "year": "2027",
-        "weapon": [
             "Foil"
         ],
         "gender": [
@@ -3723,12 +3675,10 @@
             "Women"
         ],
         "ageGroup": [
-            "U9",
-            "U11",
-            "U13"
+            "Seniors"
         ],
-        "exactAddress": "Altenburg",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35109"
+        "exactAddress": "Berlin",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35343"
     },
     {
         "name": "DFB Qualifikationsturnier 53 German Veterans Championships 2027",
@@ -3780,6 +3730,32 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35366"
     },
     {
+        "name": "2027 Hamburg Youth Championships",
+        "city": "Hamburg",
+        "country": "GER",
+        "venue": "Sporthalle der Stadtteilschule Horn",
+        "lat": 53.55017,
+        "lng": 10.00132,
+        "date": "Apr 3",
+        "year": "2027",
+        "weapon": [
+            "Epee",
+            "Foil",
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U11",
+            "U13",
+            "U17"
+        ],
+        "exactAddress": "Horner Weg 89, 22111 Hamburg Timezone of venue Europe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35360"
+    },
+    {
         "name": "2027 Championships of Baden-Nord - Württemberg",
         "city": "Heidenheim",
         "country": "GER",
@@ -3802,6 +3778,30 @@
         ],
         "exactAddress": "Heidenheim",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35363"
+    },
+    {
+        "name": "34 Cup Wenzel 2027",
+        "city": "Altenburg",
+        "country": "GER",
+        "venue": null,
+        "lat": 50.98524,
+        "lng": 12.4341,
+        "date": "Apr 3",
+        "year": "2027",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U9",
+            "U11",
+            "U13"
+        ],
+        "exactAddress": "Altenburg",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35109"
     },
     {
         "name": "2027 Championships of Thüringen",
@@ -3853,51 +3853,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35362"
     },
     {
-        "name": "25 Tournament of the Airport 2027",
-        "city": "Schkeuditz",
-        "country": "GER",
-        "venue": null,
-        "lat": 51.39386,
-        "lng": 12.22085,
-        "date": "Apr 10",
-        "year": "2027",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U15",
-            "U17"
-        ],
-        "exactAddress": "Schkeuditz",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35255"
-    },
-    {
-        "name": "Internationales Fechtturnier Nordheide 25 Keese Optik-Cup 2027",
-        "city": "Buchholz in der Nordheide",
-        "country": "GER",
-        "venue": null,
-        "lat": 53.3333,
-        "lng": 9.86667,
-        "date": "Apr 10",
-        "year": "2027",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Seniors"
-        ],
-        "exactAddress": "Buchholz in der Nordheide",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35090"
-    },
-    {
         "name": "Internationales Fechtturnier Nordheide 43 Buchholzer Bienenstich 2027",
         "city": "Buchholz in der Nordheide",
         "country": "GER",
@@ -3922,6 +3877,28 @@
         ],
         "exactAddress": "Buchholz in der Nordheide",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35089"
+    },
+    {
+        "name": "Internationales Fechtturnier Nordheide 25 Keese Optik-Cup 2027",
+        "city": "Buchholz in der Nordheide",
+        "country": "GER",
+        "venue": null,
+        "lat": 53.3333,
+        "lng": 9.86667,
+        "date": "Apr 10",
+        "year": "2027",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "Seniors"
+        ],
+        "exactAddress": "Buchholz in der Nordheide",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35090"
     },
     {
         "name": "2027 Late starter Tournament",
@@ -3975,6 +3952,29 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34792"
     },
     {
+        "name": "25 Tournament of the Airport 2027",
+        "city": "Schkeuditz",
+        "country": "GER",
+        "venue": null,
+        "lat": 51.39386,
+        "lng": 12.22085,
+        "date": "Apr 10",
+        "year": "2027",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U15",
+            "U17"
+        ],
+        "exactAddress": "Schkeuditz",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35255"
+    },
+    {
         "name": "Ranglistenturnier des SWFV 2027 Saumagen Cup",
         "city": "Landau",
         "country": "GER",
@@ -4022,6 +4022,30 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35258"
     },
     {
+        "name": "2027 Open Championships of East Saxonia",
+        "city": "Bautzen",
+        "country": "GER",
+        "venue": null,
+        "lat": 51.18091,
+        "lng": 14.4276,
+        "date": "Apr 17",
+        "year": "2027",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U20",
+            "Seniors",
+            "Veterans"
+        ],
+        "exactAddress": "Bautzen",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35442"
+    },
+    {
         "name": "2027 Championship of Nordrhein Westfalen",
         "city": "Solingen",
         "country": "GER",
@@ -4047,57 +4071,6 @@
         ],
         "exactAddress": "Solingen",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35281"
-    },
-    {
-        "name": "2027 Open Championships of East Saxonia",
-        "city": "Bautzen",
-        "country": "GER",
-        "venue": null,
-        "lat": 51.18091,
-        "lng": 14.4276,
-        "date": "Apr 17",
-        "year": "2027",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U20",
-            "Seniors",
-            "Veterans"
-        ],
-        "exactAddress": "Bautzen",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35442"
-    },
-    {
-        "name": "2027 Championships of Nordrhein-Westfalen",
-        "city": "Recklinghausen",
-        "country": "GER",
-        "venue": null,
-        "lat": 51.61438,
-        "lng": 7.19785,
-        "date": "Apr 17",
-        "year": "2027",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U11",
-            "U13",
-            "U15",
-            "U17",
-            "U20",
-            "Seniors"
-        ],
-        "exactAddress": "Recklinghausen",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35380"
     },
     {
         "name": "2027 Open Central European Championships",
@@ -4126,12 +4099,12 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35441"
     },
     {
-        "name": "Qualifikationsturnier für Niedersachsen und Hamburg Winsener Luhe Tournament",
-        "city": "Winsen Luhe",
+        "name": "2027 Championships of Nordrhein-Westfalen",
+        "city": "Recklinghausen",
         "country": "GER",
         "venue": null,
-        "lat": 53.36365,
-        "lng": 10.20592,
+        "lat": 51.61438,
+        "lng": 7.19785,
         "date": "Apr 17",
         "year": "2027",
         "weapon": [
@@ -4145,10 +4118,12 @@
             "U11",
             "U13",
             "U15",
-            "U20"
+            "U17",
+            "U20",
+            "Seniors"
         ],
-        "exactAddress": "Winsen Luhe",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34499"
+        "exactAddress": "Recklinghausen",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35380"
     },
     {
         "name": "Championships of Mainz",
@@ -4179,6 +4154,31 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34876"
     },
     {
+        "name": "Qualifikationsturnier für Niedersachsen und Hamburg Winsener Luhe Tournament",
+        "city": "Winsen Luhe",
+        "country": "GER",
+        "venue": null,
+        "lat": 53.36365,
+        "lng": 10.20592,
+        "date": "Apr 17",
+        "year": "2027",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U11",
+            "U13",
+            "U15",
+            "U20"
+        ],
+        "exactAddress": "Winsen Luhe",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34499"
+    },
+    {
         "name": "Open State Team Championship of Bremen",
         "city": "Bremen-Nord",
         "country": "GER",
@@ -4202,29 +4202,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35563"
     },
     {
-        "name": "2027 German Championships",
-        "city": "Moers",
-        "country": "GER",
-        "venue": null,
-        "lat": 51.45128,
-        "lng": 6.62843,
-        "date": "Apr 24",
-        "year": "2027",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U13",
-            "U17"
-        ],
-        "exactAddress": "Moers",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34841"
-    },
-    {
         "name": "6 Epee Day of Homburg",
         "city": "Homburg",
         "country": "GER",
@@ -4245,28 +4222,6 @@
         ],
         "exactAddress": "Homburg",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35100"
-    },
-    {
-        "name": "DFB Qualifikationsturnier 2026 Epee Cup of Leverkusen",
-        "city": "Leverkusen",
-        "country": "GER",
-        "venue": null,
-        "lat": 51.03247,
-        "lng": 6.98812,
-        "date": "Apr 24",
-        "year": "2027",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Seniors"
-        ],
-        "exactAddress": "Leverkusen",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34868"
     },
     {
         "name": "NRW-Q U13, U17 49 Youth Cup of Dormagen",
@@ -4292,6 +4247,121 @@
         ],
         "exactAddress": "Dormagen",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35093"
+    },
+    {
+        "name": "DFB Qualifikationsturnier 2026 Epee Cup of Leverkusen",
+        "city": "Leverkusen",
+        "country": "GER",
+        "venue": null,
+        "lat": 51.03247,
+        "lng": 6.98812,
+        "date": "Apr 24",
+        "year": "2027",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "Seniors"
+        ],
+        "exactAddress": "Leverkusen",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34868"
+    },
+    {
+        "name": "LFVQ 5 Smile Best Cup",
+        "city": "Homburg",
+        "country": "GER",
+        "venue": null,
+        "lat": 49.31817,
+        "lng": 7.33403,
+        "date": "Apr 24",
+        "year": "2027",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U9",
+            "U11",
+            "U13",
+            "U15",
+            "U17"
+        ],
+        "exactAddress": "Homburg",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35099"
+    },
+    {
+        "name": "2027 German Championships",
+        "city": "Moers",
+        "country": "GER",
+        "venue": null,
+        "lat": 51.45128,
+        "lng": 6.62843,
+        "date": "Apr 24",
+        "year": "2027",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U13",
+            "U17"
+        ],
+        "exactAddress": "Moers",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34841"
+    },
+    {
+        "name": "Offene LEM Veteranen",
+        "city": "Homburg/ Saarland",
+        "country": "GER",
+        "venue": null,
+        "lat": 49.32146,
+        "lng": 7.3409,
+        "date": "Apr 24",
+        "year": "2027",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "Veterans"
+        ],
+        "exactAddress": "Homburg/ Saarland",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35098"
+    },
+    {
+        "name": "DFB Qualifikationsturnier 2027 Deutschland Challenge",
+        "city": "Dormagen",
+        "country": "GER",
+        "venue": null,
+        "lat": 51.09344,
+        "lng": 6.84162,
+        "date": "Apr 24",
+        "year": "2027",
+        "weapon": [
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U15"
+        ],
+        "exactAddress": "Dormagen",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34899"
     },
     {
         "name": "Sportpark Classics – Classic Pentathlon",
@@ -4323,76 +4393,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34663"
     },
     {
-        "name": "DFB Qualifikationsturnier 2027 Deutschland Challenge",
-        "city": "Dormagen",
-        "country": "GER",
-        "venue": null,
-        "lat": 51.09344,
-        "lng": 6.84162,
-        "date": "Apr 24",
-        "year": "2027",
-        "weapon": [
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U15"
-        ],
-        "exactAddress": "Dormagen",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34899"
-    },
-    {
-        "name": "LFVQ 5 Smile Best Cup",
-        "city": "Homburg",
-        "country": "GER",
-        "venue": null,
-        "lat": 49.31817,
-        "lng": 7.33403,
-        "date": "Apr 24",
-        "year": "2027",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11",
-            "U13",
-            "U15",
-            "U17"
-        ],
-        "exactAddress": "Homburg",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35099"
-    },
-    {
-        "name": "Offene LEM Veteranen",
-        "city": "Homburg/ Saarland",
-        "country": "GER",
-        "venue": null,
-        "lat": 49.32146,
-        "lng": 7.3409,
-        "date": "Apr 24",
-        "year": "2027",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Veterans"
-        ],
-        "exactAddress": "Homburg/ Saarland",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35098"
-    },
-    {
         "name": "NRW-Q U13 NRW U13 Qu Turnier",
         "city": "Leverkusen",
         "country": "GER",
@@ -4413,6 +4413,31 @@
         ],
         "exactAddress": "Leverkusen",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35331"
+    },
+    {
+        "name": "3 Kaiser Max Turnier",
+        "city": "Kaufbeuren",
+        "country": "GER",
+        "venue": null,
+        "lat": 47.88038,
+        "lng": 10.62225,
+        "date": "Apr 25",
+        "year": "2027",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U9",
+            "U11",
+            "U13",
+            "U15"
+        ],
+        "exactAddress": "Kaufbeuren",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35173"
     },
     {
         "name": "2 Allgäu Cup",
@@ -4459,31 +4484,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35284"
     },
     {
-        "name": "3 Kaiser Max Turnier",
-        "city": "Kaufbeuren",
-        "country": "GER",
-        "venue": null,
-        "lat": 47.88038,
-        "lng": 10.62225,
-        "date": "Apr 25",
-        "year": "2027",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11",
-            "U13",
-            "U15"
-        ],
-        "exactAddress": "Kaufbeuren",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35173"
-    },
-    {
         "name": "Open North German Championships 2027 - Classic Pentathlon",
         "city": "Braunschweig",
         "country": "GER",
@@ -4511,52 +4511,6 @@
         ],
         "exactAddress": "Kai-Uwe Hickl, Fuhrenkamp 31, 29633 Munster E-Mail",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35032"
-    },
-    {
-        "name": "Sanssouci Cup",
-        "city": "Potsdam",
-        "country": "GER",
-        "venue": null,
-        "lat": 52.40093,
-        "lng": 13.05914,
-        "date": "May 8",
-        "year": "2027",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U9",
-            "U11",
-            "U13"
-        ],
-        "exactAddress": "Potsdam",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34895"
-    },
-    {
-        "name": "DFB U15 Ranglistenturnier Sanssouci-Cup",
-        "city": "Potsdam",
-        "country": "GER",
-        "venue": null,
-        "lat": 52.40093,
-        "lng": 13.05914,
-        "date": "May 8",
-        "year": "2027",
-        "weapon": [
-            "Foil"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U15"
-        ],
-        "exactAddress": "Potsdam",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34896"
     },
     {
         "name": "2027 German Championships",
@@ -4603,6 +4557,99 @@
         ],
         "exactAddress": "Rüsselsheim",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34838"
+    },
+    {
+        "name": "DFB U15 Ranglistenturnier Sanssouci-Cup",
+        "city": "Potsdam",
+        "country": "GER",
+        "venue": null,
+        "lat": 52.40093,
+        "lng": 13.05914,
+        "date": "May 8",
+        "year": "2027",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U15"
+        ],
+        "exactAddress": "Potsdam",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34896"
+    },
+    {
+        "name": "Sanssouci Cup",
+        "city": "Potsdam",
+        "country": "GER",
+        "venue": null,
+        "lat": 52.40093,
+        "lng": 13.05914,
+        "date": "May 8",
+        "year": "2027",
+        "weapon": [
+            "Foil"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U9",
+            "U11",
+            "U13"
+        ],
+        "exactAddress": "Potsdam",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34895"
+    },
+    {
+        "name": "2027 German Championships",
+        "city": "Eislingen",
+        "country": "GER",
+        "venue": "Horst-Korber-Sportzentrum",
+        "lat": 48.69679,
+        "lng": 9.70377,
+        "date": "May 22",
+        "year": "2027",
+        "weapon": [
+            "Epee",
+            "Foil",
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "U15",
+            "U20"
+        ],
+        "exactAddress": "Glockenturmstraße 3-5, 14053 Berlin Das Finale der Top",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34843"
+    },
+    {
+        "name": "Marathon of Epee",
+        "city": "Saalfeld",
+        "country": "GER",
+        "venue": null,
+        "lat": 50.64791,
+        "lng": 11.361,
+        "date": "May 22",
+        "year": "2027",
+        "weapon": [
+            "Epee"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "Seniors"
+        ],
+        "exactAddress": "Saalfeld",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34507"
     },
     {
         "name": "Open Championships of Saxony-Anhalt",
@@ -4658,53 +4705,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34839"
     },
     {
-        "name": "Marathon of Epee",
-        "city": "Saalfeld",
-        "country": "GER",
-        "venue": null,
-        "lat": 50.64791,
-        "lng": 11.361,
-        "date": "May 22",
-        "year": "2027",
-        "weapon": [
-            "Epee"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Seniors"
-        ],
-        "exactAddress": "Saalfeld",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34507"
-    },
-    {
-        "name": "2027 German Championships",
-        "city": "Eislingen",
-        "country": "GER",
-        "venue": "Horst-Korber-Sportzentrum",
-        "lat": 48.69679,
-        "lng": 9.70377,
-        "date": "May 22",
-        "year": "2027",
-        "weapon": [
-            "Epee",
-            "Foil",
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "U15",
-            "U20"
-        ],
-        "exactAddress": "Glockenturmstraße 3-5, 14053 Berlin Das Finale der Top",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/34843"
-    },
-    {
         "name": "Salve-Cup",
         "city": "Weimar",
         "country": "GER",
@@ -4753,30 +4753,6 @@
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/35301"
     },
     {
-        "name": "2027 Cup of Thuringia Finale",
-        "city": "Erfurt",
-        "country": "GER",
-        "venue": null,
-        "lat": 50.9778,
-        "lng": 11.02874,
-        "date": "Jun 5",
-        "year": "2027",
-        "weapon": [
-            "Epee",
-            "Foil",
-            "Sabre"
-        ],
-        "gender": [
-            "Men",
-            "Women"
-        ],
-        "ageGroup": [
-            "Seniors"
-        ],
-        "exactAddress": "Erfurt",
-        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35190"
-    },
-    {
         "name": "Championships of Berlin",
         "city": "Berlin",
         "country": "GER",
@@ -4821,6 +4797,30 @@
         ],
         "exactAddress": "Düren",
         "pdfLink": "https://fencing.ophardt.online/en/widget/event/34840"
+    },
+    {
+        "name": "2027 Cup of Thuringia Finale",
+        "city": "Erfurt",
+        "country": "GER",
+        "venue": null,
+        "lat": 50.9778,
+        "lng": 11.02874,
+        "date": "Jun 5",
+        "year": "2027",
+        "weapon": [
+            "Epee",
+            "Foil",
+            "Sabre"
+        ],
+        "gender": [
+            "Men",
+            "Women"
+        ],
+        "ageGroup": [
+            "Seniors"
+        ],
+        "exactAddress": "Erfurt",
+        "pdfLink": "https://fencing.ophardt.online/en/widget/event/35190"
     },
     {
         "name": "2027 Championships of Thüringen",
